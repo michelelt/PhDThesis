@@ -1,0 +1,12 @@
+\section{Introduction}
+The aim of this work is to find a methodology to convert combustion engine FFCS into electric one using real data. In order to do that,  I developed an event-driven simulator able to replicate the users' FFCS mobility patterns created from the data collected with the tools described in chapters \ref{chap:2_dataset} and \ref{chap:4_cs_comparison}. 
+
+In order to give a main idea, the simulator takes as input a real trace composed by a ordered set of rentals, an operative area composed by adjacent squares zones of 0.025 $km_2$, the set of charging station and their placement, a car model and a fleet size. By consuming the trace, the simulator computes trip by trip the amount of energy needed to travel the proper distance and moves the designed car from the starting point to the chosen destination.
+
+During the simulations, the software computes several metrics in order to measure to proper size the charging infrastructure and how it is refleceted as user discomfort, i.e. in terms of number of plugging operation.
+
+Those metrics are heavily influenced by the some environmental parameters like the number and the distribution of charging station. For this reason I proposed three placement strategies related to users' driving patterns. 
+
+Moreover, an electric vehicle fleet needs a proper return policy to manage the battery state of charge. Indeed, the long charging time implies a smart car release, especially in zones having a charging station. The simulator takes in account this aspect too and compares different car return strategy.
+
+This chapter is organized as follow: section \ref{sec:5_2_modelling} describes the the algorithm behind the simulator, section \ref{sec:5_3_mh_placement} illustrates the charging stations placement, section \ref{sec:5_4_return_policy} explains how I modelled the provider return policed that customers have to follow, section \ref{sec:5_5_kpi_scenario} explains the metrics taken in account and measured by the simulator and finally \ref{sec:5_6_conclusion} concludes the chapter proposing a work resume.

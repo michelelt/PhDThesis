@@ -1,0 +1,25 @@
+\section{Introduction}
+\label{sec:3_1_intro}
+
+Mobility is one of the challenges to solve in our society and in cities, where eco-sustainability is becoming more and more important. 
+Regulators and policy makers are positively looking into ``smart'' approaches to improve the current status of their urban network.  The ability to inspect data, is the first step to take informed decisions. Unfortunately, getting information about mobility patterns and human driving habits is not easy because of both technical challenges and privacy issues.
+
+Car sharing refers to a model of car rental where customers rent a car for a short period of time, usually for a few hours or less. One of its most interesting systems is the so called \textit{Free-Floating Car Sharing (FFCS)} system. The peculiarity of this system is that customers can pick and drop the car wherever in a geo-fence area.
+The most famous company is car2go which is present in 25 cities and 8 different countries, both in Europe and North America \footnote{The service is discontinued in North America since February, $29^{th}$ 2020, \url{https://www.share-now.com/ca/en/important-update/}}.
+
+To rent a car in a modern FFCS system, users check on their smartphone, or on the FFCS website, which cars are available in the neighborhood. Then, with a simple tap they can book a car, and start/end the rental. The FFCS app contacts a web-based back-end server to fetch data about available cars, perform a booking, and accounting operations. Typically for this purpose web API are used, some of which are publicly documented~\cite{car2goAPI}. The same website and app offer information about the status of the car rental systems, and the same web API can be used to collect for free this information. In the past, this approach has been successfully used to obtain data for specific mobility studies -- see section.~\ref{sec:3_2_related} for more details. 
+This chapter relies on the tool described in chapter \ref{chap:2_dataset}. In particular, I analyze the first chunk of data I was able to collect. I let the crawlers run for 52 days,  from December 10th 2016 to January 31st 2017. In total \tool collected more than 104,000 \textit{bookings} for car2go and 93,000 \textit{bookings} and for Enjoy. 
+
+%and 86,000 \textit{rentals}
+%81,000 \textit{rentals}
+
+With these datasets, after a first cleaning phase where I detected entries corresponding to trips where the users actually made a ride, I characterize the FFCS service utilization with the aim to observe how people use these services, where they typically go, when, for how long the rental last, etc. Some observations are quite intuitive, e.g., people appear to be willing to use more the FFCS during weekdays and during peak-time. Counterintuitively, the rental duration and the driving distance show marginal changes over the day and weeks.
+
+I complement the analysis by comparing the ride duration with the driving duration as suggested by Google Directions application, which the software can collect in real time for each rental. This highlights that 8.5\% of bookings last less than the Google driving time. 
+This may be due to Google Directions overestimating the driving duration or, recalling that bookings  include the reservation time and the time to look for a parking spot, this may suggest that the time-based tariffs adopted by FFCS systems may encourage fast driving styles in the hope to reduce the rental cost.
+I next compare the duration of the booking with the equivalent trip duration by public transport as returned again by Google Directions. I discover that rentals are 36\% shorter on average than public transport time, but  rentals start to be preferred when public transport time is higher than 10 minutes.
+
+\tool may represents an important support tool for the investigation of car sharing users' habits. The scalable design of \tool allows the policy maker to collect data from many FFCS providers  and integrate it with other sources. This eases the analysis when taking in consideration trends and providers comparison. \tool allows the Transportation Authority to take informed decisions when planning public transport systems. This characteristic strengthens the potentiality of \tool for economical and sociological prediction and analysis. The data-driven approach, combined with other more traditional tools like surveys, represents an interesting observation point for understanding potential services improvements, both for car sharing and public transport systems. The source code of \tool  is available for research purposes.\footnote{\url{github.com/MobilityPolito/}}
+
+The reminder of this chapter is structured as follows: section~\ref{sec:3_2_related} discusses the related works. Section~\ref{sec:3_4_results} presents the in the following order: first, car2go and Enjoy car usage over time characterization. Then, section \ref{sec:3_5_rides_characterization} depicts how customers drive the cars and how they move in the city; finally, users' driving habits and the correlation between booking time and the public transport time. Section ~\ref{sec:3_6_conclu} concludes the chapter.
+

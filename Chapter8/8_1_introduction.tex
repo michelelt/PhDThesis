@@ -1,0 +1,42 @@
+\section{Introduction}
+\label{sec:8_1_introduction}
+
+% Why car sharing is important.
+Transportation in urban areas is among the top challenges to improve people's quality of life and to reduce pollution. Historically, private vehicles have been the preferred mode of transportation. Orthogonally, governments invest in public transportation systems to offer alternatives to reduce traffic and pollution. With the rise of the sharing economy, we are now witnessing a transition towards new forms of shared mobility, which have spurred the interest of both the research community and the private companies.
+
+Car sharing is an evolution of the classic car rental model. Here, users can rent cars on-demand for a short period, e.g., a twenty-minute trip across town. In particular, Free Floating Car Sharing (FFCS) services allow customers to rent and return the cars everywhere inside a operative area in a city. Customers book, unlock and return the car by using an application on their smartphones. One such service is Car2go~\footnote{\url{https://www.car2go.com/}}, which currently operates in several cities around the world. In the FFCS implementation, of which Car2go is an example, the provider bills the user only for the time spent driving, with simple minute-based fares which factors all costs. Some studies demonstrate that a massive adoption of car sharing service can improve mobility as well as reduce costs and pollution~\citep{EvaluatingCarsharingBenefits,firnkorn2011,FM12}.
+
+
+To properly design and manage a FFCS service, a provider needs to know the demand for cars over different periods of the day, and over the different areas of the city.  The prediction of FFCS demand patterns is thus fundamental for an adequate provisioning of the service. Armed with good predictions, the provider can better plan long term system management, e.g., whether to extend the operative area to those neighborhoods with expected customer growth. Similarly, it can implement short term dynamic relocation policies to better meet the demand in the next hours~\citep{17_ciari2016evaluating,coccacar,coccaopt}.
+
+%What we did? dataset 
+In this work we investigate the usage dynamics of a real FFCS service. We aim at assessing how state-of-the-art machine learning algorithms can help FFCS providers and policy makers in predicting the demand, both over time and across different spatial regions.
+More specifically, we leverage a dataset of real rides from cities where Car2go is offering its FFCS service. We consider as a case study the city of Vancouver, Canada, the city with the highest demand for cars in our dataset. We rely on more than 1 million rentals covering 9 months in 2017~\citep{ciociolaumap}.
+We augment the dataset by exploiting a rich and heterogeneous open dataset, namely the 2016 Vancouver Municipality census.\footnote{\url{https://opendata.vancouver.ca/pages/home/}} 
+This second dataset comprises more than 800 features, which detail very diverse information about shops in each neighborhood, weather conditions, residents, rate of emergency calls throughout the day, etc. The goal is to first assess to which extent it is possible to predict the FFCS demand over time and space, and second, which of the features have a higher prediction power.
+
+%What we did? temporal prediction
+The work focuses on two scenarios.
+In the first scenario, we investigate how to predict the demand for cars in the future considering past usage.  This is fundamental for managing the FFCS fleet both in the short term (e.g., implementing relocation policies during service peak time), and in the long-term (e.g., to properly match the fleet size to the future system growth).
+To this end, we analyse machine learning algorithms that are considered state of art, from simple Linear Regression and traditional Seasonal Auto Regressive Integrated Moving Average (SARIMA) models, to Random Forests Regression (RFR), Support Vector Regression (SVR) and latest approaches based on Long Short-Term Memory Neural Network (NN)~\citep{brockwell2016introduction,Bishop:2006}. With the increasing complexity of these models, we aim at assessing not only how they perform in our target prediction task, but also to which extent one would need to embrace a complex model (such as NNs are) or rather simpler and more informative models (like linear regression and RFR are).
+
+
+%What we did? spatial prediction with socio-demographic data
+In the second scenario, I correlate socio-demographic indicators with FFCS demand. 
+I predict the demand of cars in a neighborhood without past data, using only socio-demographic data. 
+This problem is often referred to as a green field or cold start approach. In this case, the operator is interested in knowing what is the expected system usage in a new neighborhood (or even a new city) based only on socio-demographic data. 
+We map the FFCS demand to Vancouver neighborhoods, and associate them to the socio-demographic data coming from the official Vancouver census. I then use machine learning techniques to highlight the relationship between demographics and customers' mobility.  
+
+We aim at answering the following research questions: i) Using modern machine learning methodologies, and armed with a rich socio-demographic data, would one be able to predict the temporal mobility patterns in a city?  
+And ii) which would be the most important socio-demographic data to use for this task?
+
+
+Through a series of experiments, we show that the temporal prediction of rentals can be solved with errors as low as 10\%. Interestingly, Random Forest Regression turns out to perform stably better than the other models, including Neural Networks, for this task.
+When considering the mobility prediction using only socio-demographic data, we obtain errors in the 40-50\% range. While this performance may not be accurate enough for a precise planning, this prediction still would be useful for operators willing to decide, e.g., to which new areas of the city to extend their service.  Interestingly, our models allow us also to observe what features are the most useful for the prediction problem, a precious information for providers and regulators that wish understand FFCS systems -- to decide, for instance, in which new cities to start a service (green field problem). 
+This work suggests, for example, that the density of people commuting by walk and the number of emergency calls in a neighborhood are important factors for predicting the number of rentals that will start there. 
+%\dt{
+We note that emergency calls are used as a proxy for human activity, i.e., the more human activity the larger the number of emergency calls. Given this assumption, we can leverage the information about the volume of emergency calls to improve prediction at different time of the day.
+%} 
+AS for the temporal prediction, knowing the weather conditions in the near future would improve prediction too. 
+
+After overviewing the related work in Section~\ref{sec:8_2_related_works}, we describe the data collection methodology we adopt in Section~\ref{sec:8_3_data_collection}. Section~\ref{sec:8_3_datasetoverview} provides a characterization of the datasets, while Section~\ref{sec:8_4_regression} and Section~\ref{sec:8_5_spatial analyses} provide details about the methodologies and results for the temporal and spatial prediction, respectively. Finally, Section~\ref{sec:8_6_conclu} summarizes our findings.

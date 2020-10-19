@@ -1,0 +1,36 @@
+\section{Related works}
+\label{sec:3_2_related}
+%Since Free Floating approach for car sharing (FCSS) started to propagate, many researchers from different fields analyzed this topic. 
+Since the diffusion of the new form of car sharing based on a free-floating approach, many researchers from different fields have been dedicating an increasing attention to the analysis of these systems.
+The high demand for car sharing has opened new challenges and perspectives in research.
+
+One of the main topics is the study of fleet relocation policies~\cite{Herrmann2014,Schulte2015,Wagner2015}. On the one hand, with respect to station-based car sharing, the flexibility of the free-floating system may limit the operator's control over the drop-off zones, but on the other hand allows smarter strategies. 
+%Herrmann1024 -> car2go api into simulation environment
+Herrmann, Schulte and Voß~\cite{Herrmann2014} conducted a survey to understand how the availability of cars, and so the fleet relocation, affects the utilization of the service, and to develop and evaluate user-oriented relocation strategies.
+%Schulte2015 -> api car2go
+Those strategies were studied again by Schulte and Voß~\cite{Schulte2015}, who introduced an approach to support the decision of vehicle relocation method to reduce costs and emissions in FFCS.
+%Wagner2015 -> As one of the main contributions of this paper, we conduct an extensive case study for the city of Berlin in cooperation with a globally leading car sharing provider. Rental data of 1,200 shared vehicles was collected over a period of 1 year.
+Those kind of investigations may result in a very useful support for the providers. In this direction, Wagner, Brandt and Neumann \cite{Wagner2015}, analyzed the use of car sharing in Berlin, using indicators of actractiveness of certain areas, in order to develop a methodology that is able to help in business strategies, the expansion of operative areas and to react to shifts in demand. In these works, the authors used data collected from car sharing providers, using the car2go API~\cite{Herrmann2014,Schulte2015} or by a direct cooperation \cite{Wagner2015}.
+
+The study of the customers' behaviour has been addressed by different researchers~\cite{Schmoller2015,Kopp2015,Firnkorn2012,Ciari2013,Tyndall2016}. 
+Schmöller et al.~\cite{Schmoller2015} studied factors that may influence the demand of car sharing, carrying out an empirical analysis, considering FFCS in Berlin and Munich.
+
+%Kopp2015 To collect the mobility behaviour, an active tracking approach was chosen for MyMobility
+Kopp et al.~\cite{Kopp2015} inspected the behavior of two categories of users, the members of a FFCS service (DriveNow), and the people who do not use car sharing (NCS users), looking for different and distinctive mobility patterns.
+%Firnkorn2012 invitation emails with links to the survey
+The impact of car sharing on people's mobility was addressed by Firnkorn~\cite{Firnkorn2012}, who proposed in its work a triangulation of two methods applied in the same survey, to provide more precise measurements.
+%Ciari2013
+Another approach was proposed by Ciari et al.~\cite{Ciari2013}, where a simulation tool, built on MATsim, an open source project, was used to estimate travel demand for car sharing in the urban area of Zurich.
+An important question that can be addressed is how this new paradigm of transport is really accessible to the people. Tyndall \cite{Tyndall2016} combined data of FFCS usage in ten US cites with demographic information, studying neighbourhood infrastructures, population distribution and their mobility habits. It has been showed that  benefits of FFCS are distributed unequally, with a shift on usage in favor of advantaged populations.
+
+%Firnkorn2011 Based on primary data from a survey
+Eco-sustainability is another important asset for car sharing services. Firnkorn and Müller~\cite{Firnkorn2011} studied the environmental effects of FFCS in Ulm, registering lower pollution levels and a reduction of private vehicle ownership.
+
+The goal of this work is to address all these challenges from the local administration's perspective, in order to develop new transport and mobility policies.
+A study of this kind was recently conducted by Wang et al. \cite{Wang2017} for the city of Seattle, where car2go was compared with public transport service.
+Kortum et al. \cite{Kortum2016} remark the necessity of use data-driven approaches to help decision making, due to the lack of empirical data about free-floating car sharing usage. 
+They use a dataset, obtained by InnoZ (Innovationszentrum für Mobilität und gesellschaftlichen Wandel) and containing the activity in 33 cities from 2011 to November 2015, to study the evolution in time of this mobility service. Those data, combined to demographic informations, offered an aggregated point of view, over different cities, of the growth of the car sharing service and an understanding of the main characteristics.
+To the best of mine knowledge, in the context of this case of study, the only work on free-floating car sharing was conducted by Ferrero et al. \cite{Ferrero2016} from an economical point of view.
+
+The majority of the previous works \cite{Herrmann2014,Schulte2015,Wagner2015,Schmoller2015,Kopp2015,Wang2017,Kortum2016} leverage data collected in real-time or using surveys and interviews. Thanks to car2go APIs, which easily make avaiable car sharing data, a more data-driven approach is attractive for many researchers that start facing the problem of FFCS mobility analysis. Remarkably, only \cite{Kortum2016} seems to use data collected actively by different car sharing providers. While authors use information only for a specific purpose i.e., analyzing the trend of car sharing through the years, here I want to provide a broader perspective.
+The intent is indeed to offer a general purpose methodology, both scalable and easy to interact with, to help researchers and local administrations in the analysis of the mobility, harvesting data collected from FFCS platforms, but also from other online systems, like mapping and direction services. 

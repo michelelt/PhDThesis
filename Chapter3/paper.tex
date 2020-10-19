@@ -1,0 +1,108 @@
+\documentclass[10pt, conference]{IEEEtran}
+
+
+\usepackage{amsmath,amssymb,bigints}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subfloat}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{eurosym}
+
+
+
+
+\usepackage[linesnumbered,ruled,norelsize]{algorithm2e}
+
+\makeatletter
+\newcommand{\removelatexerror}{\let\@latex@error\@gobble}
+\makeatother
+
+\usepackage{algpseudocode}
+
+
+\usepackage[pdfpagelabels,
+           plainpages=false,
+           bookmarks=true,
+           hypertexnames=false,
+           pdffitwindow=false,
+           colorlinks=true,
+           linkcolor=blue,
+           citecolor=blue,
+           filecolor=black,
+           urlcolor=black,
+           pdfauthor={},
+           pdftitle={XXX},
+           pdfsubject={2014},
+           pdfkeywords={YYY},
+           pdfproducer={Latex with hyperref},
+           pdfcreator={pdflatex}
+          ]{hyperref}
+
+\long\def\comment#1{}
+\newcommand{\para}[1]{\noindent \textbf{#1}:}
+
+\setlength{\parskip}{0.11cm plus1mm minus1mm}
+
+\definecolor{orange}{rgb}{1,0.5,0}
+\definecolor{purple}{rgb}{0.5,0,0.5}
+
+\newcommand{\note}[1]{\textcolor{red}{NOTE: #1}}
+\newcommand{\DG}[1]{\textcolor{blue}{#1}}
+%\newcommand{\MGM}[1]{\textcolor{orange}{MGM: #1}}
+\newcommand{\MGM}[1]{#1}
+\newcommand{\AM}[1]{\textcolor{purple}{AM: #1}}
+
+\newcommand{\tool}{\textit{UMAP}\xspace}
+
+
+\title{UMAP: Urban Mobility Analysis Platform to Harvest Car Sharing Data}
+
+\newcommand{\inst}[1]{$^{#1}$}
+\author{
+Alessandro Ciociola\inst{2},   
+Michele Cocca\inst{2},   
+Danilo Giordano\inst{1},  
+Marco Mellia\inst{1}\\
+Andrea Morichetta\inst{1},  
+Andrian Putina\inst{2},    
+Flavia Salutari\inst{2}
+\vspace{0.1cm}
+\\
+\small
+$^1$Politecnico di Torino - \texttt{first.last@polito.it} 
+$^2$Politecnico di Torino - \texttt{first.last@studenti.polito.it}  \\
+}
+
+
+
+%PAPER WEBSITE: http://ieee-smartworld.org/2017/sci/
+
+\begin{document}
+\maketitle
+\begin{abstract} 
+\input{abstract}
+\end{abstract}
+
+
+\input{intro}
+\input{related}
+
+\input{methodology}
+\input{results}
+\input{conclusions}
+
+\section{Acknowledgements}
+%We would like to thank the reviewers for their insightful comments.
+The research leading to these work was funded by the Siebel Energy Institute. % under the Grant Agreement TODO.
+
+\bibliographystyle{IEEEtran}
+\bibliography{paper}
+\end{document}
+
+
+
+

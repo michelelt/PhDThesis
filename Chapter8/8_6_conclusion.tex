@@ -1,0 +1,13 @@
+\section{Conclusions}
+\label{sec:8_6_conclu}
+
+In this paper, we studied the problem of predicting FFCS demand patterns in time and space, a relevant problem to an adequate provisioning of the service and maintenance of the fleet. 
+Relying on data from real FFCS rides in Vancouver as well as the municipality socio-demographic information, we investigated to which extent modern machine learning based solutions allow us to predict the transportation demand.
+
+Our results show that the temporal prediction of rentals can be performed with relative errors down to 10\%. In this scenario, a simple Random Forests Regression performs consistently among the best models, and allowing us to also discover which features are more useful for prediction. 
+When considering the spatial prediction using socio-demographic data, we obtain relative errors around 40\%, after feature selection. This is expected due to the scarcity of data, but the prediction results are still useful. Indeed, since the number of rentals varies widely within each neighborhood, the relative ranking is preserved. This is valuable for, e.g., look for the area where to first extend the service. Again, using a Random Forest Regression model, we can observe which features are the most useful for the prediction, a precious information for providers and regulators that wish to understand FFCS systems and to provide a high-quality service that benefits both providers and its costumers. 
+
+
+As future work, we would like to investigate whether this same strategy generalizes to different cities. Answering this question is challenging due to the heterogeneity and diversity of open data in different cities, and of usage patterns of car sharing around the world. We conjecture that given similar data the methodology could be applied to other cities, as there is nothing specific to the analyzed city in it. However the effectiveness of the models may change depending on peculiarities of each city. Still, it is an open problem towards which we have provided an important first step.
+
+

@@ -1,0 +1,170 @@
+\documentclass[letterpaper, 10pt]{elsarticle}
+
+%\setlength{\parskip}{0.11cm plus1mm minus1mm}
+%\setlength{\paperheight}{11in}
+%\setlength{\paperwidth}{8.5in}
+%\usepackage[top=0.70in, bottom=0.70in, left=0.75in, right=0.75in]{geometry}
+
+\usepackage{xcolor}
+\newcommand{\rev}[1]{\textbf{\textit{#1}}}
+\newcommand{\ans}[1]{\textbf{#1}}
+\usepackage[hyphens]{url}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\newfloat{figure}{htbp}{figs}
+\newcommand{\dg}[1]{{\color{orange}{[danilo: #1]}}}
+
+\begin{document}
+
+Dear Editor and Reviewers, \\
+
+This manuscript is a revised version of paper N. PMC\_2018\_465.
+First, let us thank the Editor and the Reviewers for the useful comments.
+We did our best to address the issues pointed out during the reviewing process. 
+We focused our efforts towards the goal of clarifying the methodology of the paper, discussing and generalise the approach, while including some new results that were requested.
+As a supporting file (diff.pdf), we submitted a version of the paper where the modifications are highlighted in blue using the LaTeX-diff tool.
+
+In the following we reply to questions and comments raised during the reviewing process one by one, pointing to major changes in the revised version.
+
+\begin{description}
+
+% \item[\textbf{Editor}] \hfill
+%\begin{description}
+% \item[Comment 1] \rev{We invite you to convert your supplementary data (or a part of it) into a Data in Brief article. Data in Brief articles are descriptions of the data and associated metadata which are normally buried in supplementary material. They are actively reviewed, curated, formatted, indexed, given a DOI and freely available to all upon publication. Data in Brief should be uploaded with your revised manuscript directly to Pervasive and Mobile Computing. If your Pervasive and Mobile Computing research article is accepted, your Data in Brief article will automatically be transferred over to our new, fully Open Access journal, Data in Brief, where it will be editorially reviewed and published as a separate data article upon acceptance. The Open Access fee for Data in Brief is \$500. 
+%Please just fill in the template found here:
+%\url{http://www.elsevier.com/inca/publications/misc/dib_data\%20article\%20template_for\%20other\%20journals.docx.} 
+%Then, place all Data in Brief files (whichever supplementary files you would like to include as well as your completed Data in Brief template) into a .zip file and upload this as a Data in Brief item alongside your Pervasive and Mobile Computing revised manuscript. Note that only this Data in Brief item will be transferred over to Data in Brief, so ensure all of your relevant Data in Brief documents are zipped into a single file. Also, make sure you change references to supplementary material in your Pervasive and Mobile Computing manuscript to reference the Data in Brief article where appropriate. 
+%}
+
+
+%\end{description}
+\vspace{1cm}
+
+ \item[\textbf{Reviewer 1}] \hfill
+\begin{description}
+ \item[Comment 1] \rev{I think the authors address a highly relevant topic of free floating electric carsharing services in the smart cities context, and there is demand for research dealing with charging station optimization and relocation. I understand that the authors position their paper in a smart cities context, however, the main focus in the paper is on decision support and optimization, which is why I have a general concern whether the paper is appropriate for Pervasive and Mobile Computing, because there is neither a focus on pervasive nor on mobile computing, but on decision support systems (DSS) for carsharing charging stations and relocation. Have you thought about submitting your paper to a journal with a focus on DSS such as Decision Support Systems? For more information about this journal, please follow this link:
+\url{www.journals.elsevier.com/decision-support-systems}}
+
+We understand the reviewer's concerns that we partially share. We have been invited to submit an extended version of our paper \emph{Free Floating Electric Car Sharing in Smart Cities: Data Driven System Dimensioning} as a fast-track paper to PMC. We have better discussed the opportunities a pure data driven approach offers in this revised version of the manuscript, also introducing a new Section 8 "Discussion and implications".
+
+\item[Comment 2] \rev{
+Since the authors have a strong focus on the optimization of carsharing charging stations and relocation, I would strongly recommend to have a deeper look into the literature addressing DSS for the optimization of carsharing charging stations and relocation. I think it would help to build on prior research, which contributes to the optimization of carsharing charging stations. For your first problem definition, i.e., ``the charging station placement problem'', please see, for example, the following literature:
+\begin{itemize}
+\item  Brendel, A. B., Brennecke, J. T., Zapadka, P., Kolbe, L. M. 2017. ``A Decision Support System for Computation of Carsharing Pricing Areas and its Influence on Vehicle Distribution,'' in Proceedings of the 38th International Conference on Information Systems, Seoul, South Korea, December 10-13, pp. 1-21.
+\item  Flath, C. M., Ilg, J. P., Weinhardt, C. 2012. ``Decision Support for Electric Vehicle Charging,'' in Proceedings of the 18th Americas Conference on Information Systems, Seattle, WA, August 9-12, pp. 1-10.
+\item  Rickenberg, T. A., Gebhardt, A., Breitner, M. H. 2013. ``A Decision Support System for the Optimization of Car Sharing Stations,'' in Proceedings of the 21st European Conference on Information Systems, Utrecht, Netherlands, June 5-8, pp. 1-12.
+\item Schmidt, J., Hildebrandt, B., Eisel, M., Kolbe, L. 2015. ``Applying Demand Response Programs for Electric Vehicle Fleets,'' in Proceedings of the 21st Americas Conference on Information Systems, Puerto Rico, August 13-15, pp. 1-13.
+\item Sonneberg, M.-O., Kühne, K., Breitner, M. H. 2015. ``A Decision Support System for the Optimization of Electric Car Sharing Stations,'' in Proceedings of the 36th International Conference on Information Systems, Fort Worth, TX, December 13-16, pp. 1-19.
+\end{itemize}
+For your second problem definition, i.e., ``the return policy customers have to follow at the end of the rental'', which is often called the relocation problem in the literature, please see for example:
+\begin{itemize}
+\item  Brendel, A. B., Lichtenberg, S., Nastjuk, I., Kolbe, L. M. 2017. ``Adapting Carsharing Vehicle Relocation 
+Strategies for Shared Autonomous Electric Vehicle Services,'' in Proceedings of the 38th International Conference on Information Systems, Seoul, South Korea, December 10-13, pp. 1-20.
+\item  Brendel, A. B., Rockenkamm, C., Kolbe, L. M. 2017. ``Generating Rental Data for Car Sharing Relocation Simulations on the Example of Station-Based One-Way Car Sharing,'' in Proceedings of the 50th Hawaii International Conference on System Sciences, Waikoloa, HI, January 4-7, pp. 1554-1563.
+\item  Wagner, S., Willing, C., Brandt, T., Neumann, D. 2015. ``Data Analytics for Location-Based Services: Enabling User-Based Relocation of Carsharing Vehicles,'' in Proceedings of the 36th International Conference on Information Systems, Fort Worth, TX, December 13-16, pp. 1-16.
+\end{itemize}
+}
+
+We thank the reviewer for the suggestions about related works. We have added some of these works in the revised version of the paper -- see Section 2 - Related work. It is important to highlight how the concept of relocation and return policy are different. In the first case the provider, through its own crew or with some economical incentives moves the car from a zone with a lower demand to a zone having an higher one. In the second case instead, the users return the vehicles considering the car autonomy: the relocation problem in this latter case focuses on the system sustainability (which then involves the company earnings too). We have clarified this difference in both the Related Works section, and in the new "Discussion and Implications" section 8 at the end of the paper.
+
+\end{description}
+
+\vspace{1cm}
+
+
+ \item[\textbf{Reviewer 2}] \hfill
+\begin{description}
+\item[Comment 1] \rev{Lack of mathematical model, The author did not establish a mathematical model for FFCS system whereas previous work like the ones listed in ref [2], [4] uses different notations to indicate different parameters, and a optimization function is given to better illustrate the problem mathematically. It is better to form the problem mathematically so that it is clear to see the difference from other work.}
+
+We thank the reviewer for the suggestion. We added a brief formulation and mathematical model in section 4.1 of this revised version of the paper. We omitted it for lack of space in the original submission
+
+% Specificare la notazione nel modello matematico
+% Controllare che la notazione sia come quella della special issue e.g., Tank $T = \alpha$ non a $\pi$
+
+
+\item[Comment 2] \rev{This work mainly focus on Free car sharing system, however in reality, it is more realistic that the car sharing system is own by a company which needs to earn money. Thus it is interesting to involve budget and certain cost(Installation, travel cost etc.).It is questionable whether this work can be generalized in commercial car sharing system which is more likely to become popular in future. It is better to discuss the issues in a separate section.}
+
+We thank the reviewer for raising this point. We introduced a new Section 8 ``Discussion and implication'' in which we briefly comment on this. We believe that a complete characterisation of the system costs would results in a separate work per se. Here we prefer to not address this problem in details, and provide pointers on related works that introduce economic aspects in solving this problem. We defer a complete study for future work.% % Please - refer to Section 8 for details.
+
+% \subsubsubsection{\textbf{Economical Aspects}}
+% Although technical aspects play a fundamental role in the placement decision process, economical aspects play a key role too. In this work, we decided to study the feasibility of the EV based FFCS system design. We use simple model that links costs with the number of charging stations.
+% Authors of \cite{USAInstallCost} and \cite{MarcheInstallCost} have shown that the installation costs is difficult to model, and depends on several factors. According to their figures, a reasonable installation costs is between  3\,000 \euro~and 5\,500 \euro per pole. For a city such as Torino, 8\% of zones guarantees excellent trade-offs. This corresponds to the need of installing 80 charging poles, with a total cost topping to 440\,000 \euro in the most expesive case. By looking analysis done in \cite{8_Wagner2015DataAF} where the 75\% of the fare is considered marginal profit, we derive a marginal profit of 0.14 \euro~per minute. If we consider that the charging infrastructure is built and owned by the car sharing operator, and considering that our rental lasts 20 minutes in median, about 150\,000 rentals are required to fully payback the infrastructure. In a city as Turin these are performed in about 1 year at the current rental rate. These figures, albeit a first order approximation, show the feasibility of EVs FFCS systems.
+% We are currently working on a more complete model to better study the economical impact of electrification by including in the simulator a precise cost model. Similarly, our data-driven approach can be generalised to include other constraints, e.g., those coming from the electric grid.
+% In the case the charging infrastructure is built and owned by the municipality, or a third company is in charge of providing the infrastructure and service, we would possibly consider a higher number of charging stations to satisfy both personal and FFCS car demand. Total costs would thus increase, and the payback period has to be computed considering also personal EVs. Possibly, this option may help spreading EVs in our cities. 
+
+%Possiamo dire che l’installazione può essere promossa dal comune per promuovere la mobilità sostenibile? Come considerazioni che vanno oltre il tecnico secondo me è molto utile.
+%Direi che i) chi gestisce gli impianti di ricarica può essere diverso da chi gestisce il sistema di car-sharing, ii) qui noi assumiamo che un sistema senza supporto da parte del gestore per la gestione delle ricariche, iii) stiamo lavorando nell’ipotesi dove il gestore invece si occupi lui della ricarica delle batterie. Metterei in intro la i) e ii), e in conclusions la iii)
+%MARCO - FATTO
+%Indicare che stiamo usando un commercial car sharing system che è car2go e che per il futuro…
+%Facciamo una sezione discussion and implication
+%Scalabilità
+%Impatto economico 
+%Impatto sulla viabilità stradale --> MARCO: non lo metterei se no diventa un bla bla bla unico
+%Impatto sulla rete elettrica
+%Il nostro simulatore può essere usato per farlo 
+
+%Secondo me possiamo dire che deve essere fatto NON in visione business oriented direttamente per l’azienda - ma più per la municipalità. Perchè l’idea NON è avere un’infrastruttura di ricarica per azienda, ma una comune e globale. 
+
+
+\end{description}
+
+\vspace{1cm}
+
+
+ \item[\textbf{Reviewer 3}] \hfill
+\begin{description}
+ \item[Comment 1] \rev{how general and replicable/applicable into other contexts is the proposed approach? For example in my opinion the routes strongly depends on the period of the year, in spring summer there will be more rides to parks and swimming pool, people will use/rent bikes and scooter, …}
+
+We thank you for raising this point. In the previous version of the paper we already tested the performance of the solution with a separate validation dataset (December/January) that is quite different to the one used for the optimisation (which refers to October/November). Following your suggestion, we added a second validation dataset including rentals observed in June/July 2017. Also in this case, the placement obtained considering the October/November data results robust to changes in traffic that reflect the different habits during different period of the year.
+
+We better explained the goals of these experiments in this revised version of the manuscript. Please -- see Section 7.2 and Figure 10.
+
+\item[Comment 2] \rev{Even more challenging is to consider other cities: can this approach be adapted to a different city?}
+
+This is an interesting question that we addresses in one of our recent works [12]. There we focused on the study of EV based FFCS system in 4 different cities. 
+The take away messages are very consistent.
+We further believe that both the hill-climb local search and the genetic algorithm will naturally lead to optimised solution in different cities, given their abilities to face complex optimisation problems that we solve using trace-driven approach. We added a comment on this in the revised version of the paper in the conclusion section.
+
+
+[12] M. Cocca, D. Giordano, M. Mellia and L. Vassio, "Data Driven Optimization of Charging Station Placement for EV Free Floating Car Sharing," 2018 21st International Conference on Intelligent Transportation Systems (ITSC), Maui, HI, 2018, pp. 2490-2495.
+
+
+
+ \item[Comment 3] \rev{Another issue is related to the assumption or threats to validity: is the approach general enough, or there are limitations? E.G city topology, uphill downhill roads, special events (sports events, concerts, detours, accidents, traffic).Is it possible to model  all such event, in particular traffic congestions? Any assumptions?}
+
+Our simulator is based on actual traces that reflect the customer's habits. 
+Traces naturally factor the desired origin/destination of trips and the time varying demand, including eventual special events such as sport matches or strikes that were present in the two months of data used for the optimisation. Eventual traffic congestion is factored by the fact that we used Google map (which includes congestion data) to compute the actual length of the trip at the time of the rental. 
+Notice also that EVs are less affected by congestion thanks to the regenerative braking, and because engine is not moving when car is idle.
+
+We added clarification Section 3.2 in the revised version of the paper.
+
+\item[Comment 4] \rev{Is there any framework by which the approach /simulation can be supported or even automated? Is it possible to implement it? A manual simulation from scratch anytime is probably not the best solution.}
+
+Our simulator is already highly modular and automated. It requires in input the trace (which is automatically collected by UMAP), and the selected parameters. Then it runs simulations by swiping through different parameters very efficiently. For instance, the genetic optimisation evaluates several solutions in parallel using parallel threads to speed up execution time, and efficiently exploit multi threaded architectures.
+
+In general, the charging station placement optimisation shall be faced offline, and repeated/updated after quite long time intervals (months). This because the time scale at which the traffic pattern changes is slow, and because of the time to actually install/upgrade the charging stations in practice.
+
+We briefly discussed this in the new Section 8 ``Discussion and Limitation'' where we also introduce the study of an incremental system, i.e., in case one need to install new charging stations given an already present charging network. Also in such case, our simulator can be easily adapted to optimise placement of the new stations only.
+
+
+\end{description}
+
+
+%\pagebreak
+%\begin{description}
+% \item[\textbf{MethodsX (optional)}] \hfill
+
+%\begin{description}
+%\item[Comment 1] \rev{We invite you to submit a method article alongside your research article. This is an opportunity to get full credit for the time and money you have spent on developing research methods, and to increase the visibility and impact of your work.
+%\\
+%If your research article is accepted, your method article will be automatically transferred over to the open access journal, MethodsX, where it will be editorially reviewed and published as a separate method article upon acceptance. Both articles will be linked on ScienceDirect. 
+%Please use the MethodsX template available here when preparing your article: https://www.elsevier.com/MethodsX-template. Open access fees apply.
+%}
+ 
+%\end{description}
+%\end{description}
+
+\end{description}
+\end{document}

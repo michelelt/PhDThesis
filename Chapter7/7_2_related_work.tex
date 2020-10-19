@@ -1,0 +1,26 @@
+\section{Related works}
+\label{sec:7_2_related}
+
+
+The diffusion of the free floating approach to car sharing led to an increasing attention by many researchers, with many analyses of these systems and their extension to electrical vehicles. The studies performed in 2011 by Finkorn and M\"{u}ller~\cite{Firnkorn2011,FM12} are the first attempts to analyse benefits of FFCS for the population. Their results on customers' characterisation, like travelled distances and rental duration, are similar to what pointend out in previous chapters.
+
+Later works~\cite{Car2GoGlobalAnalysis,Kortum2016,Schmoller2015} also collected data and analysed the mobility pattern of customers and differences among cities. While providing insights on usage patterns, these works do not discuss the implications on Electric Vehicles based FFCSs. I  also introduced UMAP, described in chapter \ref{chap:2_dataset}, a system to harvest data by crawling FFCS websites. Here I use, again, the traces collected with UMAP to drive the system design.
+
+The introduction of EVs for private and public transportation brought the problem of the design of the electric charging station infrastructure.
+After a survey among FFCS customers in Ulm (Germany), authors of~\cite{FM15}  investigated the positive influence and feasibility of an electric FFCS systems.
+Authors in~\cite{ChargingStationForVehicularNetworks} show the benefits of placing charging stations with different capacity according to the car parking duration. 
+Authors of~\cite{bi2017simulation} presents a simulation study similar to ours, but using random models to generate random trips rather than actual traces. Their algorithms tend to place charging stations along frequently used streets, so to let drivers top up the battery in 10 minutes.
+
+Few data driven studies address the charging station placement,  by respectively minimising  cost of installation, power loss and maintenance~\cite{taormina,PlacementAndPowergrid,mipCSPpechino}, or by minimising the customers' walked distances necessary to reach a charging pole~\cite{placementAustin}.  
+In \cite{PlacementAndPowergrid}, authors study the impact on the power distribution grid, with limited focus on FFCS performance. Authors of~\cite{mipCSPpechino} instead focus on charging station design to minimise customers' anxiety. 
+With compared to chapter \ref{chap:6_4cities}, where I presented a study of charging station placement based on actual data, while here I build upon this work, a more in depth study that includes global optimisation algorithms, never considered before.
+
+\reviewed{Other works focus on station-based car sharing systems. Authors of~\cite{3_RickenbergGebhardtBreitner_2013} present algorithms to place the parking stations in a two-way scenario. They consider a combustion engine fleet, and solve the problem by considering real data from operative car sharing systems. The same authors propose a similar methodology considering a one-way scenario and electric vehicles~\cite{5_SonnebergKune_2015}. Here they use synthetic data and other socio-economic information to estimate the demand. Both works have similar goals, but are limited to station-based car sharing.}
+
+\reviewed{Considering return policies, an interesting data driven research is presented in~\cite{2_FlathIlgWeinhardt_2012}. The authors focus on station-based car sharing system with electric vehicles, finding that the best policy is to charge a car only when its state of charge goes below t.a minimum threshold. This is similar to the return policies I consider in this paper.}
+
+
+\reviewed{Other works focus on FFCS with EVs to study the revenue considering a demand-supply scenario for energy~\cite{4_Eisel_2015},  introducing policies to free charging stations when occupied by fully charged cars~\cite{WB15}, maximising revenue by moving cars in areas of high-demand~\cite{8_Wagner2015DataAF}, or providing incentives to customers to balance fleet~\cite{1_BrendelBrennecke_2015,6_BrendelLichtenberg_2017,7_BrendelRockenkamm_2015}.
+This works are orthogonal to the one presented in this chapter.}
+
+To the best of my knowledge, this work is among the first to take a completely data driven approach for designing an electric FFCS system by optimising different metrics impacting customer experience. 

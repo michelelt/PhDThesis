@@ -1,0 +1,133 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cocca, Giordano,  Vassio
+% from November 2017
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+%\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{xcolor}
+
+%encoding
+%--------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%--------------------------------------
+ 
+%Portuguese-specific commands
+%--------------------------------------
+\usepackage[portuguese]{babel}
+%--------------------------------------
+ 
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{mate-mática recu-perar}
+%--------------------------------------
+
+\usepackage{multirow}
+
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\usepackage{url}
+\usepackage{verbatim}
+
+
+\usepackage[ruled]{algorithm2e} % For algorithms
+%\usepackage{subfigure}
+%\ProvidesPackage{xstring}[\xstringdate\space\space v\xstringversion\space\space String manipulations (C Tellechea)]
+%\usepackage{booktabs} % For formal tables
+
+\newcommand{\tool}{\textit{UMAP}\xspace}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% To comment in the paper
+\usepackage{color}
+\newcommand{\lu}[1]{{\color{cyan}{[luca: #1]}}}
+\newcommand{\mc}[1]{{\color{green}{[mike: #1]}}}
+\newcommand{\mm}[1]{{\color{red}{[mellia: #1]}}}
+\newcommand{\dg}[1]{{\color{orange}{[DG: #1]}}}
+
+%% Document starts
+\begin{document}
+
+
+\title{Free Floating Electric Car Sharing:\\A Big Data approach for System Design
+% * <michelecocca.mc@gmail.com> 2018-08-15T18:37:09.766Z:
+%
+% > loati
+%
+% ^.
+\thanks{The work is supported by General Motors Powertrain grant, and by the SmartData@PoliTO centre.}
+}
+
+\author{
+\IEEEauthorblockN{Michele Cocca}
+\IEEEauthorblockA{%\textit{Department of Electronics and Telecommunications} \\
+\textit{Politecnico di Torino, Italy}\\
+%Turin, Italy\\
+michele.cocca@polito.it}
+\and
+\IEEEauthorblockN{Danilo Giordano}
+\IEEEauthorblockA{%\textit{Department of Electronics and Telecommunications} \\
+\textit{Politecnico di Torino, Italy}\\
+%Turin, Italy\\
+danilo.giordano@polito.it}
+\and
+\IEEEauthorblockN{Marco Mellia}
+\IEEEauthorblockA{%\textit{Department of Electronics and Telecommunications} \\
+\textit{Politecnico di Torino, Italy}\\
+%Turin, Italy\\
+marco.mellia@polito.it}
+\and
+%\hspace{50pt}
+\IEEEauthorblockN{Luca Vassio}
+\IEEEauthorblockA{%\textit{Department of Electronics and Telecommunications} \\
+\textit{Politecnico di Torino, Italy}\\
+%Turin, Italy\\
+luca.vassio@polito.it}
+}
+
+\maketitle
+
+\input{abstract}
+
+
+\begin{IEEEkeywords}
+car sharing, electric vehicle, data driven optimization, big data, charging station, free floating.
+\end{IEEEkeywords}
+
+
+\input{intro}
+\input{related_work}
+\input{Data}
+\input{Modelling}
+\input{PlacementResults}
+\input{ReturnResults}
+\input{PolesResults}
+ \input{Conclusion}
+
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{paper}
+
+\input{bios/bios}
+
+\end{document}

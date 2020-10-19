@@ -1,0 +1,49 @@
+\section{Electric car sharing simulator}
+\label{sec:5_2_modelling}
+
+The goal is to study different design choices for electric car sharing systems. For this, I developed a flexible event-based simulator that allows us to compare different algorithms and tune their parameters while collecting metrics of interest. The simulator consumes a trace composed by a subset of rentals collected in \ref{chap:2_dataset}. In this way, by implementing an electric car consumption, I am able to model an electric FFCS provider that exactly replicate customers' temporal and spatial demand.
+% Simulations are based on the actual traces collected from operative FFCS providers in each city. This allows to factor all spatial and temporal characteristics of actual FFCS customers habits.
+
+\subsection{Simulation model}
+
+The simulator replicates the behaviour of a fleet of electric cars, which are moving in the city. Each car is characterized by its location, and the current status of battery charge. The simulator takes as input a pre-recorded trace of rentals characterized by the start and end time, and initial and final geographic coordinates.
+
+In more details, each trip $i \in \mathcal{I}$  is characterized by its start and end time, $t_{s}(i)$ and $t_{e}(i)$, and origin and destination coordinates, $o(i)$ and $d(i)$. For simplicity, I divide the city area into squared zones, of side 500\,m as before. Then, I associate with each position one and only one zone $O(i)=zone(o(i))$ and $D(i)=zone(d(i))$. We assume a charging station $cs$, composed of $k$ poles, can be placed at the center of a given zone $z\in \mathcal{Z}$, so either $cs(z)=1$ if the station is present, or $cs(z)=0$ otherwise. $N=\sum_{z\in \mathcal{Z}}cs(z)$ is the total number of zones equipped with charging stations, with 
+$K=N\cdot k$ the total number of poles.
+
+
+Additionally, it is present a set $\mathcal{A}$ of cars, with its cardinality $\left\vert{\mathcal{A}}\right\vert$ obtained by the trace. Each car $a\in \mathcal{A}$ at time $t$ is characterized by its position $p(a,t)$, its zone $P(a,t)=zone(p(a,t))$, and the residual battery capacity $c(a,t)\in[0,C]$, with $C$ being the maximum nominal capacity.
+
+Generally speaking, the simulator processes each rental event $i$ in temporal order. When a \emph{rental-start} event $i$ is processed at time $t=t_{s}(i)$, the simulator chooses randomly one of the most charged available car in the closest zones to the initial position zone $O(i)$. In formulas, we get a car $\bar{a} \in \mathcal{A}$ such that:
+\[
+c(\bar{a},t) \geq c(\hat{a},t)\ \forall \hat{a} \in \argmin_{a \in A} {dist(O(i), P(a,t))}.
+\]
+Basically, the simulator mimics the normal behaviour of FFCS customers that use their smartphone to rent the closest car from their position and are worried about vehicle range~\cite{RangeAnxiety}. Notice that this behaviour is independent from whether the car is at a pole being charged or not.
+Then, the simulator schedules the event \emph{rental-end} and it makes the car unrentable. When the rental ends fires, all the statistics about the rented car are updated (like battery consumption and new destination). Obviously, the simulator is able to manage all the events, like battery depletion or unavailable cars nearby the rental starts. 
+
+In output, the simulator produces several statistics about system usage and user-related discomfort metrics related to the electric vehicle plugging procedures. 
+
+\subsection{Modelling of rental event}
+%A \emph{rental-end} event is then scheduled using the trace final time $t_{e}(i)$ and desired destination location $d(i)$.
+
+When a \emph{rental-start} event $i$ is processed at time $t=t_{s}(i)$, and the simulator looks for a car in the initial position zone $O(i)$. If one or more cars are present, it selects (one among) the most charged car, i.e, get the car $a\in \mathcal{A}$ such that
+\[
+P(a,t) = O(i) \, \land \, c(a,t) \geq c(a',t)\ \forall a'\mid P(a',t) = O(i),
+\]
+independently whether the car is at a pole being charged or not.\footnote{We choose this policy because people are worried about vehicle range~\cite{RangeAnxiety}.}
+
+If any car is available, the simulator selects the closest zone to $O(i)$ containing an available car, mimicking the normal behaviour of FFCS customers that use their smartphone to rent the closest car from their position. If any vehicle is present in the 8 eight neighbouring zones, the rental is marked as {\it infeasible}.
+A \emph{rental-end} event is then scheduled using the trace final time $t_{e}(i)$ and location $d(i)$.
+
+When car $a$ rental-end event is processed at time $t_{e}(i)$, the simulator makes as available the car in the real position $p(a,t_{e}(i))$. The arrival zones might correspond to the one present in the \emph{rental-end} event, or it might be necessary to manage a slightly user's re-routing due to vehicle plugging procedures. The policies to decide when and how plug the car are described in section \mc{define sezione}. Once the car is released, the simulator updates the battery State of Charge (SoC) by consuming an amount of energy proportional to the real trip distance:
+\begin{eqnarray*}
+	c(a,t_{e}(i)) = \nonumber \hspace{0cm}   \max{(c(a,t_{s}(i)) - Energy(p(a,t_{s}(i)), p(a,t_{e}(i))), 0)} 
+\end{eqnarray*}
+
+%\[
+%c(a,t_{e}(i)) = \max{(c(a,t_{s}(i)) - Energy(p(a,t_{s}(i)), p(a,t_{e}(i))), 0)}
+%\]
+with $Energy(\cdot)$ that models the energy consumed to go from the car origin $p(a,t_{s}(i))$ to the car destination $p(a,t_{e}(i))$.
+In case $c(a,t_{e}(i)) = 0$, the trip $i$ is declared {\it infeasible}. 
+The discharged car $a$ still performs further trips, all marked as infeasible, until it reaches a charging station.
+

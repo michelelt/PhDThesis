@@ -1,0 +1,18 @@
+\section{Users' Plugging Policy}
+\label{sec:5_4_return_policy}
+One of the most challenging points of electric FFCS is to deal with the discomfort derived by plug in operations. This operation is more time consuming with compared to the normal filling up procedure of combustion engine cars. Therefore, the providers have to deal with users' selfishness and trying to stimulate their willingness.  
+In this Section, we define different policies that the electric FFCS may enforce, and different probabilistic behaviors of customers. 
+
+\subsection{Car charging policies}
+When returning the car, the customer may connect the car to a pole in a station, hence charging the car battery and possibly deviating the real destination from the desired one. I modelled the following policies:
+\begin{itemize}
+	\item{\it Free Floating}: the customer must connect the car to a charging pole if and only if it is available in the desired final zone $D(i)$;
+	\item{\it Forced}: cars must be connected to a pole when the percentage of battery charge at the end of the rental $i$ would go below a certain threshold $\pi$, i.e., $(c(a,t_{s}(i)) - Energy(p(a,t_{s}(i)), d(i))) \cdot 100/ C\leq  \pi $. This implies the customer can be \textit{rerouted} to the closest zone to the desired one $d(i)$, if no free pole exists in the zone; %Battery consumption takes into account the additional traveled distance.
+	\item{\it Hybrid}: the customers follow the forced policy; they may  also choose to connect to a charging pole available in the desired ending zone $D(i)$ with probability $w\in [0,1]$;
+	%if the $c(a,t)\leq\pi$, cars must be returned to the closest recharging zone to $d(i)$.
+\end{itemize}
+
+The \textit{Free Floating} policy never obliges the customer to bring the car far from the desired ending location, even in case battery is close to exhaustion. It used as benchmark, in order to understand until when the users might rent car without any restriction/
+\textit{Forced} mandates to connect cars to a charge station only when energy runs low, thus trying to protect from battery exhaustion.
+\textit{Hybrid} introduces the level of customers willingness to collaborate, named with $w$. $w=0$ is equivalent to the Forced policy, while $w=1$ adds to the Forced policy the Free Floating policy,  thus always connecting the car to a charging pole if available in their final position zone. The users' willingness should be $w$ should be intended as the probability that a user can collaborate with the provider, dropping the car in a charging station. The $w$ variability can by justified like provider incentive bonus like car2go free minutes after a car filling up.
+

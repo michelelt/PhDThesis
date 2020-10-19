@@ -1,0 +1,49 @@
+\section{Paper Outline}
+\label{sec:paper_outline}
+
+
+Journal as possible venue \url{https://www.mdpi.com/journal/electronics/special_issues/urban_data_analytics}
+
+
+
+
+
+\subsection{Intro and Related Work:}
+\begin{itemize}
+    \item {Increasing urbanization}
+    \item {Increasing pollution and traffic problems}
+    \item {Carsharing as an alternative to those problems}
+    \item {Other works analyzing carsharing systems}
+    \item {No other work has focused on the design and analysis of a carsharing system in a cold start scenario. This is an important problem because of the rising usage of these modes of transportation (sharing economy)}
+\end{itemize}
+
+\subsection{Characterization:}
+\begin{itemize}
+    \item {Simple characterization (number of bookings, cars, period, and so on)}
+    \item {Temporal characterization (number of bookings per day, hour, etc.)}
+    \item {Spatial characterization (zones with more bookings and types of zones)}
+    \item {Correlation between number of bookings and certain characteristics (young couples, no kids, etc). The motivation for this is that the carsharing company needs to move cars to certain regions of the city, and this information may help in finding which are those regions.}
+\end{itemize}
+
+\subsection{Temporal Analyses}
+\begin{itemize}
+    \item {Simple linear regression to predict the volume of bookings (per day and per hour). Doesn't work very well.}
+    \item {ARIMA models. Work better, but could overfit to a particular dataset. Consider only temporal information.}
+    \item {Random forests. Work well and don't overfit as much, but don't make as much use of temporal information (does not use sliding window.)}
+    \item {SARIMAX: Combine the sliding window approach and use external features. May give better results.}
+\end{itemize}
+
+\subsection{Spatial Analyses}
+    
+    \item{workflow}
+    \item{data enriching and describing}
+    \item{performance comparison betwwen svr and rfr}
+    \item{feature rank}
+    \item{learning curve}
+    \itemo{error distirbition}
+\begin{itemize}
+
+\end{itemize}
+
+
+

@@ -1,0 +1,52 @@
+\begin{figure}[t!]
+ \removelatexerror
+ \scriptsize
+  \begin{algorithm}[H]
+   	\caption{Data acquisition at time $t$}
+	\SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+	\Input{$t$ - Current timestamp}
+	\Input{$S$ - Available Cars (crawling result)}
+	\BlankLine
+
+	$AP$ = $Read(ActiveParkings)$ // Get previous available cars
+	
+	%\tcc{disappearedCars is a temporary list used to check the cars that %were visible, and that disappeared in the current crawling. In the %beginning the set will be equal to all the active Parkings}
+	%$disappearedCars$ = $activeParkings$ \;
+	\For(){$car_j$ in $S$}
+	{
+		\If{($car_j$  in $AP$)}
+		{
+			%\tcc{Update the parking information for that car with the %current timestamp}
+			%$histogramNeighbours[final_time]$ = $current_timestamp$\;
+			del $AP[car_j]$\;
+		}
+		\Else
+		{
+			$ActiveParkings.add(new~Parking(car_j,t))$\;		
+			\If{($car_j$  in $ActiveBookings$)}
+			{
+				$FinalCoords = car_j[coords];$
+				
+				$ActiveBooking[car_j][FinalTime] = t$\;
+				
+				$InitCoords = ActiveBookings[car_j][InitCoords];$	
+						
+				\If{(checkCarMovement($InitCoords$,$FinalCoords$))}
+				{
+					$ActiveBooking[car_j][driving\_time]$ = $GoogleApi(driving,InitCoords,FinalCoords)$\;
+					$ActiveBooking[car_j][PublicTranportTime]$ = $GoogleApi(public,InitCoords,FinalCoords)$\;
+				}
+				$MoveRow(car_j,ActiveBooking,PermanentBooking)$;
+			}
+			}
+	}
+	\For(){$car_j$ in $AP$}
+	{
+		$ActiveParking[car_j][FinalTime] = t$\;
+		$MoveRow(car_j,ActiveParking,PermanentParking)$\;
+		$ActiveBooking.add(new~Booking(car_j,t))$\;		
+	}
+  \end{algorithm}
+   \caption{Pseudocode of the data acquisition algorithm}\label{pseudocodeCarInfoUpdate}
+\end{figure}
+

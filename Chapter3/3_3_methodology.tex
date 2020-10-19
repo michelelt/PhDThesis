@@ -1,0 +1,105 @@
+\section{Methodology}
+\label{sec:methodology}
+
+
+\begin{figure}[h!]
+\centering
+%left top right top
+ \includegraphics[trim=3cm 4.5cm 17cm 7.2cm,clip, width=0.95\columnwidth]{figures/framework_schema.pdf}
+ \caption{\tool overview\label{fig:framework}}
+\end{figure}
+
+
+
+Our goal is to develop \tool, an integrated system to harvest data freely made available on the web and related to driving habits in cities. \tool offers processing capabilities to perform several analysis and extracting useful information about driving and users' behavior.
+
+
+In this section, we provide a description of \tool. Figure~\ref{fig:framework} depicts the architecture of \tool, composed by a first module for the data acquisition, by a second module for data normalization and integration, and then a third  module for the data analysis.
+
+
+\subsection{Data Acquisition}
+
+The first module consists in the data acquisition from the car sharing platforms of interest. These typically expose information about cars' location when available for rental through a web-service approach. 
+
+For this module we design two crawlers, one for the car2go and one for the Enjoy car sharing platforms. They retrieve, at each time instant, which cars are available in a given city.
+
+While car2go offers public APIs~\cite{car2goAPI}, Enjoy does not provide to users such a service. For this reason we study and reverse engineer the Enjoy web portal. By leveraging the Chrome Developer Tools, we investigate the information exchanged with the Enjoy web portal while asking the list of available cars. Through this analysis, we obtain both the URL used to request the list of available cars, and how fetch the data for a specific city.
+Both system return the currently available cars using a JSON file.
+
+Each time we download a JSON, we discover a new \textit{snapshot} describing which cars are parked and ready for rental.
+
+In a nutshell, a car is described by the car sharing web-service as an object annotated by several information, like plate or vehicle identification number (VIN), location, fuel level, model, etc. 
+All the data represented in this object is useful for the customers e.g., to choose which car to rent.
+This object is only present if the car is available, i.e., it is parked and free for a rental. Its state changes over time. In particular, a car disappears when a customer reserves and rents it, and then it reappears when the customer ends the rental (likely in a different location).
+
+
+At each time $t$, we obtain the JSON snapshot $S$ listing the available cars. 
+%We take a snapshot \textit{$S$} every minute to balance aggressiveness of the crawler, and time resolution. 
+%At each time t, we obtain from each platform the JSON snapshot S detailing the available cars. 
+The sampling period has been set to one minute, to balance aggressiveness of the crawler and a reasonable time resolution.
+$S$ describes each available car with several fields, some of them being in common between the considered companies, but in general with different format.
+For this study, we are interested in each car unique identifier and current geo-location indication.
+These are obtained from the \textit{VIN} or \textit{plate} field, and the \textit{coordinates} field which describes the \textit{longitude} and the \textit{latitude} of the in-car GPS used to localize it when  parked.\footnote{The GPS coordinates are only available if a car is parked and available. There is no risk for users' privacy during rentals. In addition no user's identifier is exposed. Therefore data is totally anonymized as there is no means to know who booked a car.}
+In addition to these fields, the car sharing JSON description may provide other information, e.g., the \textit{street address} corresponding to the coordinates, the \textit{fuel} level, the \textit{car interior status} the \textit{engine type}, etc. Since each platform uses its own data and format, we design a data integration step to have common names for fields containing the same information, if present.
+
+\subsection{Data Normalization and Integration}
+
+In this second module we process and consolidate each snapshot to obtain rentals and parking periods for each car. The intuition is to track the availability of each car on the car sharing platform, and rebuild the historic parking and booking periods over time: when some customer books a car, the latter ``disappears'' from the system. We record this event, with the initial time and position of a new booking. When the customer ends the booking, the car ``reappears'' in the system. We record this event, with the final time and position of the booking. For the same car, a new parking period starts.
+
+Harvested data is unstructured, and may grow large. Thus we leverage on \textit{MongoDB}, a NoSQL document-based database. A MongoDB database includes a set collections, i.e., groups of documents. Each document is a set of key-value pairs, organized in a JSON structure. The schema-less structure of MongoDB fits well in our work, because it can handle in the same collection documents defined with different key-value pairs. We decide to rely on such a system as we can easily manage the different field structures of providers, car2go and Enjoy in our use case. In addition, MongoDB offers a great integration with Python through the \textit{pymongo} module.
+
+Four different collections compose our MongoDB data lake:  \textit{ActiveBookings}, \textit{ActiveParkings}, \textit{PermanentBookings}, and \textit{PermanentParkings}. 
+\textit{ActiveBookings} and \textit{ActiveParkings} are collections used to store information about the current status of cars (currently booked or parked respectively). These are temporary structures that make it easier to query each car last observed status, and update it. These are also instrumentals for a real-time analysis of the system, e.g., to count how many cars are currently booked or available.
+\textit{PermanentBookings} and \textit{PermanentParkings} collections store the history of past state of cars, for past bookings and parkings, respectively.
+
+For the documents in the bookings collections we augment information by inserting also the expected route driving time, and the public transportation duration on the same origin-destination pair. These two piece of information are obtained through the Google Directions API using the initial and the final coordinates as indication of the path.
+
+The most important fields in the \textit{ActiveBookings}, and the \textit{PermanentBookings} collections are:
+\begin{itemize}
+\setlength\itemsep{0.1em}
+\item \textit{CarID}: the unique identifier of the car;
+\item \textit{InitTime}: the initial time of the booking;
+\item \textit{FinalTime}:  the final time of the booking;
+\item \textit{InitCoords}:  the GPS coordinates of the booking star location, i.e., where the users picked up the car;
+\item \textit{FinalCoords}:  the GPS coordinates of the parking location where the car was dropped at the end of the booking;
+\item \textit{DrivingTime}: The duration of the trip, expressed in seconds, as estimated by Google Directions API, following the best path;
+\item \textit{PublicTransportTime}: The duration is expressed as arrival time of the best public transport trip, as estimated by Google Directions API, minus the \textit{InitTime};
+\end{itemize}
+
+Instead, the \textit{ActiveParkings} and the \textit{PermanentParkings} collections are characterized by the following fields:
+\begin{itemize}
+\setlength\itemsep{0.1em}
+\item \textit{CarID}: the unique identifier of the car
+\item \textit{InitTime}: the initial time of the parking
+\item \textit{FinalTime}:  the final time of the parking
+\item \textit{Coordinates}: the GPS coordinates of the parking spot 
+\end{itemize}
+
+\input{Chapter2/pseudo}
+
+
+We implemented an algorithm to extract booking and parking periods from snapshots, whose workflow is described in the pseudocode in Fig.~\ref{pseudocodeCarInfoUpdate}. Here we describe each  step.
+
+We consider as inputs the snapshot $S$ and the current timestamp $t$.
+Then we create a copy in the list $AP$ of parked cars observed in the previous snapshot (as stored in the $ActiveParkings$ collection) -- line 1. We need the $AP$ list to detect the cars that disappeared, i.e., have been booked at time $t$. We will be back on this later.
+
+For each car $car_j$ in the current snapshot $S$, we check if the car is present in the $AP$ list. 
+If so, it means that it did not change its status, i.e., it is still parked. Therefore, the car is removed from the $AP$ list, and nothing is changed -- lines 3-4.
+Otherwise, either the car has been parked in this snapshot and the previous booking has finished, or the car is a new car added to the fleet. In both cases a new parking starts and we create a new document in the $ActiveParkings$ collection -- line 7. The \textit{new Parkings} function creates a new document, sets the $InitTime$ and $Coordinates$ keys as current timestamp and car GPS coordinates.
+%with the current timestamp and the car GPS coordinates.
+
+We next check if $car_j$ is present in the $ActiveBookings$ collection. If so, the car was booked until the previous snapshot and now it is back available. We thus finalize the previous booking and update its statistics. In particular, we set the $FinalCoords$ and $FinalTime$ fields using the current car $coordinates$ and timestamp -- line 9-10. Next, we check if this booking includes an actual rental by checking if the initial position and final position differ -- line 11-12. Recall indeed that customers may simply book a car but not finalize the rental. Specifically, Enjoy (car2go) offers a grace period of 15 (20) minutes during which no charge is applied for a booking.
+
+In case of an actual rental, we fetch the best path by i) car and ii) public transport from the  $InitPosition$ to the $FinalPosition$ of the rental. We leverage the  Google Directions API for this -- line 13-14.\footnote{\url{https://enterprise.google.com/intl/it/maps/products/mapsapi.html}}
+It is important to take into account that, while querying the public transportation time, the Google Directions API returns two pieces of information: how long the public transport takes to go from the initial to the final position, and the estimated arrival time. It is fundamental to use this second information because  it includes the time the user spends to reach the bus stop and wait for the bus. This is crucial, e.g., at night, when the first public transport solution may be available only several hours later.
+
+After having processed all cars in the current snapshot, we iterate over the remaining cars in the $AP$ list. Those are the ones that were present in the previous snapshot, but not in the current, i.e., the ones the new bookings. We finalize the previous parking period by setting the $FinalTime$ in the $ActiveParking$ collection -- line 21-22. At last, we create a new booking via the \textit{new Booking} function -- line 23.
+% Finally, the \textit{add} function add this document to the $ActiveBooking$ collection.}
+
+
+\subsection{Data Analysis}
+
+The third and final step is the data analysis phase in which analytics modules query the MongoDB and obtain statistics. We rely on the Python programming language with Pandas and the GeoPandas libraries to deal with the data, the city zone definitions,
+provided by transport engineers as a shapefile, a popular geospatial vector data format,
+ and the Geographical Information Systems (GIS) for the spatial analyis. We choose Python as it offer a large number of  libraries that easily interact with the different technologies like GIS, maps and MongoDB. In particular the usage of GeoPandas allow us to easily perform geographic analysis and split the city in many areas (or zones) of any possible shapes. We describe each analytics in the next section. We present results considering the city of Turin as an example of their usage.
+

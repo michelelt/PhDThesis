@@ -1,0 +1,36 @@
+\section{Discussion and Implication}
+\label{sec:7_8_discussion}
+
+The mobility model I use for optimising the placement of charging station reflects customers habits. However, there are other aspects of car sharing system design that one could consider. In the following, I briefly discuss two of them.
+
+\subsection{\textbf{Scalability}}
+
+All the analyses I performed heavily rely on the events trace derived real rentals in the analysed city. By using this data I use simulations to study placement solutions which cope with the current amount of traffic and usage of the FFCS. While in a short term this solution is optimal, there is no guarantee whether it will be valid in the future in case of a strong increase in the car sharing usage, e.g., when popularity increases by orders of magnitude. To tackle this problem, it is possible to still leverage rental data to infer a model about car sharing usage patterns in time and space, where the demand can be easily controlled by increasing the frequency of rentals. This model can then be used to create synthetic traces with an increasing car sharing demand, and use simulations to assess overall system performance. As such, the methodology I designed is generic and could be used to study different \textit{What-If} cases.
+
+Directly linked to the scalability problem, another important aspect is the possibility to add new charging stations when car sharing demand changes. 
+By analysing the data collected by UMAP, this methodology can be used to consider the greedy placement of new charging stations on the top of those already present.
+
+\subsection{\textbf{Economical Aspects}}
+
+
+Economical aspects play too a key role in the placement decision process. In this work, I decided to study only the feasibility of the EV based FFCS system design by considering as few charging stations as possible, leaving for a next step the detailed cost estimation. The cost of the infrastructure creation and management can largely vary depending on different variables such as country, city, incentives. 
+Related to this first class of costs, authors in~\cite{USAInstallCost} give a first estimation of installation cost, which can be of up to 5\,500~USD per pole in the USA. 
+While analysing these costs and developing a business plan, it is also important to evaluate which parties could be interested on running a business around it, e.g., either the municipality or a third party company could offer the infrastructure as a service to FFCS providers and other customers with electric vehicles.  
+
+The second group of variables consider the earnings models and the variable costs of the FFCS provider, like energy and cars. This kind of data requires a careful analysis to get a reliable estimation. Authors in~\cite{8_Wagner2015DataAF} suppose a marginal profit of 75\% of the fare considering a FFCS provider in the city of Vancouver. However, to correctly estimate the net profit several aspects need to be considered, such as the fee per minute, the actual duration of the rental costs and incentives for reroutes.
+
+
+\section{Conclusions}
+\label{sec:7_9_conclusion}
+
+Designing an electric free floating car sharing systems leads to many interesting problems and trade-off between usability, costs and benefits for the customers. 
+In this work, I built on actual rental traces to study via accurate simulations the impact of different charging stations placement and charging policies. 
+I selected Turin as a case study and using 2 months of rentals recorded from a currently operational FFCS that I use to run trace driven simulations.
+
+%More in details we defined a meta-heuristic algorithm placing the charging stations. Then we minimised the system leaks and users discomfort through an hill climb local search algorithm, after we compared those result with the optimisation coming from a genetic algorithm and finally we validated our output placement with a different trace.
+
+I have shown that few charging stations are enough to make the system self-sustainable. Important is the customers collaborations, so that they voluntarily returns to the cars to charging stations when available
+This data driven results show that just $5\%$ of the city zones that are equipped with charging stations (13 in total, 52 poles) make all trips feasible with an electric car fleet. Moreover, through a charging station placement based on a genetic optimisation algorithm, it is possible to minimise the discomfort for the customers that would be (rarely) asked to bring the car for charging. For example, with 18 charging stations (72 poles in total), on average a customer would walk only 40\,m to reach its desired destination. While these numbers will change in different cities, the data driven approach I propose naturally fits the global optimisation algorithm that is able to optimise placement while considering complex customers habits.
+
+I leave for future work the simulations of scenarios with new technologies, such as deployment of faster charging poles and larger batteries, and the scalability in terms of number of customers and fleet size.
+%We believe that our approach, based on data and accurate simulations is very promising to design and understand electric FFCS systems in future smart cities, provided actual data is available.

@@ -1,0 +1,26 @@
+\section{Key Performance Indicators and Simulation Scenario}
+\label{sec:5_5_kpi_scenario}
+In this section, I describe which are the simulation outputs and the scenario with which I performed the analyses. In particular I focused the attention on minimum requirements to system sustainability and measuring of users discomfort. 
+
+\subsection{Performance metrics and parameters}
+
+The simulator measures metrics that are  key to assess in the quality of experience for the customers:
+\begin{itemize}
+	\item \emph{Infeasible trip}: measures if a trip $i$ performed by a car $a$ ends with a completely discharged battery, i.e., when $c(a,t_{e}(i))= 0$;
+	\item \emph{Charge event}: indicates a trip $i$ that ends with putting in charge the car, implying the burden to drive to the pole position, and plug the car;
+	\item \emph{Reroute event}: a trip $i$ where the customer is rerouted to a zone different from the  desired destination because forced to charge the car $a$, i.e., $P(a,t_{e}(i))\neq D(i)$;
+	\item \emph{Walk distance}: distance between the desired final location $d(i)$ and the actual final position $p(a,t_{end}(i))$.
+\end{itemize}
+
+The number of infeasible trips are critical, and the system shall be engineered so that they never happen. Other performance metrics shall be minimized. 
+In addition to the above metrics, the simulator collects statistics about car battery charge level $c(a,t)$, and fraction of time a battery stays under charge.
+
+\subsection{Simulation scenario}
+
+I used this simulator to study the impact on the number of zones that are equipped with charging stations $N$, and the number of poles $k$ of each charging station.
+
+I consider in each city a fleet that has a number of cars equal to the one observed in the trace. Electric cars have the same nominal characteristics as the Smart ForTwo Electric Drive, i.e., $17.6\,kWh$ battery, for $135\,km$ of range, with a discharge curve $Energy()$ that is proportional to the travelled distance ($12.9\,kWh/100\,km$). \footnote{\url{https://www.smart.com/uk/en/index/smart-electric-drive.html}} 
+Charging stations have $k=4$ low power ($2\,kW$) poles each. These are cheap to install and a good compromise between costs, power requested, and occupied road section. We model a simple linear charge profile (complete charge in 8 hours and 50 minutes in our case). At last, the initial car position, only affecting the simulation transient, is chosen randomly.
+
+The simulator, written in Python, takes less then 5 seconds to complete a single simulation for a given city and parameter set. 
+Due to the large number of simulations, we run them in parallel. Each simulation produces 100\,MB of detailed logs, that we process on a Big Data cluster of 30 nodes using PySpark.%\footnote{\url{http://spark.apache.org/docs/latest/api/python/\#}}.

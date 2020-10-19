@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cocca, Giordano,  Vassio
+% OCtober 2018
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[review, letterpaper,3p, 11pt]{elsarticle}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[ruled]{algorithm2e}
+\usepackage{subfigure}
+\usepackage{xspace}
+\usepackage{setspace}
+\usepackage{eurosym}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand{\tool}{\textit{UMAP}\xspace}
+\newcommand{\github}{\url{https://github.com/michelelt/sim3.0}}
+\newcommand{\trace}{\url{www.todo.com}}
+
+% To comment in the paper
+\usepackage{color}
+\newcommand{\lv}[1]{{\color{cyan}{[luca: #1]}}}
+\newcommand{\mc}[1]{{\color{green}{[mike: #1]}}}
+\newcommand{\mm}[1]{{\color{red}{[mellia: #1]}}}
+\newcommand{\dg}[1]{{\color{orange}{[danilo: #1]}}}
+\newcommand{\ext}[1]{{\color{blue}{#1}}}
+\newcommand{\reviewed}[1]{{\color{black}{#1}}}
+
+
+%% Document starts
+\begin{document}
+\doublespacing
+
+\begin{frontmatter}
+
+
+\title{Free Floating Electric Car Sharing Design: \\Data Driven Optimisation}
+\tnotetext[t1]{This document is an extension of our previous work \cite{taormina} presented at IEEE SMARTCOMP 2018.}
+%\tnotetext[t2]{Authors are listed in alphabetical order.}
+
+
+\author[poli]{Michele Cocca}
+\ead{michele.cocca@polito.it}
+\author[dauin]{Danilo Giordano}
+\ead{danilo.giordano@polito.it}
+\author[poli]{Marco Mellia}
+\ead{marco.mellia@polito.it}
+\author[poli]{Luca Vassio}
+\ead{luca.vassio@polito.it}
+
+
+\address[poli]{Department of Electronics and Telecommunications, Politecnico di Torino, Italy.}
+\address[dauin]{Department of Control and Computer Engineering, Politecnico di Torino, Italy.}
+
+
+\input{abstract}
+
+\begin{keyword}
+car sharing \sep electric vehicle \sep data driven optimisation\sep charging station placement\sep free floating
+\end{keyword}
+
+\end{frontmatter}
+
+\input{intro}
+\input{related_work}
+\input{Data}
+\input{Modelling}
+\input{StrategiesCS}
+\input{Heuristic_PlacementResults}
+\input{Heuristic_vs_Optimized}
+\input{Conclusion}
+
+\bibliographystyle{elsarticle-num}
+\doublespacing
+\bibliography{paper}
+
+\appendix
+\input{Needed}
+
+\end{document}

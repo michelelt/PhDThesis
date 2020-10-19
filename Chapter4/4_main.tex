@@ -1,0 +1,102 @@
+% \documentclass[12pt]{article}
+\documentclass[preprint]{elsarticle}
+
+\usepackage{lineno,hyperref}
+\modulolinenumbers[5]
+
+\usepackage{graphicx,url}
+\usepackage[utf8]{inputenc} 
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage{comment}
+
+\usepackage{color}     
+\newcommand{\abv}[1]{{\color{red}{[#1]}}}
+\newcommand{\rooke}[1]{{\color{blue}{[#1]}}}
+\definecolor{purple}{RGB}{75,0,130}
+\definecolor{darkgreen}{RGB}{0,100,0}
+\newcommand{\victor}[1]{{\color{purple}{[#1]}}}
+\newcommand{\mc}[1]{{\color{darkgreen}{[mike: #1]}}}
+\newcommand{\lv}[1]{{\color{cyan}{[luca vassio: #1]}}}
+
+\sloppy
+
+\biboptions{numbers}
+
+\journal{Information systems}
+
+\begin{document} 
+
+\begin{frontmatter}
+
+\title{Characterizing Client Usage Patterns and Service Demand for Car-Sharing Systems}
+
+\author[ufjf]{Victor A. Alencar}
+\ead{victoraquiles@ice.ufjf.br}
+\author[ufjf]{Felipe Rooke}
+\ead{felipe.rooke@ufjf.edu.br}
+\author[polito]{Michele Cocca}
+\ead{michele.cocca@polito.it}
+\author[polito]{Luca Vassio}
+\ead{luca.vassio@polito.it}
+\author[ufmg]{Jussara Almeida}
+\ead{jussara@dcc.ufmg.br}
+\author[ufjf]{Alex Borges Vieira}
+\ead{alex.borges@ufjf.edu.br}
+
+
+\address[ufjf]{Computer Science Department, Universidade Federal de Juiz de Fora,  Brazil}
+
+\address[ufmg]{Computer Science Department,Universidade Federal de Minas Gerais,  Brazil}
+
+\address[polito]{Department of Electronics and Telecommunications, Politecnico di Torino, Italy}
+
+
+
+
+% \maketitle
+
+\begin{abstract}
+%The human interactions and dynamics are highly related to several daily tasks in urban spaces. For example, the telecommunication service demands follow the spatial and temporal dynamics of the city population.  In this sense,
+
+The understanding of the mobility on urban spaces is useful for the creation of smarter and sustainable cities. However, getting data about urban mobility is challenging, since only a few companies have access to accurate and updated data, that is also privacy-sensitive. 
+
+In this work, we characterize three distinct car-sharing systems which operate in Vancouver (Canada) and nearby regions, gathering data for more than one year. Our study uncovers patterns of users' habits and demands for these services. 
+We highlight the common characteristics and the main differences among car-sharing systems. Finally, we believe our study and data is useful for generating realistic synthetic workloads.
+\end{abstract}
+
+\begin{keyword}
+
+Urban mobility \sep
+car-sharing \sep
+characterizing \sep
+two-way \sep
+one-way \sep
+free-floating
+
+\end{keyword}
+
+\end{frontmatter}     
+     
+\linenumbers
+
+\input{01intro.tex}
+
+\input{05related.tex}
+
+\input{02background.tex}
+
+\input{03coleta.tex}
+
+\input{04resultados.tex}
+
+
+\input{06conclusoes.tex}
+
+\section*{References}
+\bibliographystyle{elsarticle-num}
+\bibliography{bibliography.bib}
+
+\end{document}

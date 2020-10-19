@@ -1,0 +1,27 @@
+\section{Related work}
+\label{sec:8_2_related_works}
+
+% Related works on traffic demand modelling  and prediction
+With the easiness of collecting data and the ability to build and train off-the-shelf machine learning solutions, researchers have started applying data driven approaches in the context of transportation.
+Previous work~\citep{2_okutani1984dynamic} addressed traffic modelling and prediction with real traffic data, and proposes strategies to improve congestion prediction using Kalman filters, showing how traffic is stationary in time.  
+Other studies~\citep{3_clark2003traffic} proposed new approaches, based on a multivariate extension of non-parametric regression, to predict traffic patterns, with the goal of counteracting traffic congestion. 
+While similar in spirit, our work focuses on FFCS services explicitly, and uses a much richer dataset as well as more advanced machine learning algorithms.
+
+% Related works on car sharing usage and prediction
+Focusing on car sharing, early work focused on estimating demand using activity-based micro-simulation to model how agents move around in a city~\citep{Ciari2013}. 
+Later on, as data from operative car sharing platforms became available, researchers started using real data to analyze mobility demand. For instance, previous work~\citep{catalano2008car,Firnkorn2011} proposed a demand model to forecast the modal split of the urban transport demand. Similarly, other studies~\citep{Firnkorn2012} investigated the Mobility-as-a-Service market, where FFCS is one of the implementations, and pointed out how FFCS supply can push the users to avoid purchasing a new car, which would lead to a reduction of $CO_{2}$ emission. Yet, none of these prior studies focused on car sharing demand prediction. 
+
+Along the same lines, other studies~\citep{becker:17} made a large survey covering a Swiss station-based car sharing service. The results confirmed that FFCS is preferred as a fast alternative to public transportation and the subscription depends on the car sharing implementation (business model). 
+Previous work~\citep{17_ciari2016evaluating} also proposed a simple binary logistic model for predicting car sharing subscribers in Switzerland, considering the relationship between potential membership and service availability. This relationship was then used to identify areas with unmet demand, that is, areas where new car sharing stations could be placed. 
+
+Other studies~\citep{schmoller2014analyzing,Schmoller2015} conducted a detailed characterization of a car sharing system in Munich and Berlin. Similarly to our work, they identified features correlated with the demand for shared cars in the target cities. However, our work differs from their in the sense that we here analyze a much larger set of features, including demographics and economic data, and consider multiple prediction models. We focus on demand prediction, facing both time and space dimensions, and provide a thorough comparison and guidelines for future directions.
+
+In our previous work~\citep{VancouverCS}, we analyzed in depth the usage of different car sharing systems in Vancouver. Based on this data, we developed a model of FFCS usage and built a simulator to design new systems based on electric vehicles~\citep{coccacar}. In particular, we tackled the charging station placement problem, showing that the optimal placement requires few stations to satisfy charging requests in different cities~\citep{coccaopt}.  
+
+%\dt{
+To the best of our knowledge, we are the first to face the demand prediction problem in Free Floating Car Sharing Systems tackling both the temporal and spatial prediction with a real world heterogeneous dataset. The demand prediction problem (or its variations) has been tackled in other domains~\citep{He:2019,Hulot:2018}, we here focus on multiple prediction tasks (long-term, short-term) accross different aspects (temporal and spatial) on the car sharing domain.
+
+
+Furthermore, while previous work~\citep{wang2017deepsd} focused on the temporal prediction of car sharing demand in a very short-term basis (demand prediction in the next few minutes), in this work we focus on the problem at different time scales. We also compare several prediction strategies and analyze how the temporal prediction problem relates to the spatial prediction one.
+Moreover, we are the first to use a very heterogeneous dataset including dozens of features to tackle the prediction problems. This allows us to provide insights on which of those features are the most important ones to solve our prediction problems as well as to have a broader perspective on the challenges involved in car sharing prediction.
+%}

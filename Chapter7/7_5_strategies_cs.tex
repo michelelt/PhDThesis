@@ -1,0 +1,60 @@
+\section{Strategies for charging station placement}
+\label{sec:7_5_placement}
+
+The main objective of this work is to assess what is the best charging station placement. Assuming a total of $Z$ zones and $N$ charging stations, there are ${N}\choose{Z}$ possible placement solutions, which makes it prohibitive to find exhaustively the optimal solution. For this reason I evaluate different approaches. The first one uses domain knowledge acquired by characterising the data about current usage to propose heuristics. The second instead, uses two different data-driven simulation-based optimisers.
+
+\subsection{Heuristic placements}
+
+Recalling the tiling procedure described in chapter \ref{chap:5_simulator}, I divide Turin in cells, computing in each cell the likelihood $l_z$ that measures spatial users' pattern usage in each zone. This work takes in consideration the \textit{Total number of parking}, \textit{Average parking time} and \textit{Random placement}. Definitions and more details in are available in section \ref{sec:5_3_mh_placement}. Figure \ref{fig:7_3_data_car} quantitative depicts shows the distribution of those likelihoods. 
+
+The first two heuristics are driven by the intuition to place charging stations in those zones where cars are likely to be parked for long time, or frequently. The latter is presented as a baseline for comparison. Referring again to Figures~\ref{fig:7_3_hm_max-parking} and~\ref{fig:7_3_hm_avg-time}, the charging stations will be located in the zones with warmer colours, respectively for total number of parkings and average parking time policy.
+
+\subsection{Simulation based advanced optimisation strategies}\label{sec:optmizers}
+
+Given the complexity of the optimisation problem and the humongous space of possible solution, I investigate the adoption of meta-heuristics, a class of global optimisation algorithms~\cite{RA09}. These algorithms explore the space of possible solutions in smart ways, looking for better solutions while avoiding getting trapped into local minima.
+
+In this case, the evaluation of a solution requires the simulation of two months of rentals, which is performed in approximately 5 seconds on a high-end machine. It is then important to consider that I have limited resources in the choice of meta-heuristics to consider. 
+The class of optimisation problems where the number of solutions (i.e., fitness evaluations) have to be limited as much as possible lies in the so called expensive-optimisation~\cite{RA09,FP09}. 
+
+In the literature, there are several architectures and algorithms suitable for global optimisation in tough numerical problems~\cite{FP09}, with direct-search class algorithms that explicitly target expensive-optimisation problems.
+
+In this work, I consider a simple local-search algorithm based on a hill-climb method, and a more complex and powerful genetic algorithm. I explicitly design both algorithms with the perspective of reducing the number of simulations. 
+
+I consider the single-objective case, i.e., algorithms have to minimise a single fitness function $f$ defined as follow:
+ $$f = M \cdot InfeasibileTrips\% + WalkedDistance$$
+
+
+As commonly done in linear programming, $M$ is a number big enough to make the first addend always larger than the second.
+In this way, \textit{InfeasibleTrips\%} has to be minimised first. Secondly, the algorithms starts minimising the \textit{WalkedDistance\%}. In a nutshell, the algorithm looks for solutions that make all trips feasible, and only then it targets the customers discomfort, i.e., reducing the walked distance. 
+As he next section will show, reducing \textit{WalkedDistance} will naturally help in reducing also \textit{Charges\%} and \textit{Reroutings\%}. Indeed, in its definition, the walked distance weights both these metrics.
+
+
+\subsubsection{Hill-climbing local search}
+
+Hill-climbing methods belong to the family of local search algorithms and are a popular choice because they are fast, simple to implement, and requires limited computational resources. They are iterative algorithms that start with an arbitrary solution, then attempt to find a better solution by making incremental changes to the solution. If the change produces a better solution, it is selected as current solution. Incremental changes are then made to the latter, until no further improvements can be found.
+For non-convex problems, like the one here faced, these methods will find only local optima, from which it would be impossible to escape. Local optima are not necessarily the globally best possible solution.
+
+This implementation of hill-climbing algorithm is very similar to the coordinate descent version~\cite{CoordinateDescent}.
+The algorithm starts from the best configuration found among the three heuristics. At each iteration, the algorithm randomly picks a charging station, and moves it in a empty neighbouring zone, i.e., north, south, east and west adjacent zones. All other charging stations are left untouched. If there is a direction of improvement, it performs a line search along the best direction, i.e., it keeps moving the same station along the same direction. When no improvement is possible, the algorithm takes another charging station at random, and try to move it as before.
+When no improvement is found after a complete cycle of all charging station, a local minimum is reached and the algorithm exits. A Maximum number of visited solutions stop condition is present too.
+
+In this implementation, I check multiple neighbours in parallel. Moreover, the algorithm keeps memory of all tested configurations, hence avoiding useless and expensive simulations. In the experiments, on average the optimisation reaches convergence within 1\,500 maximum tested solutions. 
+
+
+\subsubsection{Genetic optimiser}
+
+Genetic algorithms are a particular class of evolutionary algorithms inspired by the natural evolution~\cite{GO89}. They are known to work well when dealing with discrete variable functions, as in this case. 
+
+Genetic algorithms start creating a random population of a given number of individuals. In this case, each individual corresponds to a random placement of charging stations. A mating pool is created from the initial population, then the offspring is generated by crossover and mutation operations. Crossover mixes the genes from different individuals picked at random, i.e., a child is created from the union of the genes of both parents. To keep the number of genes (i.e., charging stations) constant, random genes are removed so that at the end $Z$ are left.
+Mutation instead moves a single charging station in a random empty zone. During crossover operation, some genes may mutate with low probability ($P\{mutation\}=0.02$ in this case).
+
+The presence of clones is avoided by the algorithm, which discards the copies, thus encouraging the exploration of the search space and saving precious resources. The algorithm estimates the quality of each new individual computing the fitness function $f$, i.e., by running an entire simulation.
+
+As by natural selection, the best individuals survive to the next generation, while the worst individuals are suppressed. 
+The optimisation loop continues until the maximum number of generations is reached (200 in this case).
+
+If the diversity of available genes, i.e., the total number of distinct charging stations in the whole population, decreases too much without improvements, it is triggered an increase of the population genetic diversity by increasing the mutation probability ($P\{mutation\}=0.2$ in this case). This randomises the evolution.
+
+The algorithm is amenably suitable for parallel implementation since the fitness of each individual belonging to a specific generation can be analysed separately from the others. Another advantage of genetic algorithms is the widespread exploration of the solution space, while local search algorithms tend to explore only limited portion of the space.
+
+In the experiments, I set the initial population to 100, with 50 new individuals created at each generation by crossover. Most of the optimisations ended within 100 generations, i.e., 5\,000 overall solutions are evaluated through simulation.

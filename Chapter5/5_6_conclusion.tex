@@ -1,0 +1,7 @@
+\section{Conclusion}\label{key}
+\label{sec:5_6_conclusion}
+In this chapter I described a FFCS electric mobility simulator I developed. Starting from the data collected with the software described in chapter \ref{chap:2_dataset} I created trace of rental events, describing the system allocated users' demand. 
+
+More in details, the simulator allocates a set of cars, characterized by battery capacity and power consumption per kilometres. Then consumes the rental trace, marking the car unavailable after a \textit{rental-start} event and updating the final battery state of charge when a \textit{rental-end} event is processed. Moreover, the simulator is in charge to place the charging station according three heuristics: random, preferring zones having a grater parking time and zones having the higher number of parkings. Finally it takes in account the different policies with which the users have to return the car.
+
+When the trace is consumed, this simulator computes several key performance indicators measuring the proper system infrastructure allocation and users' discomfort to deal with an electric vehcile

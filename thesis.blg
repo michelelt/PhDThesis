@@ -1,0 +1,32 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'thesis.blg'
+[87] biber-darwin:322> INFO - === Mon Oct 19, 2020, 16:27:25
+[105] Biber.pm:415> INFO - Reading 'thesis.bcf'
+[243] Biber.pm:943> INFO - Found 74 citekeys in bib section 0
+[261] Biber.pm:4256> INFO - Processing section 0
+[261] Utils.pm:75> INFO - Globbing data source 'thesis.bib'
+[261] Utils.pm:91> INFO - Globbed data source 'thesis.bib' to thesis.bib
+[274] Biber.pm:4455> INFO - Looking for bibtex format file 'thesis.bib' for section 0
+[286] bibtex.pm:1653> INFO - LaTeX decoding ...
+[419] bibtex.pm:1471> INFO - Found BibTeX data source 'thesis.bib'
+[429] Utils.pm:304> WARN - Duplicate entry key: 'Wagner2015' in file 'thesis.bib', skipping ...
+[430] Utils.pm:304> WARN - Duplicate entry key: 'Schmoller2015' in file 'thesis.bib', skipping ...
+[430] Utils.pm:304> WARN - Duplicate entry key: 'Firnkorn2011' in file 'thesis.bib', skipping ...
+[432] Utils.pm:304> WARN - Duplicate entry key: 'Wang2017' in file 'thesis.bib', skipping ...
+[432] Utils.pm:304> WARN - Duplicate entry key: 'Tyndall2016' in file 'thesis.bib', skipping ...
+[461] Utils.pm:304> WARN - month field 'Aug' in entry 'ciociolaumap' is not an integer - this will probably not sort properly.
+[480] Utils.pm:304> WARN - month field 'Jan' in entry 'Wagner2015' is not an integer - this will probably not sort properly.
+[548] Utils.pm:304> WARN - month field 'April' in entry 'Ma:2013' is not an integer - this will probably not sort properly.
+[789] Utils.pm:304> WARN - Possible typo (case mismatch) between citation and datasource keys: 'firnkorn2011' and 'Firnkorn2011' in file 'thesis.bib'
+[864] Utils.pm:304> WARN - BibTeX subsystem: /var/folders/nl/x73jty7x3qd4sgfld77vnh8c0000gn/T/biber_tmp_v8CO/thesis.bib_56697.utf8, line 141, warning: 18 characters of junk seen at toplevel
+[865] Utils.pm:304> WARN - I didn't find a database entry for 'becker2017comparing' (section 0)
+[865] Utils.pm:304> WARN - I didn't find a database entry for 'bi2017simulation' (section 0)
+[865] Utils.pm:304> WARN - I didn't find a database entry for 'firnkorn2011' (section 0)
+[865] Utils.pm:304> WARN - I didn't find a database entry for 'schmoller2015empirical' (section 0)
+[1008] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1008] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1008] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'it-IT'
+[1008] Biber.pm:4090> INFO - No sort tailoring available for locale 'it-IT'
+[1105] bbl.pm:652> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[1162] bbl.pm:755> INFO - Output to thesis.bbl
+[1162] Biber.pm:128> INFO - WARNINGS: 14

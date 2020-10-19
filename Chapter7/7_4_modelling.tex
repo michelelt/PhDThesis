@@ -1,0 +1,37 @@
+\section{Simulation scenarios }
+
+\label{sec:7_4_modelling}
+
+The goal is to study different design choices for electric car sharing systems, based on collected data. For this, we developed a flexible event-based simulator that allows us to compare different algorithms and tune  parameters while collecting metrics of interests.
+
+\subsection{Simulation parameters}
+
+Through the simulator widely described in chapter \ref{chap:5_simulator}, I simulate a fixed fleet of electric cars. Each car is characterised by its parking location, and the current status of battery charge. 
+The simulator takes as input the pre-recorded data-set of rentals, i.e., the trace, characterised by the start and end time, and initial and final geographic coordinates.
+
+Depending from the return policy, the customer may connect the car to a charging pole. , namely \textit{Free Floating}, \textit{Needed} and \textit{Hybrid}. The \textit{Free Floating} policy never obliges the customer to bring the car far from the desired ending location, even in case battery charge is close to exhaustion. \textit{Needed} mandates to connect cars to a charge station only if battery runs low, thus trying to protect from battery exhaustion. \textit{Hybrid} mixes the two policies letting customers opportunistically recharge the battery whenever they park close to a charging station. More information in section \ref{sec:5_4_charging_policies}.
+
+\reviewed{Notice that policies similar to \emph{Needed} have been introduced in~\cite{2_FlathIlgWeinhardt_2012}, where the system make the users charge the car considering the battery state of charge, the instantaneous electricity cost,  and the user's range anxiety.}
+
+
+
+\subsection{Key Performances Indicators}
+\label{sec:7_4_metrics}
+
+I measure the following metrics, defined in section \ref{sec:5_5_simulation_scenario} that I identify having influence in the customers' quality of experience:
+\begin{itemize}
+	\item \textit{InfeasibleTrips\%}: percentage of infeasible trips due to completely discharged battery observed during the whole simulation;  
+	\item \textit{Charges\%}: percentage of trips where the customer connects the car to a charging pole, implying the burden to plug the car;
+	\item \textit{Reroutings\%}: percentage of trips where the customers are rerouted to a zone different from their original destination because they are forced to charge the car;
+	\item \textit{WalkedDistance}: walked distance from the desired destination.
+\end{itemize}
+
+Infeasible trips are critical, and the system shall be engineered so that they never happen. Other performance metrics shall be minimised. 
+In addition to the above metrics, the simulator collects statistics about car battery charge level, and fraction of time a battery stays under charge. 
+
+The key design parameters that I focus on are (i) number of zones $Z$ which are equipped with a charging station; (ii) the locations of charging stations within the city; (iii) adopted return policies.
+
+I consider the following scenario: the fleet has a constant number of cars equal to 377 (the same as observed in the trace).  Electric cars have the same nominal characteristics as the Smart ForTwo Electric Drive, i.e., $17.6\,kWh$ battery, for $135\,km$ of range, with a discharge curve that is proportional to the travelled distance ($12.9\,kWh/100\,km$).\footnote{\url{https://www.smart.com/uk/en/index/smart-electric-drive.html}} 
+Charging stations have 4 low power ($2\,kW$) poles each. These are cheap to install and a good compromise between costs, power requested, and occupied road section. I model a simple linear charge profile (complete charge in 8 hours and 50 minutes in the case of study).
+
+
