@@ -1,0 +1,52 @@
+\section{Introduction}
+\label{sec:10_1_intro}
+
+%****************************************
+%Intro - urban mobility problem
+%****************************************
+Today, around 55\% of the world’s population lives in urban areas, a proportion that is expected to increase to 68\% by 2050~\cite{UNfuture}.
+Cities face important challenges to manage mobility, with a mixture of public and private transportation means. 
+The widespread usage of private cars led to land consume, increase of air pollution and higher health risk \cite{3_kent2014carsharing}.
+Private cars are often chosen by citizens for their flexibility and comfort, with the burden of higher fixed %(insurance, purchase, etc.)
+and variable costs. % (parking, fuel, etc.). 
+%****************************************
+%Car sharing concept and electric cars
+%***************************************
+Recently, the sharing economy has brought regulators and policy makers to invest on free floating car sharing (FFCS) systems, car rental models where the customers can freely pick and drop a car within an operative area through a mobile app. They pay only for the time spent driving, usually with minute-based fares which include all costs. Thus, this combines some of the benefits of public transport and private cars~\cite{2_huwer2004public}. 
+Sharing the same car among different people helps reducing the number of vehicles and brings benefits for the whole community like increase of parking availability and reduction of pollution~\cite{12_martin2011greenhouse}.  
+Moreover, since there are no fixed costs for users, usually FFCS is economically convenient for users who travel few thousand kilometers per year~\cite{1_litman2000evaluating}. 
+
+
+To make another step towards sustainable mobility, the challenge is to convert FFCS fleet from internal combustion engine vehicles (ICE) to electric ones (EVs), maintaining the same service flexibility. This change would further reduce the noise and pollutant emissions in congested areas~\cite{25_ev_benefits}, but calls for the creation of a charging infrastructure, and the management of the additional costs to handle battery charging operations.
+
+%****************************************
+%What we did in this work
+%***************************************
+In this work we analyze the feasibility and scalability of FFCS with electric vehicles.
+Our goal is to find an economically sustainable solution that brings benefits to both citizens (i.e., high availability) and operators (i.e., high profit), with the economic sustainability being a crucial aspect. For instance in Italy, the main FFCS operator had revenues around 48 million euros in 2016, but still losing around 27 millions euros, with each car burning 4700\,€ on average\cite{Quattroruote}.
+Despite that, car sharing is estimated to increase from 20\% to 40\% from 2019 to 2021 \cite{soleCarSharing}. %\lv{'Il Sole 24 Ore' e la citazione, ma ci serve o url o il numero esatto, e la pagina. Chi l'ha inserita?}.
+
+However, the shift to EVs implies not trivial decisions due to the additional need of deploying and managing the charging infrastructure. What are its impacts on system performance and profit?
+
+As a case study, we focus on the city of Turin in Italy. 
+We leverage hundred of thousands of real FFCS trips~\cite{10_ciociola2017umap} to extract the geo-temporal mobility demand. We use Kernel Density Estimation (KDE) to catch the demand spatial variability, and modulated Poisson models for the temporal demand~\cite{ciociola2020}. 
+We use it to feed a trace-driven flexible simulator that allows us to study how the design choices and system parameters impact on performance. We first consider an electric-car sharing system that has the same number of cars and faces same demand of the current one in Turin. We observe the impact of different charging infrastructure design, i.e., the number of poles and how to spread these are over the city area. 
+
+Next, we consider when the intensity of the mobility demand grows. How would the charging infrastructure need to grow correspondingly? And what is the impact of the fleet size? 
+Summarizing our contributions, this paper proposes an answer to these questions making use of the demand model to project future or different scenarios and the cost-revenue model to evaluate the profitability of each configuration.
+We focus on performance indicators like the fraction of demand the system can satisfy and the total working hours it has to spend for the battery charging operations. 
+Then, we project these into economical figures, observing how the design options impact on profitability. 
+
+
+%****************************************
+%Results and contributions
+%***************************************
+Our results show that the charging station placement is fundamental if poles are placed in areas with high demand, as cars get located where customers need them. This allows the system to naturally intercept the customers demand, thus to maximize the satisfied demand, and revenues.
+Considering system scalability, as expected the charging infrastructure must grow proportionally to the mobility demand. Interestingly instead, the number of vehicles can grow much slower, showing economy of scale savings which make the system likely profitable if well designed.
+
+%****************************************
+%Organization of the paper
+%***************************************
+The paper is organized as follows: In Section~\ref{sec:10_2_related_work} we discuss our work in light of past literature for FFCSs and their economical aspects. After reporting the details about the dataset and demand model in  Section~\ref{sec:10_3_dataset}, and our simulator in Section~\ref{sec:10_4_ModelSimulation}, we present results in Section~\ref{sec:10_5_results} before drawing conclusions in Section~\ref{sec:10_6_conclusions}.
+
+

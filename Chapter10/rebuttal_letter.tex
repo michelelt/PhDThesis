@@ -1,0 +1,211 @@
+\documentclass{paper}
+
+
+%\setlength{\parskip}{0.11cm plus1mm minus1mm}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\usepackage[top=0.70in, bottom=0.70in, left=0.75in, right=0.75in]{geometry}
+\usepackage{soul}
+\newcommand{\rev}[1]{\textbf{\textit{#1}}}
+\newcommand{\ans}[1]{{\color{blue} #1}}
+\newcommand{\tbd}[1]{\ul{#1}} % TO REMOVE AS LONG AS WE ADDRESS THE ISSUES IN PAPER
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[official]{eurosym}
+
+
+
+%\usepackage{caption}
+
+
+\usepackage[hyphenbreaks]{breakurl}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+%\usepackage{graphicx}
+%\usepackage{textcomp}
+%\usepackage{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+
+\usepackage{xcolor}
+
+%encoding
+%--------------------------------------
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%-------------------------------------
+
+\begin{document}
+
+\noindent
+Dear IEEE ISC2 2020 Chairs and Reviewers, \\
+
+\noindent
+This is the revision letter for the manuscript 1570661048, entitled ``On Scalability of Electric Car Sharing in Smart Cities''. \\
+
+\noindent
+First of all, let us thank the reviewers for their insightful comments. We did our best to address all the issues pointed out during the review round. In the following we report the point-to-point responses to the reviewers. 
+%summarize the major changes introduced in this version:
+%\begin{itemize}
+%  \item We have clarified what is the influence of the operational area size on the customers usage;
+%  \item We have proof-read the text to improve overall paper quality.
+  
+  
+%\end{itemize}
+
+\noindent
+%We report at the end of this letter the references cited in the responses to the reviewer, keeping the same numbering as in the new manuscript. Please, see also the attached file (``diff.pdf'') which shows new content and modifications highlighted in blue.  \\
+
+
+
+\begin{description}
+
+ \item[\textbf{Response to Reviewer 1}] \hfill
+\begin{description}
+ \item[Comment 1] \rev{Is a unique global scaling factor enough for all the zones and all time periods? The role of this parameter should be explained better.}\\
+ 
+% \ans{Per il nostro obbiettivo è sufficiente in quanto valutiamo il crescere della domanda supponendo una domanda stazionaria. Si potrebbe fare spazio variante/tempo variante, ma senza delle evidenze su quali zone/bin temporali sarebbe arbitrario. }\\
+ 
+\ans{We agree with the reviewer that study the scalability by changing the spacial distribution of the trips other than the demand intensity would be another interesting research direction. We do no have enough data to assume different scale factors for different zones, i.e., an higher demand increase in some zones with respect to others.
+%, we decided to keep the spatio-temporal patterns as the one observed in the input data. 
+As such, in this work we are only studying how the system handles a growing amount of users' mobility requests while keeping the spatio-temporal patterns unchanged by employing a unique global scaling factor.
+We clarified this aspect in the paper.
+ %and comment this possibility in our future directions. 
+  %as we mean to change only the average intensity of trips. Additional data would be thus needed to avoid arbitrary assumptions about temporal and spatial variations of mobility demand.
+ }\\
+
+ 
+ \item[Comment 2] \rev{Also the size of the variables is not clear. Why O-D matrices are 4D?} \\
+ 
+\ans{The area of the city is divided into a two dimensional matrix composed of squared zones. At each zone we assign a couple of coordinates $(x,y)$. Hence, since each trip $i$ departs from a certain zone (origin $O_i$, described by two coordinates) and arrives to another zone (destination $D_i$, described by two coordinates), it is therefore characterized by two couple of coordinates, that can be represented as 4 scalars. 
+
+Thus, in order to model the OD matrix in each temporal slot, we fit a 4-dimensional KDE based on the aforesaid coordinates. We clarify this in the text.} \\
+
+%DG: Attenzione che la correlazione OD non centra. Per tenerla dovremmo fare matrici separate - una per le partenze ed una contenente tutte le possibili destinazioni per partenza. In questo modo avremmo la correlazione tra partenze ed arrivi. Come facciamo noi semplicemente teniamo in considerazione del peso di ogni zona ma non delle correlazioni OD. E.g., Se avete 2 zone di origine (A,B) e due di destinazione (C,D). Dove A va sempre a C e B va sempre a D. Per come generiamo noi la matrice, potremmo avere dei viaggi che partono da A ed arrivano a D.
+
+%Thus, in order to not lose the correlation of a certain origin with a certain destination at a given temporal slot, we fit a 4-dimensional KDE for each temporal slot describing origin-destination probabilities.
+
+\item[Comment 3] \rev{Finally, does a 279-zone representation provide statistically significant results for a fleet of 400 vehicles? It is clear that it depends on the spatial distribution of the 180k trips, provided that it seems to be adequate compared to the distribution of the rental distance.}\\
+
+%\ans{Se si riferisce che 180k trip siano sufficienti per far convergere le metriche (satisfied trips etc), sono sufficienti per 279 zone/400veicoli? Dovremmo controllare ma dovrebbe essere.
+%\\
+%Nella seconda parte della domanda sembra rispondersi da solo sul fatto che il numero di zone (e la zonizzazione) sia adeguata.
+%-scelta 500m (survey sulla camminata)
+%-rapporto viaggi sotto i 500m rispetto al totale
+%-convergenza metriche controllata
+%}\\
+
+\ans{The number of zones in the city is a direct consequence of choosing 500m-sided squared zones. This choice is driven by a survey [a] in which it emerged that users are willing to walk about 500\,m at most in order to pick a vehicle from a shared fleet. Moreover, we observe from the data that almost all trips are not within the same zone. 
+While the number of vehicles (400) is the one observed in original data, thus the one used by the operator during the considered time period. 
+
+We observed that in these conditions a 3-months simulation time (corresponding to 180k trips) is sufficient to let metrics converge to steady-state values.}\\
+
+
+\item[Comment 4] \rev{Methodology of the demand model refers to a paper that is not yet published so that the reader cannot get full understanding of the methodology. Some assumptions should be discussed further.}\\
+
+\ans{Given the space constraints we cannot add further details about the methodology and we refer the reader to the cited paper. To let other researchers read it before it will be fully available on IEEE Xplore, we share it upon request at the following link \url{https://www.researchgate.net/publication/344172879_Impact_of_Charging_Infrastructure_and_Policies_on_Electric_Car_Sharing_Systems}.}
+
+
+\end{description}
+
+\pagebreak
+
+\item[\textbf{Response to Reviewer 2}] \hfill
+\begin{description}
+
+\item[Comment 1] \rev{The contributions of this paper should be stated in the Introduction section.}\\
+
+\ans{We agree with the reviewer and we make the contributions clear in the Introductions.%We summarized the answers to the research questions making use of the demand model to project future or different scenarios and the cost-revenue model to evaluate the profitability of each configuration.
+} \\
+
+\item[Comment 2] \rev{This paper assumes that the electric cars do not pay for parking on street and for accessing limited traffic areas. This assumption is not very realistic. If this assumption is needed, this should be justified.}\\
+
+\ans{
+%Abbiamo qualche news o simile per giustificare questa assunzione? Altrimenti possiamo indicare che è una scelta fatta per incentivare l'utilizzo dei mezzi sharing elettrici da parte della municipalità per favorire l'economia green? Cambierebbe solo l'impatto dei veicoli andando ad aumentare a sfavore l'aumento del numero di auto. 
+
+According to [7] the Italian cities of Turin, Milan, Rome and Florence in 2017 did not required any fees to the clients for parking and accessing limited traffic areas  in case of electric vehicles.
+Instead, internal combustion vehicles pay a cost for these two aspects which can vary from 550\,\euro{} to 1200\,\euro{} per vehicle and per year, depending on the city.
+According to [b], in Madrid electric shared cars can park everywhere free of charge. 
+
+We are not aware of further agreements that the cities might have with the car sharing operators, hence it is hard to accurately estimate these figures. If we relax these hypotheses,  we should add a fee only to the vehicle cost in our cost-revenue model. Then, the trade off between number of charging poles and number of cars will favour even more the increase of number of poles.  %Anyway we estimate this cost to be much lower than the termic vehicle fee.
+}\\
+
+\item[Comment 3] \rev{The paper uses simulation to derive the insights. However, more details on the simulation implementation are needed. For example, what is the simulation platform?}\\
+
+\ans{We used a custom simulator written in Python and based on SimPy, a discrete-event simulation library whose documentation is available at: https://simpy.readthedocs.io/en/latest/contents.html. Python version must be greater or equal to 3.6 in order to use SimPy library. We made these details explicit in the text. }\\
+
+\item[Comment 4] \rev{Fig. 5, demand factor $->$ values of demand factor}\\
+
+\ans{We fixed the sentence. }
+
+\end{description}
+
+\pagebreak
+
+\item[\textbf{Response to Reviewer 3}] \hfill
+\begin{description}
+
+\item[Comment 1] \rev{The Authors illustrate some results obtained through a simulation performed starting from a realistic car sharing demand relevant to the city of Turin. The paper is interesting.
+The Authors must add the Keywords that are missing
+}\\
+
+\ans{Thanks for the nice feedback. We added the missing keywords.}\\
+
+\end{description}
+
+
+\pagebreak
+
+\item[\textbf{Response to Reviewer 4}] \hfill
+\begin{description}
+
+\item[Comment 1] \rev{I recommend the authors present the assumptions of the simulation which can help readers to understand the simulation model better.}\\
+
+\ans{We made better explicit the assumptions in Section IV.a.}\\
+
+\end{description}
+
+\end{description}
+
+\section*{References\footnote{Reference numbering is consistent with the article except for reference [a,b], which have been provided to the reviewers as additional documentation but not included in the article.}}
+
+
+\begin{description}
+
+\item[{[~a~]}] Herrmann, Sascha, Frederik Schulte, and Stefan Vo{\ss}. ``Increasing acceptance of free-floating car sharing systems using smart relocation strategies: a survey based study of car2go Hamburg".International conference on computational logistics. Springer, Cham, 2014.
+
+
+\item[{[~b~]}] Lagadic, Marion, Alia Verloes, and Nicolas Louvet. "Can carsharing services be profitable? A critical review of established and developing business models." Transport Policy 77.C (2019): 68-78.
+
+
+\item[{[~7~]}] M. Rossi, “Mobilita alternativa crack sharing,” ` Quattroruote, vol. 746,
+2017. [Online]. Available: \url{http://shoped.it/shop/prodotto/quattroruoteottobre-2017/}
+
+
+%@article{lagadic2019,
+% author = {Lagadic, Marion and Verloes, Alia and Louvet, Nicolas},
+% year = {2019},
+% month = {02},
+% pages = {},
+% title = {Can carsharing services be profitable? A critical review of established and developing business models},
+% volume = {77},
+% journal = {Transport Policy},
+% doi = {10.1016/j.tranpol.2019.02.006}
+% }
+
+% @article{Quattroruote,
+% title = {Mobilità alternativa Crack sharing},
+% author = {Mario Rossi},
+% journal={Quattroruote},
+% year={2017},
+% volume={746},
+% publisher={EditorialeDomus},
+% url= {http://shoped.it/shop/prodotto/quattroruote-ottobre-2017/}
+% }
+
+
+\end{description}
+
+\end{document}

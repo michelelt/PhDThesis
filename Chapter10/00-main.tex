@@ -1,0 +1,141 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ciociola, Giordano,  Vassio
+% from May 2020
+%https://attend.ieee.org/isc2-2020/call-for-papers/
+%15 Luglio
+
+
+%Paper Submission Guidelines:
+%Papers must be unpublished and must not be submitted for publication elsewhere. All papers will be reviewed by Technical Program Committee members and other experts active in the field to ensure high quality and relevance to the conference.
+
+%At least one author of accepted papers must attend the conference to present its contribution.
+
+%Papers should be written in English and should not exceed 10 pages, double column, IEEE style including tables and figures. Note that the regular paper size will be 8 pages, with the possibility to obtain up to 2 additional pages (total 10 pages) by paying a publication fee. A template for IEEE Proceedings style (LaTeX2e and MS Word) can be found at http://www.ieee.org/conferences_events/conferences/publishing/templates. Only Postscript and PDF formats are accepted.
+
+%Papers must be submitted electronically through the EDAS system. The complete list of authors' names must be inserted when registering the paper on the EDAS system. Authors names can be inserted in the paper: that is, the review process is single blind. Authors should check if they already have a login on the EDAS system; otherwise, an account must be created before submitting a paper. If you are not already registered to EDAS please follow the instructions on EDAS registration page (http://edas.info/N26936), where you can login, or you can create a new EDAS user account.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[a4paper, 10 pt, conference]{ieeetran}  % Comment this line out if you need a4paper
+%\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4 paper
+
+\IEEEoverridecommandlockouts                              % This command is only needed if 
+                                                          % you want to use the \thanks command
+
+%\overrideIEEEmargins                                      % Needed to meet printer requirements.
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+%\usepackage{hyperref}
+\usepackage{multirow}
+
+\usepackage{xcolor}
+
+
+\usepackage{caption}
+
+\PassOptionsToPackage{hyphens}{url}
+
+\usepackage{subfigure}
+\usepackage{graphicx}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\usepackage{url}
+
+\usepackage[ruled]{algorithm2e} % For algorithms
+\usepackage{subfigure}
+%\ProvidesPackage{xstring}[\xstringdate\space\space v\xstringversion\space\space String manipulations (C Tellechea)]
+%\usepackage{booktabs} % For formal tables
+
+\newcommand{\tool}{\textit{UMAP}\xspace}
+
+% To comment in the paper
+\usepackage{color}
+\newcommand{\lv}[1]{{\color{cyan}{[luca: #1]}}}
+\newcommand{\mike}[1]{{\color{olive}{[mike: #1]}}}
+\newcommand{\mm}[1]{{\color{red}{[mellia: #1]}}}
+\newcommand{\dg}[1]{{\color{orange}{[danilo: #1]}}}
+\newcommand{\mb}[1]{{\color{green}{[michelangelo: #1]}}}
+\newcommand{\ac}[1]{{\color{orange}{[ale: #1]}}}
+
+\title{On Scalability of Electric Car Sharing\\ in Smart Cities}
+\author{Michelangelo Barulli$^{a}$, Alessandro Ciociola$^{b}$, Michele Cocca$^{b}$,\\ Luca Vassio$^{b}$, Danilo Giordano$^{c}$,  and Marco Mellia$^{b}$  \\% <-this % stops a space
+$^{a}$Department of Industrial Engineering and Management, Politecnico di Torino, \texttt{\small first.last@studenti.polito.it}\\% <-this % stops a space
+$^{b}$Department of Electronics and Telecommunications, Politecnico di Torino, \texttt{\small first.last@polito.it}\\% <-this % stops a space
+$^{c}$Department of Control and Computer Engineering, Politecnico di Torino, \texttt{\small first.last@polito.it}}% <-this % stops a space
+
+
+%% Document starts
+\begin{document}
+
+% \thanks{The work is supported by The Siebel Energy Institute grant, and by the SmartData@PoliTO center.}
+
+% \thanks{$^{1}$Michele Cocca is with Department of Electronics and Telecommunications, Politecnico di Torino, Italy,
+%         {\tt\small michele.cocca@polito.it}}
+% \thanks{$^{2}$Danilo Giordano is with Department of Electronics and Telecommunications, Politecnico di Torino, Italy,
+%         {\tt\small danilo.giordano@polito.it}}
+% \thanks{$^{3}$Marco Mellia is with Department of Electronics and Telecommunications, Politecnico di Torino, Italy,
+%         {\tt\small marco.mellia@polito.it}}
+% \thanks{$^{4}$Luca Vassio is with Department of Electronics and Telecommunications, Politecnico di Torino, Italy,
+%         {\tt\small luca.vassio@polito.it}}
+
+% \author{
+% \IEEEauthorblockN{Michele Cocca}
+% \IEEEauthorblockA{%\textit{Department of Electronics and Telecommunications} \\
+% \textit{Politecnico di Torino, Italy}\\
+% %Turin, Italy\\
+% michele.cocca@polito.it}
+% \and
+% \IEEEauthorblockN{Danilo Giordano}
+% \IEEEauthorblockA{%\textit{Department of Electronics and Telecommunications} \\
+% \textit{Politecnico di Torino, Italy}\\
+% %Turin, Italy\\
+% danilo.giordano@polito.it}
+% \and
+% \IEEEauthorblockN{Marco Mellia}
+% \IEEEauthorblockA{%\textit{Department of Electronics and Telecommunications} \\
+% \textit{Politecnico di Torino, Italy}\\
+% %Turin, Italy\\
+% marco.mellia@polito.it}
+% \and
+% %\hspace{50pt}
+% \IEEEauthorblockN{Luca Vassio}
+% \IEEEauthorblockA{%\textit{Department of Electronics and Telecommunications} \\
+% \textit{Politecnico di Torino, Italy}\\
+% %Turin, Italy\\
+% luca.vassio@polito.it}
+% }
+
+\maketitle
+
+
+\input{0-abstract}
+
+
+ \begin{IEEEkeywords}
+car sharing; scalability; charging infrastructure
+\end{IEEEkeywords}
+
+
+\input{1-introduction}
+\input{2-related}
+\input{3-dataset}
+\input{4-modeling}
+\input{5-results}
+\input{6-conclusions}
+
+%\input{Results}
+%\input{Conclusion}
+
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{paper}
+
+
+\end{document}
