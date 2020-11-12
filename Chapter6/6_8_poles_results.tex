@@ -1,32 +1,34 @@
+\section{How to distribute poles in stations}
+\label{sec:6_8_resPoles}
+
 \begin{figure}[t!]
     \begin{center}
         \begin{subfigure}{0.49\textwidth}
             \includegraphics[width=\columnwidth]{figures/50_Deaths_vsZones_ACS}
             \caption{Infeasible trips - the lower the better.}
-            \label{fig:zoneACS_vs_IT}
+            \label{fig:6_8_zoneACS_vs_IT}
         \end{subfigure}
                   \begin{subfigure}{0.49\textwidth}
             \includegraphics[width=\columnwidth]{figures/50_AvgTimeInStation_vsZones_ACS.pdf}
              \caption{Average time spent plugged to a pole.}
-             \label{fig:zoneACS_vs_plug}
+             \label{fig:6_8_zoneACS_vs_plug}
          \end{subfigure}        
            \begin{subfigure}{0.49\textwidth}
             \includegraphics[width=\columnwidth]{figures/50_ReroutePerc_vsZones_ACS}
              \caption{Re-route events percentage - the lower the better.}
-             \label{fig:zoneACS_vs_Reroute}
+             \label{fig:6_8_zoneACS_vs_Reroute}
          \end{subfigure}        
          \begin{subfigure}{0.49\textwidth}
             \includegraphics[width=\columnwidth]{figures/50_AvgWalkedDistance_vsZones_ACS.pdf}
              \caption{Average walk distance for re-routed trips - the lower the better.}
-             \label{fig:zoneACS_vs_awd}
+             \label{fig:6_8_zoneACS_vs_awd}
          \end{subfigure}
          \caption{Impact of pole distribution among zones. Concentrating all poles in very few hubs performs poorly, as well as placing single pole charging stations.}
-         \label{fig:zoneACS}
+         \label{fig:6_8_zoneACS}
 \end{center}
 \end{figure}
 
-\section{How to distribute poles in stations}
-\label{sec:resPoles}
+
 
 In the previous sections, I assumed charging stations with $k=4$ poles each. Here, I study the impact of installing charging station with a larger or smaller number of poles each. I keep the total number of charging poles $K=kN$ constant, and equally distribute them in a varying number of charging stations $N$. In other words, I check if it is better to have (i) big charging hubs with many poles (one single hub corresponds to $N=1$, with $K$ poles), or (ii) a very large number of charging stations each with one pole ($N=K$, $k=1$).
 I call {\it pole spread percentage} the percentage of zones in which poles are distributed among, i.e., $100N/K = 100/k$. For example, pole spread percentage 5 corresponds to 20 poles per zone ($k=20$), spread percentage 10 corresponds to 10 poles per zones, etc. up to spread 100 that corresponds to a single pole per each charging zone ($N=K$ and $k=1$).
@@ -34,7 +36,7 @@ I call {\it pole spread percentage} the percentage of zones in which poles are d
 For each of the four cities I pick a constant number of charging poles $K$, corresponding to a percentage of 7\% of charging zones when $k=4$.\footnote{Each city has a different $K$, producing a different number of infeasible trips.} Then, I distribute the poles evenly among different numbers of $N$ zones, chosen according to the highest number of parkings (as in the previous Sections). 
 I consider the Hybrid policy with $w=0.5$ and simulate the  resulting system. 
 
-From top to bottom, figure~\ref{fig:zoneACS} reports percentage of infeasible trips, the average time cars are plugged to a charging pole (even if they are completely charged), the percentage of re-routed trips,  and the average walk distance for re-routed trips. 
+From top to bottom, figure~\ref{fig:6_8_zoneACS} reports percentage of infeasible trips, the average time cars are plugged to a charging pole (even if they are completely charged), the percentage of re-routed trips,  and the average walk distance for re-routed trips. 
 Colors refer to different cities and the x-axis reports the spread percentage. 
 %For instance the leftmost point corresponds to a single hub where all $K$ poles are located. The rightmost point corresponds to having $N=K$ zones, each with a single pole. 
 %Dots highlight those fraction for which all zones have the same number of poles, i.e., where $(K/N)=k \,\land\, mod(K,N)=0$. 
@@ -42,31 +44,31 @@ Note that with $k=4$, as in the previous experiments, we have a spread percentag
 
 %Results are striking. 
 
-Focus first on~\ref{fig:zoneACS_vs_IT}. With spread percentage going below 5\%, hence concentrating poles in very few hubs, the number of infeasible trips quickly grows to non negligible values. Even Turing and Milan suddenly suffer of a sizable percentage of infeasible trips.
+Focus first on~\ref{fig:6_8_zoneACS_vs_IT}. With spread percentage going below 5\%, hence concentrating poles in very few hubs, the number of infeasible trips quickly grows to non negligible values. Even Turing and Milan suddenly suffer of a sizable percentage of infeasible trips.
 The lowest values are obtained with spread between 5 and 20, meaning that increasing the number of poles per charging station in the $[5-20]$ range helps the system to sustain.
 For instance, placing stations with $k=6$ poles lets Vancouver sustain all trips. 
-Conversely, spreading a lot of charging stations, each equipped with one pole is also not optimal. Poles are occupied for long time by cars that customers tend to not rent, since located in non-popular areas, as can been seen by the (too) high plugged time in figure~\ref{fig:zoneACS_vs_plug}.
+Conversely, spreading a lot of charging stations, each equipped with one pole is also not optimal. Poles are occupied for long time by cars that customers tend to not rent, since located in non-popular areas, as can been seen by the (too) high plugged time in figure~\ref{fig:6_8_zoneACS_vs_plug}.
 
-%figure~\ref{fig:zoneACS_vs_plug} shows the average time spent plugged to a charging station, during a charge event.
+%figure~\ref{fig:6_8_zoneACS_vs_plug} shows the average time spent plugged to a charging station, during a charge event.
 
-figure~\ref{fig:zoneACS_vs_Reroute} shows the percentage of re-routings. Here I also observe that it is better to have a low spread percentage.
-For the region where there are negligible infeasible trips (spread between 5 and 20), the percentage of re-routings increase both because poles start to be located in less popular destination, and because cars are charged for less time (see figure~\ref{fig:zoneACS_vs_plug}).
+figure~\ref{fig:6_8_zoneACS_vs_Reroute} shows the percentage of re-routings. Here I also observe that it is better to have a low spread percentage.
+For the region where there are negligible infeasible trips (spread between 5 and 20), the percentage of re-routings increase both because poles start to be located in less popular destination, and because cars are charged for less time (see figure~\ref{fig:6_8_zoneACS_vs_plug}).
 
-Lastly, I show walk distance for re-routed trips in figure~\ref{fig:zoneACS_vs_awd}. As expected, the walk distance slowly decreases with spread percentage. Indeed, when customers are re-routed, they can return the cars in more areas, likely closer to their desired destination. Only when single poles are used, the walk distance increases again. This is justified by cars that stay attached to poles for (too) long time, reducing the availability of free poles, thus forcing customers to drive further away.
+Lastly, I show walk distance for re-routed trips in figure~\ref{fig:6_8_zoneACS_vs_awd}. As expected, the walk distance slowly decreases with spread percentage. Indeed, when customers are re-routed, they can return the cars in more areas, likely closer to their desired destination. Only when single poles are used, the walk distance increases again. This is justified by cars that stay attached to poles for (too) long time, reducing the availability of free poles, thus forcing customers to drive further away.
 
-%First, concentrating poles in few hubs performs poorly. In all cities, the infeasible trips suddenly grow by one or more order of magnitude as seen in figure~\ref{fig:zoneACS_vs_IT} (note the log y-scale). 
+%First, concentrating poles in few hubs performs poorly. In all cities, the infeasible trips suddenly grow by one or more order of magnitude as seen in figure~\ref{fig:6_8_zoneACS_vs_IT} (note the log y-scale). 
 
 %This inefficiency is due to several effects: 
 %(i) Since customers rent cars in the closest zone from their actual position, they tend to pick cars that are freely parked in the city area, and not those cars parked in the hub. 
-%(ii) As such, a lot of cars stay connected for long time at the poles in the hub -- see figure~\ref{fig:zoneACS_vs_ACS}. This reduces the number of free poles.
+%(ii) As such, a lot of cars stay connected for long time at the poles in the hub -- see figure~\ref{fig:6_8_zoneACS_vs_ACS}. This reduces the number of free poles.
 %(
 %(ii) When a car needs to be charged ($c(a,t)<\pi)$), there is a sizable probability of having all poles being busy - thus making it impossible to charge the car. 
 
-%. A such, the number of available poles is smaller, rerouting customers far away (figure~\ref{fig:zoneACS_vs_awd}), and increasing the chance to run out of battery (figure~\ref{fig:zoneACS_vs_IT}).
+%. A such, the number of available poles is smaller, rerouting customers far away (figure~\ref{fig:6_8_zoneACS_vs_awd}), and increasing the chance to run out of battery (figure~\ref{fig:6_8_zoneACS_vs_IT}).
 
 Therefore, the best trade-off is hard to detect and depends from city to city. 
 %obtained with spread factors $k\in[5,10]$, 
-In general, it looks better to concentrate poles only in those zones where cars are frequently rented and returned, so to increase the chance to find a free pole, and let the battery quickly charge before the next rental makes the pole free again. %Infeasible trips are thus minimized. The only drawback is the high walk distance in case of re-routing (Fig~\ref{fig:zoneACS_vs_awd}). As previously suggested, the impact of this could be reduced by adopting some relocation policy, and giving incentives to customers.
+In general, it looks better to concentrate poles only in those zones where cars are frequently rented and returned, so to increase the chance to find a free pole, and let the battery quickly charge before the next rental makes the pole free again. %Infeasible trips are thus minimized. The only drawback is the high walk distance in case of re-routing (Fig~\ref{fig:6_8_zoneACS_vs_awd}). As previously suggested, the impact of this could be reduced by adopting some relocation policy, and giving incentives to customers.
 
 Note that both extreme solutions of pole spread percentage would also cause the highest installation and operating expenditures. The single hub solution would require to have a huge amount of power at disposal in a single location. While the single pole solutions would largely increase the installation cost and the occupied road section.
 

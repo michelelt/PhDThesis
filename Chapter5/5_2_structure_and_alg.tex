@@ -46,4 +46,54 @@ When car $a$ rental-end event is processed at time $t_{e}(i)$, the simulator mak
 with $Energy(\cdot)$ that models the energy consumed to go from the car origin $p(a,t_{s}(i))$ to the car destination $p(a,t_{e}(i))$.
 In case $c(a,t_{e}(i)) = 0$, the trip $i$ is declared {\it infeasible}. 
 The discharged car $a$ still performs further trips, all marked as infeasible, until it reaches a charging station.
-
+%
+%\begin{algorithm}[H]
+%	
+%	Events = List of  Events\\
+%	Cars = CSO fleet modelling\\
+%	Stations = Areas subset decided according to the placement algorithm\\
+%	Average\_SoC = Charges =  Discharge = 0 \\
+%	
+%	\caption{Variables initialization}
+%\end{algorithm}
+%\begin{algorithm}[H]
+%	\For{Booking in Bookings}
+%	{
+%		current\_plate = Booking.plate\\
+%		current\_car = Cars[current\_plate]\\
+%		Average\_SoC += current\_car.SoC\\
+%		\If{current\_car was in charge}
+%		{ 
+%			zone = curret\_car.last\_booking.last\_final\_zone\\
+%			Decrement the number of chargin car in Station[Zone]\\
+%			current\_car.compute\_recharged\_power\\
+%			charges += 1
+%		}
+%		arrival\_zone = Booking.final\_zone\\
+%		current\_car.compute\_consumption(Booking.distance)\\
+%		
+%		\eIf{current\_car.current\_capacity > 0}
+%		{
+%			\eIf{arrival\_zon is a Charig Station and \\
+%				Station[arrival\_zone].availabe\_spots > 0}
+%			{
+%				Station[arrival\_zone].availabe\_spots -= 1\\
+%				current\_car.in\_charge = True\\
+%				current\_car.save\_booking(Booking)
+%			}
+%			{
+%				current\_car.in\_charge = False\\
+%				current\_car.save\_booking(Booking)
+%			}
+%		}
+%		{
+%			Discharge +=1
+%		}
+%	}%% end for
+%	Average\_SoC = Average\_SoC / len(Bookings) \\
+%	Charges = Charges / len(Bookings) \\
+%	Discharge = Discharge / len(Bookings)\\
+%	
+%	\caption{Simulation algorithm}
+%\end{algorithm}
+%
