@@ -1,5 +1,4 @@
 \section{Simulation scenarios }
-
 \label{sec:7_4_modelling}
 
 The goal is to study different design choices for electric car sharing systems, based on collected data. For this, we developed a flexible event-based simulator that allows us to compare different algorithms and tune  parameters while collecting metrics of interests.
@@ -9,7 +8,7 @@ The goal is to study different design choices for electric car sharing systems, 
 Through the simulator widely described in chapter \ref{chap:5_simulator}, I simulate a fixed fleet of electric cars. Each car is characterised by its parking location, and the current status of battery charge. 
 The simulator takes as input the pre-recorded data-set of rentals, i.e., the trace, characterised by the start and end time, and initial and final geographic coordinates.
 
-Depending from the return policy, the customer may connect the car to a charging pole. , namely \textit{Free Floating}, \textit{Needed} and \textit{Hybrid}. The \textit{Free Floating} policy never obliges the customer to bring the car far from the desired ending location, even in case battery charge is close to exhaustion. \textit{Needed} mandates to connect cars to a charge station only if battery runs low, thus trying to protect from battery exhaustion. \textit{Hybrid} mixes the two policies letting customers opportunistically recharge the battery whenever they park close to a charging station. More information in section \ref{sec:5_4_charging_policies}.
+Depending from the return policy, the customer may connect the car to a charging pole. , namely \textit{Free Floating}, \textit{Needed} and \textit{Hybrid}. The \textit{Free Floating} policy never obliges the customer to bring the car far from the desired ending location, even in case battery charge is close to exhaustion. \textit{Needed} mandates to connect cars to a charge station only if battery runs low, thus trying to protect from battery exhaustion. \textit{Hybrid} mixes the two policies letting customers opportunistically recharge the battery whenever they park close to a charging station. More information in section \ref{sec:5_4_return_policy}.
 
 \reviewed{Notice that policies similar to \emph{Needed} have been introduced in~\cite{2_FlathIlgWeinhardt_2012}, where the system make the users charge the car considering the battery state of charge, the instantaneous electricity cost,  and the user's range anxiety.}
 

@@ -3,7 +3,7 @@
 In this section I briefly recall data collection pipeline and the simulation scenario adopted in this chapter, which basically replicates what I described in chapter \ref{chap:6_4cities}.
 
 \subsection{The dataset}
-The dataset I use for the following analyses is collected through the software described in chapter \ref{chap:2_dataset}. The subset sampling is the same performed in section \ref{sec:6_2_data}. Figure \ref{fig:7_3_ECDFs} recalls the main features of collected trips. In particular, in Turin, the 95\% of rentals covers less than 10 km and the 95\% of parking lasts less than 12 hours. 
+The dataset I use for the following analyses is collected through the software described in chapter \ref{chap:2_dataset}. The subset sampling is the same performed in section \ref{sec:6_3_data}. Figure \ref{fig:7_3_ECDFs} recalls the main features of collected trips. In particular, in Turin, the 95\% of rentals covers less than 10 km and the 95\% of parking lasts less than 12 hours. 
 
 \begin{figure}[th]
 	\centering
@@ -21,24 +21,25 @@ The dataset I use for the following analyses is collected through the software d
 	\label{fig:7_3_ECDFs}
 \end{figure}
 
-\mc{introdurre qui gli spatial patterns}
+
 
 \begin{figure}[th]
     \centering     %%% not \center
         \subfloat[][Number of Parkings.]
             {
             \label{fig:7_3_hm_max-parking}
-            \includegraphics[width=0.35\columnwidth]{figures/Torino_NParkings.pdf}
+            \includegraphics[width=0.35\columnwidth]{figures/Torino_NParkings_new.pdf}
             }
         \subfloat[][Average Parking Time.]
             {
             \label{fig:7_3_hm_avg-time}
-            \includegraphics[width=0.35\columnwidth]{figures/Torino_AvgTime.pdf}
+            \includegraphics[width=0.35\columnwidth]{figures/Torino_AvgTime_new.pdf}
             }
-    	\caption{Heatmaps showing (a) number of parkings per zone  and (b) average parking time per zone. Warmer areas have larger values. \mc{magari mettere quella con la scala }}
+    	\caption{Heatmaps showing (a) number of parkings per zone  and (b) average parking time per zone. Warmer areas have larger values. }
     	\label{fig:7_3_data_car}
 \end{figure}
 
+Now, I recall the spatial users' behaviour, widely described in chapters \ref{chap:3_charact}, \ref{chap:4_cs_comparison} and \ref{chap:5_simulator}.
 Figure \ref{fig:7_3_hm_max-parking} shows the heatmap of the total number of parkings in each city zone. The warmer the colour is, the more frequently cars are parked here. The hot areas correspond to the city centre which exhibits the highest number of parkings. Customers rely on car sharing for travelling and moving downtown, a working area full of shops and restaurants. The zones with more parkings are close to the train stations, where 47 parking events per day are observed on average.
 
 Figure \ref{fig:7_3_hm_avg-time} shows the heatmap of the average parking time for each zone. Peaks are on borders of the operative area, where parking events last more than 24 hours. Few cars reach these peripheries  and rest unused for long time (see also rightmost part of Fig. \ref{fig:7_3_cdf_duration}). The lower values are registered in the downtown, where cars stay parked only for 85 minutes on average.

@@ -8,7 +8,7 @@ The mobility model I use for optimising the placement of charging station reflec
 All the analyses I performed heavily rely on the events trace derived real rentals in the analysed city. By using this data I use simulations to study placement solutions which cope with the current amount of traffic and usage of the FFCS. While in a short term this solution is optimal, there is no guarantee whether it will be valid in the future in case of a strong increase in the car sharing usage, e.g., when popularity increases by orders of magnitude. To tackle this problem, it is possible to still leverage rental data to infer a model about car sharing usage patterns in time and space, where the demand can be easily controlled by increasing the frequency of rentals. This model can then be used to create synthetic traces with an increasing car sharing demand, and use simulations to assess overall system performance. As such, the methodology I designed is generic and could be used to study different \textit{What-If} cases.
 
 Directly linked to the scalability problem, another important aspect is the possibility to add new charging stations when car sharing demand changes. 
-By analysing the data collected by UMAP, this methodology can be used to consider the greedy placement of new charging stations on the top of those already present.
+By analysing the data collected, this methodology can be used to consider the greedy placement of new charging stations on the top of those already present.
 
 \subsection{Economical Aspects}
 

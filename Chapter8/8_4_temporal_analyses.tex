@@ -139,25 +139,63 @@ In the \emph{expanding window} approach, after making the first prediction, we a
 To train the models, we first set aside 24 days of data for validation, and start with 28 days of training data. 
 In the \emph{sliding window} approach, after making the prediction we remove the oldest training data and add the actual value to the training set. Therefore, the training set size is always the same during the evaluation of the models. To train the models, we consider different sliding windows sizes (from 7 to 28 days), and validate on the same validation set of 24 days as with the expanding window. 
 
+%\begin{table*}
+%	\centering
+%	\begin{tabular}{@{}rrrrcrrrr@{}}
+%	\toprule
+%	& \multicolumn{3}{c}{Expanding Window (starting: 28 days)} & \phantom{abc} & \multicolumn{3}{c}{Sliding Window (28 days)} \\
+%	\cmidrule{2-4} \cmidrule{6-8}
+%	 {Prediction Model} & \textbf{MAPE [\%]} & \textbf{$\sigma$(APE) [\%]} & \textbf{RMSE} && \textbf{MAPE [\%]} & \textbf{$\sigma$(APE) [\%]} & \textbf{RMSE} \\ 
+%	 %& \textbf{Average} & \textbf{Std.  Dev.} & \textbf{Average} && \textbf{Average} & \textbf{Std. Dev.} & \textbf{Average} \\ 
+%	 \midrule
+%	  \textbf{Baseline}                     & 20.12 & 16.64 & 195.53 && 20.12 & 16.64 & 195.53 \\
+%	  \textbf{ARIMA}                        & 36.01 & 35.87 & 306.80 && 36.52 & 36.60 & 305.50 \\
+%	  \textbf{SARIMA}                       & 17.60 & 20.01 & 160.42 && 18.02 & 21.75 & 163.94 \\
+%	  \textbf{Linear Regression}            & 18.28 & 20.38 & 179.11 && 18.11 & 20.55 & 178.61 \\
+%	  \textbf{Support Vector Regression}    & 12.22 & 15.62 & 128.72 && 12.87 & 18.52 & 136.14 \\  
+%	  \textbf{Random Forests Regression}    & 9.71  & 8.34  & 104.99 && 10.08 & 12.23 & 109.47 \\
+%	  \textbf{Neural Networks}              & 10.52 & 12.93 & 128.84 && 10.52 & 12.74 & 123.55 \\
+%	\bottomrule
+%	\end{tabular}
+%	\caption{Short-term temporal prediction - Mean Absolute Percentage Error (MAPE), Absolute Percentage Error (APE), and Root Mean Squared Error (RMSE), for each prediction model in the validation set.}
+%\label{tab:8_4_results-dynamic-models}
+%\end{table*}
+
 \begin{table*}
-\centering
-\begin{tabular}{@{}rrrrcrrrr@{}}
-\toprule
-& \multicolumn{3}{c}{Expanding Window (starting: 28 days)} & \phantom{abc} & \multicolumn{3}{c}{Sliding Window (28 days)} \\
-\cmidrule{2-4} \cmidrule{6-8}
- {Prediction Model} & \textbf{MAPE [\%]} & \textbf{$\sigma$(APE) [\%]} & \textbf{RMSE} && \textbf{MAPE [\%]} & \textbf{$\sigma$(APE) [\%]} & \textbf{RMSE} \\ 
- %& \textbf{Average} & \textbf{Std.  Dev.} & \textbf{Average} && \textbf{Average} & \textbf{Std. Dev.} & \textbf{Average} \\ 
- \midrule
-  \textbf{Baseline}                     & 20.12 & 16.64 & 195.53 && 20.12 & 16.64 & 195.53 \\
-  \textbf{ARIMA}                        & 36.01 & 35.87 & 306.80 && 36.52 & 36.60 & 305.50 \\
-  \textbf{SARIMA}                       & 17.60 & 20.01 & 160.42 && 18.02 & 21.75 & 163.94 \\
-  \textbf{Linear Regression}            & 18.28 & 20.38 & 179.11 && 18.11 & 20.55 & 178.61 \\
-  \textbf{Support Vector Regression}    & 12.22 & 15.62 & 128.72 && 12.87 & 18.52 & 136.14 \\  
-  \textbf{Random Forests Regression}    & 9.71  & 8.34  & 104.99 && 10.08 & 12.23 & 109.47 \\
-  \textbf{Neural Networks}              & 10.52 & 12.93 & 128.84 && 10.52 & 12.74 & 123.55 \\
-\bottomrule
-\end{tabular}
-\caption{Short-term temporal prediction - Mean Absolute Percentage Error (MAPE), Absolute Percentage Error (APE), and Root Mean Squared Error (RMSE), for each prediction model in the validation set.}
+	\centering
+	\begin{tabular}{@{}rrrrcrrrr@{}}
+	\toprule\toprule
+	& \multicolumn{3}{c}{Expanding Window (starting: 28 days)} & \phantom{abc} \\
+	\cmidrule{2-4} \cmidrule{6-8}
+	 {Prediction Model} & \textbf{MAPE [\%]} & \textbf{$\sigma$(APE) [\%]} & \textbf{RMSE}\\ 
+	 %& \textbf{Average} & \textbf{Std.  Dev.} & \textbf{Average} && \textbf{Average} & \textbf{Std. Dev.} & \textbf{Average} \\ 
+	 \midrule[0.5pt]
+	  \textbf{Baseline}                     & 20.12 & 16.64 & 195.53\\
+	  \textbf{ARIMA}                        & 36.01 & 35.87 & 306.80\\
+	  \textbf{SARIMA}                       & 17.60 & 20.01 & 160.42\\
+	  \textbf{Linear Regression}            & 18.28 & 20.38 & 179.11\\
+	  \textbf{Support Vector Regression}    & 12.22 & 15.62 & 128.72\\  
+	  \textbf{Random Forests Regression}    & 9.71  & 8.34  & 104.99\\
+	  \textbf{Neural Networks}              & 10.52 & 12.93 & 128.84\\
+	  
+	  \toprule
+	  
+	  	& \multicolumn{3}{c}{Sliding Window (starting: 28 days)} & \phantom{abc} \\
+	  \cmidrule{2-4} \cmidrule{6-8}
+	  {Prediction Model} & \textbf{MAPE [\%]} & \textbf{$\sigma$(APE) [\%]} & \textbf{RMSE}\\ 
+	  %& \textbf{Average} & \textbf{Std.  Dev.} & \textbf{Average} && \textbf{Average} & \textbf{Std. Dev.} & \textbf{Average} \\ 
+	  \midrule
+	  \textbf{Baseline}                     & 20.12 & 16.64 & 195.53 \\
+	  \textbf{ARIMA}                        & 36.52 & 36.60 & 305.50 \\
+	  \textbf{SARIMA}                       & 18.02 & 21.75 & 163.94 \\
+	  \textbf{Linear Regression}            & 18.11 & 20.55 & 178.61 \\
+	  \textbf{Support Vector Regression}    & 12.87 & 18.52 & 136.14 \\  
+	  \textbf{Random Forests Regression}    & 10.08 & 12.23 & 109.47 \\
+	  \textbf{Neural Networks}              & 10.52 & 12.74 & 123.55 \\
+	  
+	\bottomrule\bottomrule
+	\end{tabular}
+	\caption{Short-term temporal prediction - Mean Absolute Percentage Error (MAPE), Absolute Percentage Error (APE), and Root Mean Squared Error (RMSE), for each prediction model in the validation set.}
 \label{tab:8_4_results-dynamic-models}
 \end{table*}
 
