@@ -87,6 +87,64 @@
       \endverb
       \keyw{Urban mobility,Car-sharing,Characterizing,Two-way,One-way,Free-floating}
     \endentry
+    \entry{barulli2020scalability}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=f2ac43a77fc103a2ff2cabf997a156ed}{%
+           family={Barulli},
+           familyi={B\bibinitperiod},
+           given={Michelangelo},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=795a27b43fe63492f47ef2d1c015f31c}{%
+           family={Ciociola},
+           familyi={C\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1f45dd40d27becda801878bf43d84c05}{%
+           family={Cocca},
+           familyi={C\bibinitperiod},
+           given={Michele},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=69362c68b3c52789c8d71483f5891d86}{%
+           family={Vassio},
+           familyi={V\bibinitperiod},
+           given={Luca},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d03e1070dfdbf6d69803e6cbbbbe09fa}{%
+           family={Giordano},
+           familyi={G\bibinitperiod},
+           given={Danilo},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eb9a294b3de43f233bed8a0892fcf225}{%
+           family={Mellia},
+           familyi={M\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{8509d2383a54e5ccf013887e46150ab3}
+      \strng{fullhash}{c81fbf6d44465cc89ad4d602179f07ab}
+      \strng{bibnamehash}{c81fbf6d44465cc89ad4d602179f07ab}
+      \strng{authorbibnamehash}{c81fbf6d44465cc89ad4d602179f07ab}
+      \strng{authornamehash}{8509d2383a54e5ccf013887e46150ab3}
+      \strng{authorfullhash}{c81fbf6d44465cc89ad4d602179f07ab}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2020 IEEE International Smart Cities Conference (ISC2)}
+      \field{title}{On Scalability of Electric Car Sharing in Smart Cities}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+    \endentry
     \entry{becker:17}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=1acdcc3f269880d3aac4a1d8644650a8}{%
@@ -129,6 +187,63 @@
       \field{year}{2017}
       \field{pages}{17\bibrangedash 29}
       \range{pages}{13}
+    \endentry
+    \entry{bi2017simulation}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=5080a199da3ecf49ee55aa0771f4d53e}{%
+           family={Bi},
+           familyi={B\bibinitperiod},
+           given={Ran},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dd971f3bcbe3487cdc604b0b2232abb4}{%
+           family={Xiao},
+           familyi={X\bibinitperiod},
+           given={Jiajian},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d808f589f0ea8e2d770df26440fec652}{%
+           family={Pelzer},
+           familyi={P\bibinitperiod},
+           given={Dominik},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ebb0e936cf272e93a10d903d413c759}{%
+           family={Ciechanowicz},
+           familyi={C\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e82f99690a8fe0c8252f64d300938a19}{%
+           family={Eckhoff},
+           familyi={E\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c45d8c33e4ef56b7d84b362173fe9d96}{%
+           family={Knoll},
+           familyi={K\bibinitperiod},
+           given={Alois},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cae19103fbca37cf49dd97da0cb49c1d}
+      \strng{fullhash}{0adeb26992501ce4eb88f0f111fbc8f8}
+      \strng{bibnamehash}{0adeb26992501ce4eb88f0f111fbc8f8}
+      \strng{authorbibnamehash}{0adeb26992501ce4eb88f0f111fbc8f8}
+      \strng{authornamehash}{cae19103fbca37cf49dd97da0cb49c1d}
+      \strng{authorfullhash}{0adeb26992501ce4eb88f0f111fbc8f8}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Intelligent Transportation Systems (ITSC), 2017 IEEE 20th International Conference on}
+      \field{title}{A simulation-based heuristic for city-scale electric vehicle charging station placement}
+      \field{year}{2017}
+      \field{pages}{1\bibrangedash 7}
+      \range{pages}{7}
     \endentry
     \entry{Bishop:2006}{book}{}
       \name{author}{1}{}{%
@@ -4370,9 +4485,7 @@
     \endentry
   \enddatalist
   \missing{becker2017comparing}
-  \missing{bi2017simulation}
   \missing{doctorCarWash}
-  \missing{firnkorn2011}
 \endrefsection
 \endinput
 

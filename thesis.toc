@@ -104,22 +104,20 @@
 \contentsline {section}{\numberline {8.7}Spatial prediction of rentals with socio-demographic data}{105}{section.8.7}%
 \contentsline {subsection}{\numberline {8.7.1}Feature ranking and selection}{108}{subsection.8.7.1}%
 \contentsline {section}{\numberline {8.8}Conclusions}{109}{section.8.8}%
-\contentsline {chapter}{\numberline {9}Relocation}{112}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Scalability}{113}{chapter.10}%
-\contentsline {section}{\numberline {10.1}abstract}{113}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Introduction}{113}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Related Work}{115}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Dataset and demand model}{116}{section.10.4}%
-\contentsline {subsection}{\numberline {10.4.1}Dataset}{116}{subsection.10.4.1}%
-\contentsline {subsection}{\numberline {10.4.2}Demand Model}{117}{subsection.10.4.2}%
-\contentsline {section}{\numberline {10.5}Simulator and System Parameters}{119}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Simulator and assumptions}{119}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}Performance metrics}{121}{subsection.10.5.2}%
-\contentsline {subsection}{\numberline {10.5.3}Cost model}{121}{subsection.10.5.3}%
-\contentsline {section}{\numberline {10.6}Results}{123}{section.10.6}%
-\contentsline {subsection}{\numberline {10.6.1}Impact of infrastructure design options}{123}{subsection.10.6.1}%
-\contentsline {subsection}{\numberline {10.6.2}Impact of fleet size}{126}{subsection.10.6.2}%
-\contentsline {subsection}{\numberline {10.6.3}Impact of costs}{127}{subsection.10.6.3}%
-\contentsline {section}{\numberline {10.7}Conclusions}{128}{section.10.7}%
-\contentsline {chapter}{\numberline {11}Conclusions}{130}{chapter.11}%
-\contentsline {chapter}{Bibliography}{131}{chapter.11}%
+\contentsline {chapter}{\numberline {9}Scalability}{112}{chapter.9}%
+\contentsline {section}{\numberline {9.1}abstract}{112}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Introduction}{113}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Related Work}{114}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Dataset and demand model}{115}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}Dataset}{115}{subsection.9.4.1}%
+\contentsline {section}{\numberline {9.5}Simulator and System Parameters}{118}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Simulator and assumptions}{118}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Performance metrics}{119}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Cost model}{120}{subsection.9.5.3}%
+\contentsline {section}{\numberline {9.6}Results}{121}{section.9.6}%
+\contentsline {subsection}{\numberline {9.6.1}Impact of infrastructure design options}{122}{subsection.9.6.1}%
+\contentsline {subsection}{\numberline {9.6.2}Impact of fleet size}{124}{subsection.9.6.2}%
+\contentsline {subsection}{\numberline {9.6.3}Impact of costs}{126}{subsection.9.6.3}%
+\contentsline {section}{\numberline {9.7}Conclusions}{127}{section.9.7}%
+\contentsline {chapter}{\numberline {10}Conclusions}{128}{chapter.10}%
+\contentsline {chapter}{Bibliography}{129}{chapter.10}%

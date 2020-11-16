@@ -1,35 +1,17 @@
 \section{Simulator and System Parameters}
 \label{sec:10_4_ModelSimulation}
 
-%In this section we briefly describe how we compute our demand model and the the assumption of our EFFCS simulator.
-%In this work we leverage as input the data collected in our previous work~\cite{umap} describing real trips performed by car2go users. By using these data we model the users' demand in time by using modulated Poisson processes, and in space using Kernel by Density Estimation (KDE). 
-%The aim of the demand model is to generalize the users' demand described in the real data. We use this generalized demand to generate samples describing user trips and feed them into our event-based simulator. 
-
-%\subsection{Dataset and Demand Model}
- 
-%Our input data consists in real trips performed by car2go users in 23 cities during 2017. While this input data are fundamental to understand the users' demand, we cannot directly use them to understand how the system scale with an increasing demand. As such, we use them to create a generalized demand model. For this, we follow the approach we presented in~\cite{its}. In a nutshell we model the demand in time by using modulated Poisson processes - a common accepted model for i.i.d. service requests of a very large population~\cite{poisson_inh}. While for space, we generalize the demand using Kernel Density Estimation (KDE)~\cite{kde_spatial}. KDE gives us the possibility to smooth the point process of the real data over a multi-dimensional space while maintaining the origin/destination correlation.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Model of departure times
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Time Modeling}
-
-%For the time we assume that the inter-arrival time of trips follows an exponential distribution with  rate depending on the type and hour of the day. To account for the highly periodical rate as seen in Fig.\ref{fig:trips_day}, here we distinguish between weekday and weekends. We consider 24 time bins of 1\,h each (48 periods in total), where
-%the Poisson arrival rate reflects the average rate of requests in the dataset. This allows to  scale the overall demand by introducing a global scaling factor.
-%Not reported here for the sake of brevity, we compare the  number of trips in the simulated and the disaggregated trace. As expected, there is a very good match with low residuals (relative percentage errors for total trips between 0.6\% and 1.3\% for Louisville, 0.8\% and 3.4\% for Minneapolis) 
-
-
-Armed with the generalized demand model, we design and implement an event driven simulator to study the EVs FFCS system. Here we detail the simulation model, the simulator assumptions, the performance metrics, and the cost model used to project system performance into economic figures.
+Armed with the generalized demand model, I design and implement an event driven simulator, improving the software depicted in chapter \ref{chap:5_simulator} to study the EVs FFCS system. Here I detail the simulation model, the simulator assumptions, the performance metrics, and the cost model used to project system performance into economic figures.
 
 %****************************************
 % Simulator
 %****************************************
 \subsection{Simulator and assumptions}
 
-We consider a fleet $F$ of electric cars. As before, we divide the city into a set $Z$ of zones of 500\,m x 500\,m each, where  cars can be parked, rented, charged and returned. Car characteristics are the same as MY2018 electric Smart ForTwo, namely $B=17.6$\,kWh battery capacity and $15.9$\,kWh/$100$\,km energy efficiency. Each car is characterized by its location, status (i.e., available, rented, under charge) and battery State of Charge (SoC). 
-At simulation startup, cars are randomly placed in zones, with initial SoC uniformly distributed in $[0.5 B , B]$, and marked as available.
+I consider a fleet $F$ of electric cars. As the old version, the simulator works on the city divided $Z$ of zones of 500\,m x 500\,m each, where cars can be parked, rented, charged and returned. Car characteristics are the same as MY2018 electric Smart ForTwo, namely $B=17.6$\,kWh battery capacity and $15.9$\,kWh/$100$\,km energy efficiency like the previous works. Each car is characterized by its location, status (i.e., available, rented, under charge) and battery State of Charge (SoC). 
+At simulation startup, cars are randomly placed in zones and as first new feature, the initial SoC uniformly distributed in $[0.5 B , B]$, and marked as available.
 
-The charging infrastructure considers $n_p$ Level-2 chargers, with 3.7\,kW nominal power and 92\% charging efficiency. Charging stations are spread around the city zones. We place poles in those zones having the highest probability of being destination zones. This results in a good strategy to maximize system performance~\cite{7_cocca2019free,8_cocca2019free}. In details, we sort zones $z\in Z$ by the total number of parkings $tot\_park(z)$ observed in the original trace. We then consider the top $z_{p}$ fraction of zones, and place a number of poles in each proportionally to
+The charging infrastructure considers $n_p$ Level-2 chargers, with 3.7\,kW nominal power and 92\% charging efficiency. Charging stations are spread around the city zones. The simulator places poles in those zones having the highest probability of being destination zones. This results in a good strategy to maximize system performance~\cite{7_cocca2019free,8_cocca2019free}. In details, the algorithm sorts zones $z\in Z$ by the total number of parkings $tot\_park(z)$ observed in the original trace. The simulator then consider the top $z_{p}$ fraction of zones, and place a number of poles in each proportionally to
 $
 %\left \lfloor
 {n_p \cdot tot\_park(z)/\sum_z tot\_park(z)}
@@ -42,7 +24,7 @@ At $t=0$, the simulator generates the first \emph{rental request} event, extract
 
 \textbf{Car request event.}
 When a \emph{rental requests} fires, a customer looks for a car within the origin zone and in 1-hop neighbouring zones.
-If at least one car with enough SoC to reach the desired destination exists, the car gets rented, and a \emph{car release} event is scheduled after the time to reach the destination that is proportional to the distance, considering both orography and road network shape~\cite{8_cocca2019free}. If more than one such cars exists we choose the closest one, and, if need be, we choose the one with highest SoC.  
+If at least one car with enough SoC to reach the desired destination exists, the car gets rented, and a \emph{car release} event is scheduled after the time to reach the destination that is proportional to the distance, considering both orography and road network shape~\cite{8_cocca2019free}. If more than one such cars exists the closest one is picked, and, if need, the one with highest SoC.  
 If no car is suitable for this ride, the trip does not occur and the request is marked as \emph{unsatisfied}.
 
 
@@ -51,14 +33,14 @@ If no car is suitable for this ride, the trip does not occur and the request is 
 When a \emph{car release} event fires, the simulator updates the car SoC decreasing it proportionally to the travelled distance.
 If the updated SoC is above a threshold $\alpha$, the car is parked in the user's arrival zone, and marked available for other rentals.
 
-If instead the SoC is below $\alpha$, the car battery needs to be charged. The system handles the charging event by moving the car to the nearest-free charging pole. The simulator schedules a \emph{charge complete} event which accounts for both the time to reach the pole and the time to bring the SoC to 100\%\footnote{For simplicity, we assume there are infinite workers to handle the battery charge events so that a car gets serviced immediately. In case all poles are busy, the car gets placed in a queue of the closest charging station, and gets serviced when the first pole is freed.}.
+If instead the SoC is below $\alpha$, the car battery needs to be charged. The system handles the charging event by moving the car to the nearest-free charging pole. The simulator schedules a \emph{charge complete} event which accounts for both the time to reach the pole and the time to bring the SoC to 100\%\footnote{For simplicity, the assumption is the presence of infinite workers to handle the battery charge events so that a car gets serviced immediately. In case all poles are busy, the car gets placed in a queue of the closest charging station, and gets serviced when the first pole is freed.}.
 
 
 
 
 
 \textbf{Charge complete.} When a \emph{charge complete} event fires, the car is marked as available, and customers can rent it again. The charging pole is released as well.  
-Notice that we assume the car is released in the same zone where it was being charged, i.e., the system does not implement any relocation policy after charging.
+Notice that I assume the car is released in the same zone where it was being charged, i.e., the system does not implement any relocation policy after charging.
 
 
 \begin{table}[t]
@@ -111,7 +93,7 @@ Notice that we assume the car is released in the same zone where it was being ch
 % Performance metrics
 %****************************************
 \subsection{Performance metrics}
-In this work, we focus on the following performance metrics to compare different design options:
+In this chapter, I describe on the following performance metrics to compare different design options:
 
 \textbf{Unsatisfied Demand}: it is the fraction of requests that are not satisfied because there is no car with enough SoC in the origin and neighbouring zones. It is an indicator of the quality of the service in terms of car availability for user requests, and shall be minimised.
 
@@ -122,28 +104,28 @@ It is the sum of the driving time spent by workers to drive the cars to the near
 % Cost model
 %****************************************
 \subsection{Cost model}
-While performance indexes are useful to explore design options, the FFCS operator is ultimately interested in the economic sustainability of a solution. For this, we derive a cost model based on yearly projections.
-We then consider revenues by projecting the number of rental and their duration. Armed with both, we estimate profit.
-Here we consider:
+While performance indexes are useful to explore design options, the FFCS operator is ultimately interested in the economic sustainability of a solution. For this, I derive a cost model based on yearly projections.
+I then consider revenues by projecting the number of rental and their duration. Armed with both, I estimate profit.
+Here I consider:
 
-\textbf{Vehicle cost.} We assume cars are leased to include all costs, namely registration, tax, insurance, ordinary and extraordinary maintenance, and roadside assistance. We assume electric cars do not pay for parking on street and for accessing limited traffic areas. Given the yearly car lease $C_{lease}$ and the number of vehicles, we easily derive the total yearly fleet cost.
+\textbf{Vehicle cost.} I assume cars are leased to include all costs, namely registration, tax, insurance, ordinary and extraordinary maintenance, and roadside assistance. I assume electric cars do not pay for parking on street and for accessing limited traffic areas. Given the yearly car lease $C_{lease}$ and the number of vehicles, I easily derive the total yearly fleet cost.
  
 
-\textbf{Charging infrastructure cost.} Here we refer to actual use cases as defined in~\cite{evInfrastructureCosts}. Pole installation costs account for material and labor cost. Material cost $C_{pole}$ includes hardware cost for Level II chargers.
+\textbf{Charging infrastructure cost.} Here I refer to actual use cases as defined in~\cite{evInfrastructureCosts}. Pole installation costs account for material and labor cost. Material cost $C_{pole}$ includes hardware cost for Level II chargers.
 Labor cost $C_{labor}$ is highly dependent on the city, region and country.
-We need also to consider the make-ready infrastructure cost $C_{setup}$ that represents the cost for a charging station setup. It does not depend on the number of charging poles per station, but depends only on the number of charging zones $z_p\cdot|Z|$. It represents a highly variable cost since it depends on the location and the electric distribution infrastructure already in place. In fact, the expenses of trenching and laying conduit can add thousands of Euros to costs. %They are typically a large percentage of the capital costs of an installation, at about 30-40\%. 
-All these costs are one-time costs. We assume these costs have an amortization period equal to the average charging station and pole lifetime $p_{life}$.
+I need also to consider the make-ready infrastructure cost $C_{setup}$ that represents the cost for a charging station setup. It does not depend on the number of charging poles per station, but depends only on the number of charging zones $z_p\cdot|Z|$. It represents a highly variable cost since it depends on the location and the electric distribution infrastructure already in place. In fact, the expenses of trenching and laying conduit can add thousands of Euros to costs. %They are typically a large percentage of the capital costs of an installation, at about 30-40\%. 
+All these costs are one-time costs. I assume these costs have an amortization period equal to the average charging station and pole lifetime $p_{life}$.
 
-Next, we consider pole maintenance costs $C_{maint}$, which we derive from variable site-specific parameters.
+Next, I consider pole maintenance costs $C_{maint}$, which I derive from variable site-specific parameters.
 
-In some cities, we need also to consider the per vehicle ground occupation tax $C_{ground}$, that usually depends on the surface for dedicated charging spot.
+In some cities, I need also to consider the per vehicle ground occupation tax $C_{ground}$, that usually depends on the surface for dedicated charging spot.
 Due to the small size of Smart ForTwo, charging spots are assumed to be 4,50\,m x 2,30\,m, for each pole.
 
 
-\textbf{Operating costs.} For this we take into account the $C_{energy}$ cost for the energy to charge the vehicles; the hourly cost for workers $C_{drivers}$ who have to handle the charge events; a cost $C_{disinf}$ to clean and disinfect the car any time the worker brings it to charge. Finally, we assume exterior car washing every 100 rentals, each costing $C_{wash}$.
+\textbf{Operating costs.} For this I take into account the $C_{energy}$ cost for the energy to charge the vehicles; the hourly cost for workers $C_{drivers}$ who have to handle the charge events; a cost $C_{disinf}$ to clean and disinfect the car any time the worker brings it to charge. Finally, I assume exterior car washing every 100 rentals, each costing $C_{wash}$.
 
-\textbf{Rental Revenue} We consider a simple average cost-per-minute $R_{rental}$. This allows us to transform the total rental minutes into the total revenues.
+\textbf{Rental Revenue} I consider a simple average cost-per-minute $R_{rental}$. This allows us to transform the total rental minutes into the total revenues.
 
-Top part of Table~\ref{tab:10_4_summary} summarizes the parameters that define the scenarios used in the simulations. Bottom part shows the cost we consider for the Turin use case.
-Given a scenario, we run a simulation to collect performance indexes. We next post-process the simulation results to derive the monthly cost and revenue figures. The custom simulator used is written in Python and based on SimPy library.\footnote{SimPy is a discrete-event simulation library. Documentation is available at: https://simpy.readthedocs.io/en/latest/contents.html.} The cost-revenue model is implemented in Python too and it is available online. The cost model allows one to interactively observe what happens by changing the cost values.\footnote{The code and data for cost and profit evaluation are available at: \url{https://smartdata.polito.it/on-scalability-of-electric-car-sharing-in-smart-cities/}.}
+Top part of table~\ref{tab:10_4_summary} summarizes the parameters that define the scenarios used in the simulations. Bottom part shows the cost I consider for the Turin use case.
+Given a scenario, I run a simulation to collect performance indexes. I next post-process the simulation results to derive the monthly cost and revenue figures. The custom simulator used is written in Python and based on SimPy library.\footnote{SimPy is a discrete-event simulation library. Documentation is available at: https://simpy.readthedocs.io/en/latest/contents.html.} The cost-revenue model is implemented in Python too and it is available online. The cost model allows one to interactively observe what happens by changing the cost values.\footnote{The code and data for cost and profit evaluation are available at: \url{https://smartdata.polito.it/on-scalability-of-electric-car-sharing-in-smart-cities/}.}
 

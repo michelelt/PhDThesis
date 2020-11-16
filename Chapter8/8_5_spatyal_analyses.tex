@@ -68,11 +68,11 @@ Table~\ref{tab:8_5_featuresranking} reports the top-15 most relevant features.
 This feature ranking procedure allows us on the one hand to identify what information the FFCS operator should focus on when considering new neighborhoods of the city in which to implement its service. 
 On the other hand, such ranking leads to a reduction of the number of features the model: in this way it is possible to focus only on the most important ones.
 
-To evaluate the impact of the features on the model performance, I train once again the RFR with an increasing number of features, chosen according to the given rank. I fix the number of trees according to the best average MAPE obtained in Figures~\ref{fig:8_5_rfr_start_MAPE} and \ref{fig:8_5_rfr_final_MAPE}: 40 trees for the starting and 20 for the ending rentals prediction. Figure~\ref{fig:reg_err_perc_LC} shows the results. It reports the MAPE versus the number of features in the model.
+To evaluate the impact of the features on the model performance, I train once again the RFR with an increasing number of features, chosen according to the given rank. I fix the number of trees according to the best average MAPE obtained in Figures~\ref{fig:8_5_rfr_start_MAPE} and \ref{fig:8_5_rfr_final_MAPE}: 40 trees for the starting and 20 for the ending rentals prediction. Figure~\ref{fig:8_5_reg_err_perc_LC} shows the results. It reports the MAPE versus the number of features in the model.
 Notice the U-shaped curve of the average MAPE (dashed black line). Intuitively, too few features worsen the regression performance due to lack of information. Too many features also reduce the performance since the training is more complicated and the model gets confused.
 
-I further evaluate the RFR model by selecting the best number of features (the one that minimizes the average MAPE), which results to selecting the top 7 features in Table~\ref{tab:results-stationary-models}. With this subset, the average MAPE is 41\% and RMSE equals to 1104.501 for starting rentals, while for arrivals
-MAPE is 39\% and  RSME is equal to 1010.453.%\ana{Michele, please check the values.}.
+I further evaluate the RFR model by selecting the best number of features (the one that minimizes the average MAPE), which results to selecting the top 7 features in Table~\ref{tab:8_5_featuresranking}. With this subset, the average MAPE is 41\% and RMSE equals to 1104.501 for starting rentals, while for arrivals
+MAPE is 39\% and  RSME is equal to 1010.453. 
 As expected, using only the top most important features improves significantly the performance.
 
 Finally, I explore the spatial prediction error, i.e., I look if there are neighborhoods that present significantly higher errors than others.
