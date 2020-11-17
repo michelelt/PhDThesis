@@ -267,17 +267,25 @@ Prof.~I.J., University of \dots}
 %\keywords{{pdfLaTeX} {LuaLaTeX} {XeLaTeX} {PhD doctoral programs} {PhD dissertation} {Politecnico di Torino}} 
 
 \summary%\sommario
+%This is where you write your abstract \dots\ (Maximum 4000 characters, i.e. maximum two pages in normal sized font, typeset with the thesis layout).
+%The abstract environment is also available, but  \texttt{\string\summary} is preferred because it generates an un-numbered chapter. The abstract environment is more suitable for articles and two column typesetting without a separate title page.
+\mc{intro}
 
-This is where you write your abstract \dots\ (Maximum 4000 characters, i.e. maximum two pages in normal sized font, typeset with the thesis layout).
+In my thesis, I presented a methodology to address, in different cases of studies, all the challenges related to the conversion of combustion engine cars to electric vehicles in FFCS. In particular, the main drivers focus on a profitable and technically sustainable system setup able to guarantee a flexible and appealing mobility service to an increasing customer audience.
 
-The abstract environment is also available, but  \texttt{\string\summary} is preferred because it generates an un-numbered chapter. The abstract environment is more suitable for articles and two column typesetting without a separate title page.
+In the first part of my thesis, I described the software I developed in order to scrape from the web real combustion engine FFCS, from two providers: car2go and Enjoy. The data collection car2go data collection lasted from \mc{december 2016 to january 2018, collecting more than 28 million users' bookings spread in 25 cities} while the Enjoy data collection phase started \mc{may 2018 and lasted until BOH}, collectin about \mc{BOH} bookings in 6 cities. 
 
-\emptypage %  it works even without the classica option
-\acknowledgements% or \ringraziamenti
+Then, I characterized both datasets in Turin, one of the cities in which both FFCS providers work. Initially, I defined a filtering criterion to remove outliers from the dataset and identify only real users' ride: entries reporting a trip where the user realistically moved. These analyses allowed me to identify geo-spatial user's patterns. After that, I compared the car2go customer's pattern with the one-way and two-way car-sharing system. The results showed how users prefer more flexible services like FFCS or one-way car sharing.
 
-And I would like to acknowledge \dots
+Once the data are consolidated, I developed (i) a methodology to assign a charging station to a city by looking at users' pattern; (ii) system policies to manage the fleet when the vehicle SoC may not guarantee a trip; (iii) an event-based trace-driven simulator able to replicate the recorded trips in an electrified scenario evaluating the feasibility of each configuration. 
 
-Acknowledgements are mandatory only when people outside the academic institution supported the development of the research that was performed in order to reach the conclusion of the doctorate program.
+At this point I studied in Berlin, Milan, Turin, and Vancouver (cities having different traffic patterns) different electric FFCS setup. The best logic to place a charging station is to cover the zones recording more parkings: increasing the charging station presence in those zones, the probability to find a free plug increases too. Then, I showed how an electric FFCS is sustainable with few charging stations (8-10~\% of city zones) if the users accept to park the car in a charging station when their ride finishes nearby or when the SoC goes below a security threshold. Finally, I investigate different charging station setups. The best results come by balancing the spread of charging stations: concentrated all plugs in a unique hub or spread them all above the city leads to poor performances in terms of system sustainability and user's discomforts.
+
+To still reduce the number of charging stations to have a sustainable electric FFCS, I compared several optimization algorithms. My results showed how a Genetic Algorithm is able to find a better solution able to shrink the minimum amount of resources to sustain the same mobility demand.
+
+After that, I moved my attention to the users' rentals predictability. The main goal is to understand how different open-data sources could impact on the recorded FFCS users' rental. I used as a case of study the city of Vancouver, augmenting the rentals dataset with the weather and socio-economic open data. Initially, I compared several time-series forecasts to predict the users' demand in the short and medium-term. The Random Forrest regression produced better accuracy and results interpretability. Then I correlated the socio-economics features characterizing each Vancouver neighborhood to FFCS demand and again, the Random Forrest regression clearly showed a subset of socio-economic features more correlated to the FFCS users' rentals.
+
+Finally, I questioned the system scalability figuring out several scenarios having increasing demand. I used a model able to synthesize users' demand by looking only at the geo-spatial users' rentals. By varying the electric FFCS setup and simulating the new scenario I pointed out how a linear increase in the demand intensity leads to a fleet sub-linear increase. Finally, I projected those considerations in euros proofing how electric FFCS has rooms for economic growth. 
 
 \begin{dedication}
 

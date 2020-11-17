@@ -1,34 +1,34 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
 [0] Config.pm:307> INFO - Logfile is 'thesis.blg'
-[141] biber-darwin:322> INFO - === Sun Nov 15, 2020, 23:26:29
-[161] Biber.pm:415> INFO - Reading 'thesis.bcf'
-[337] Biber.pm:943> INFO - Found 106 citekeys in bib section 0
-[358] Biber.pm:4256> INFO - Processing section 0
-[358] Utils.pm:75> INFO - Globbing data source 'thesis.bib'
-[358] Utils.pm:91> INFO - Globbed data source 'thesis.bib' to thesis.bib
-[372] Biber.pm:4455> INFO - Looking for bibtex format file 'thesis.bib' for section 0
-[378] bibtex.pm:1653> INFO - LaTeX decoding ...
-[634] bibtex.pm:1471> INFO - Found BibTeX data source 'thesis.bib'
-[642] Utils.pm:304> WARN - Duplicate entry key: 'Wagner2015' in file 'thesis.bib', skipping ...
-[642] Utils.pm:304> WARN - Duplicate entry key: 'Schmoller2015' in file 'thesis.bib', skipping ...
-[643] Utils.pm:304> WARN - Duplicate entry key: 'Firnkorn2011' in file 'thesis.bib', skipping ...
-[645] Utils.pm:304> WARN - Duplicate entry key: 'Wang2017' in file 'thesis.bib', skipping ...
-[645] Utils.pm:304> WARN - Duplicate entry key: 'Tyndall2016' in file 'thesis.bib', skipping ...
-[650] Utils.pm:304> WARN - Duplicate entry key: 'coccaopt' in file 'thesis.bib', skipping ...
-[650] Utils.pm:304> WARN - Duplicate entry key: 'Kortum2016' in file 'thesis.bib', skipping ...
-[651] Utils.pm:304> WARN - Duplicate entry key: 'coccacar' in file 'thesis.bib', skipping ...
-[651] Utils.pm:304> WARN - Duplicate entry key: 'VancouverCS' in file 'thesis.bib', skipping ...
-[679] Utils.pm:304> WARN - month field 'Aug' in entry 'ciociolaumap' is not an integer - this will probably not sort properly.
-[697] Utils.pm:304> WARN - month field 'Jan' in entry 'Wagner2015' is not an integer - this will probably not sort properly.
-[782] Utils.pm:304> WARN - month field 'April' in entry 'Ma:2013' is not an integer - this will probably not sort properly.
-[1494] Utils.pm:304> WARN - Possible typo (case mismatch) between citation and datasource keys: 'doctorCarWash' and 'DoctorCarWash' in file 'thesis.bib'
-[1499] Utils.pm:304> WARN - BibTeX subsystem: /var/folders/nl/x73jty7x3qd4sgfld77vnh8c0000gn/T/biber_tmp_OtNS/thesis.bib_9421.utf8, line 149, warning: 18 characters of junk seen at toplevel
-[1499] Utils.pm:304> WARN - I didn't find a database entry for 'becker2017comparing' (section 0)
-[1499] Utils.pm:304> WARN - I didn't find a database entry for 'doctorCarWash' (section 0)
-[1785] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1786] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1786] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'it-IT'
-[1786] Biber.pm:4090> INFO - No sort tailoring available for locale 'it-IT'
-[1935] bbl.pm:652> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[2028] bbl.pm:755> INFO - Output to thesis.bbl
-[2028] Biber.pm:128> INFO - WARNINGS: 16
+[100] biber-darwin:322> INFO - === Mon Nov 16, 2020, 23:52:17
+[122] Biber.pm:415> INFO - Reading 'thesis.bcf'
+[268] Biber.pm:943> INFO - Found 106 citekeys in bib section 0
+[283] Biber.pm:4256> INFO - Processing section 0
+[283] Utils.pm:75> INFO - Globbing data source 'thesis.bib'
+[284] Utils.pm:91> INFO - Globbed data source 'thesis.bib' to thesis.bib
+[303] Biber.pm:4455> INFO - Looking for bibtex format file 'thesis.bib' for section 0
+[312] bibtex.pm:1653> INFO - LaTeX decoding ...
+[582] bibtex.pm:1471> INFO - Found BibTeX data source 'thesis.bib'
+[588] Utils.pm:304> WARN - Duplicate entry key: 'Wagner2015' in file 'thesis.bib', skipping ...
+[588] Utils.pm:304> WARN - Duplicate entry key: 'Schmoller2015' in file 'thesis.bib', skipping ...
+[588] Utils.pm:304> WARN - Duplicate entry key: 'Firnkorn2011' in file 'thesis.bib', skipping ...
+[590] Utils.pm:304> WARN - Duplicate entry key: 'Wang2017' in file 'thesis.bib', skipping ...
+[590] Utils.pm:304> WARN - Duplicate entry key: 'Tyndall2016' in file 'thesis.bib', skipping ...
+[595] Utils.pm:304> WARN - Duplicate entry key: 'coccaopt' in file 'thesis.bib', skipping ...
+[595] Utils.pm:304> WARN - Duplicate entry key: 'Kortum2016' in file 'thesis.bib', skipping ...
+[596] Utils.pm:304> WARN - Duplicate entry key: 'coccacar' in file 'thesis.bib', skipping ...
+[597] Utils.pm:304> WARN - Duplicate entry key: 'VancouverCS' in file 'thesis.bib', skipping ...
+[626] Utils.pm:304> WARN - month field 'Aug' in entry 'ciociolaumap' is not an integer - this will probably not sort properly.
+[642] Utils.pm:304> WARN - month field 'Jan' in entry 'Wagner2015' is not an integer - this will probably not sort properly.
+[713] Utils.pm:304> WARN - month field 'April' in entry 'Ma:2013' is not an integer - this will probably not sort properly.
+[1267] Utils.pm:304> WARN - Possible typo (case mismatch) between citation and datasource keys: 'doctorCarWash' and 'DoctorCarWash' in file 'thesis.bib'
+[1273] Utils.pm:304> WARN - BibTeX subsystem: /var/folders/nl/x73jty7x3qd4sgfld77vnh8c0000gn/T/biber_tmp_M_tz/thesis.bib_37267.utf8, line 149, warning: 18 characters of junk seen at toplevel
+[1274] Utils.pm:304> WARN - I didn't find a database entry for 'becker2017comparing' (section 0)
+[1274] Utils.pm:304> WARN - I didn't find a database entry for 'doctorCarWash' (section 0)
+[1526] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1526] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1526] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'it-IT'
+[1527] Biber.pm:4090> INFO - No sort tailoring available for locale 'it-IT'
+[1673] bbl.pm:652> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[1756] bbl.pm:755> INFO - Output to thesis.bbl
+[1756] Biber.pm:128> INFO - WARNINGS: 16
