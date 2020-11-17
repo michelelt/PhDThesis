@@ -1,10 +1,15 @@
 \section{Introduction}
-The main 
-The aim of this chapter is to find a methodology to convert combustion engine FFCS into electric one using real data. In order to do that,  I developed an event-driven simulator able to replicate the users' FFCS mobility patterns created from the data collected with the tools described in chapters \ref{chap:2_dataset} and \ref{chap:4_cs_comparison}. 
+In the previous chapters I widely described the dataset in I collected and characterized. However the collected data refers \emph{only} to internal combustion engine cars. Recalling that the main research question of my thesis is: \emph{It is possible design an electric Free Floating Car Sharing System?}, I need a tool able to replicate the FFCS customers' habits in a customizable model of electric FFCS system. 
 
-In order to give a main idea, the simulator takes as input a real trace composed by a ordered set of rentals, an operative area composed by adjacent squares zones of 0.025 $km_2$, the set of charging station and their placement, a car model and a fleet size. By consuming the trace, the simulator computes trip by trip the amount of energy needed to travel the proper distance and moves the designed car from the starting point to the chosen destination.
+In this chapter I describe the core-tool of my research: an event-driven trace-based electric FFCS simulator. In a nutshell, this software I developed is able to (i)  extract users pattern from data collected in chapter \ref{chap:2_dataset}; (ii) replicate the users patterns in a electrified scenario parametrized by the client; (iii) return several performance metrics describing the inputted electric FFCS setup.
 
-During the simulations, the software computes several metrics in order to measure to proper size the charging infrastructure and how it is refleceted as user discomfort, i.e. in terms of number of plugging operation.
+In order to give a main idea, the simulator takes as input a real trace composed by a ordered set of rentals. More in details, the simulator creates the event-trace composed by \emph{Event} events. Each one of them carries temporal and spatial coordinates (when the event triggers) and it can represent a rental start or rental end. In this way, the simulator is able to mirrors the exact FFCS trips. 
+
+Another input is the operative area composed by adjacent squares zones of 0.025 $km^2$. Then, each one of those zone can be equipped with a charging station, so the set of charging station and their placement is the third input. Complete the input set a car model and a fleet size.
+
+By consuming the trace, the simulator computes trip by trip the amount of energy needed to travel the proper distance and moves the designed car from the starting point to the chosen destination. 
+
+During the simulations, the software computes several metrics in order to measure to proper size the charging infrastructure and how it is reflected as user discomfort, i.e. in terms of number of plugging operation.
 
 Those metrics are heavily influenced by the some environmental parameters like the number and the distribution of charging station. For this reason I proposed three placement strategies related to users' driving patterns. 
 

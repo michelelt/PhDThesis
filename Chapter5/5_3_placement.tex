@@ -1,6 +1,7 @@
 \section{Meta-Heuristic Charging Stations Placement}
 \label{sec:5_3_mh_placement}
-In this sections I explain the ratio behind the charging station placement. Indeed, in the previous section I described the structure and simulation policies, while now I define an important environmental variable that will be deeply studied in chapters \mc{references}. I remind that from the rental booking trace, I extrapolate the service area and I divide it into square zones of 500 m of side length. Then, using the number of parking or the average parking time for each zone, the simulator choose which zones equip with a charging station.
+In this sections I explain the charging station placement algorithm. The output of this algorithm is one of the most relevant environmental variables that will be deeply studied and analysed in chapters \ref{chap:6_4cities} and \ref{chap:7_cs_optimization}. The main idea behind this algorithm to rank each zone (defined in section \ref{sec:5_2_modelling}) according a the users' travelling patterns and, then equip zones having the highest values.
+
 
 \subsection{Problem formalization}
 Given a number of charging station $N$, the first objective is to place them in the city area so to let all rentals feasible, i.e., to find a charging stations placement so that
@@ -69,4 +70,4 @@ For completeness, I report in figure \ref{fig:5_4_heatmap_sumtime} the \textit{T
 	\label{fig:5_4_heatmap_sumtime}
 \end{figure} 
 
-This brief catheterization shows how  different cities can have different spatial characterization and thus different charging station placements. However those characterization will be deepened in chapters \mc{captoli}.
+This brief catheterization shows how  different cities can have different spatial characterization and thus different charging station placements. However those characterization will be deepened in chapter \ref{chap:6_4cities}.

@@ -35,7 +35,7 @@ independently whether the car is at a pole being charged or not.\footnote{We cho
 If any car is available, the simulator selects the closest zone to $O(i)$ containing an available car, mimicking the normal behaviour of FFCS customers that use their smartphone to rent the closest car from their position. If any vehicle is present in the 8 eight neighbouring zones, the rental is marked as {\it infeasible}.
 A \emph{rental-end} event is then scheduled using the trace final time $t_{e}(i)$ and location $d(i)$.
 
-When car $a$ rental-end event is processed at time $t_{e}(i)$, the simulator makes as available the car in the real position $p(a,t_{e}(i))$. The arrival zones might correspond to the one present in the \emph{rental-end} event, or it might be necessary to manage a slightly user's re-routing due to vehicle plugging procedures. The policies to decide when and how plug the car are described in section \mc{define sezione}. Once the car is released, the simulator updates the battery State of Charge (SoC) by consuming an amount of energy proportional to the real trip distance:
+When car $a$ rental-end event is processed at time $t_{e}(i)$, the simulator makes as available the car in the real position $p(a,t_{e}(i))$. The arrival zones might correspond to the one present in the \emph{rental-end} event, or it might be necessary to manage a slightly user's re-routing due to vehicle plugging procedures. The policies to decide when and how plug the car are described in section \ref{sec:6_7_results}. Once the car is released, the simulator updates the battery State of Charge (SoC) by consuming an amount of energy proportional to the real trip distance:
 \begin{eqnarray*}
 	c(a,t_{e}(i)) = \nonumber \hspace{0cm}   \max{(c(a,t_{s}(i)) - Energy(p(a,t_{s}(i)), p(a,t_{e}(i))), 0)} 
 \end{eqnarray*}
@@ -46,18 +46,62 @@ When car $a$ rental-end event is processed at time $t_{e}(i)$, the simulator mak
 with $Energy(\cdot)$ that models the energy consumed to go from the car origin $p(a,t_{s}(i))$ to the car destination $p(a,t_{e}(i))$.
 In case $c(a,t_{e}(i)) = 0$, the trip $i$ is declared {\it infeasible}. 
 The discharged car $a$ still performs further trips, all marked as infeasible, until it reaches a charging station.
+
+%\begin{algorithm}[H]
+%	Events = List of  Events\\
+%	Cars = List of car IDs\\
+%	Zones = List of zones ID \\
+%	Stations = Zones marked with a charging stations\\
+%	Infeasible\_trips = 0 \\
+%	Reroutings = 0\\
+%	Walked\_distance = 0
+%	Recharges = 0
+%	\caption{Variables initialization}
+%\end{algorithm}
+%
 %
 %\begin{algorithm}[H]
 %	
-%	Events = List of  Events\\
-%	Cars = CSO fleet modelling\\
-%	Stations = Areas subset decided according to the placement algorithm\\
-%	Average\_SoC = Charges =  Discharge = 0 \\
+%	\For{Event in Events}
+%	{
+%		\If{Event = \textit{rental-start}}
+%		{
+%			current\_zone = Event.start\_zone\\
+%			car\_id = get\_nearest\_car(current\_zone)\\
+%			\If {car\_id == Null} {Infeasible\_trips+=1}
+%			\Else{Cars[car\_id].set\_isrented()}
+%		}
+%		
+%		\If{Event = \textit{rental-end}}
+%		{
+%			car\_id = Event.car\_id \\
+%			current\_zone = Event.end\_zone\\
+%			Cars[car\_id].update\_soc(Event.travelled\_distance) \\
+%			\eIf{Cars[car\_id] <= 0} 
+%			{
+%				Infeasible\_trips+=1
+%				Cars[car\_id].end\_zones = current\_zones
+%			}
+%			\eIf{Cars[car\_id] >= 0 & Cars[car\_id] <= $\pi$} 
+%				{
+%					new\_end\_zone = closest\_charging\_station(current\_zone)\\
+%					Walked\_distasnce = distance(current\_zone, new\_end\_zone)\\
+%					Reroute += 1
+%					Rechages +=1
+%					Cars[car\_id].end\_zone = new\_end\_zone 
+%				}
+%		}
 %	
-%	\caption{Variables initialization}
+%		
+%		
+%	}
+%	
+%	
+%	\caption{Simulation algorithm}
 %\end{algorithm}
+
 %\begin{algorithm}[H]
-%	\For{Booking in Bookings}
+%	\For{Event in Events}
 %	{
 %		current\_plate = Booking.plate\\
 %		current\_car = Cars[current\_plate]\\
@@ -95,5 +139,3 @@ The discharged car $a$ still performs further trips, all marked as infeasible, u
 %	Discharge = Discharge / len(Bookings)\\
 %	
 %	\caption{Simulation algorithm}
-%\end{algorithm}
-%
