@@ -96,46 +96,73 @@ After having processed all cars in the current snapshot, I iterate over the rema
 		City &  City Size [$km^2$]\footnote{} & Population \footnotemark[\value{footnote}] &  Avg. Fleat & Bookings\\ 
 		\hline
 		\hline
-		Columbus			  & 17 & 892k & 187 & 186k \\
-		Florence 	  			& 34 & 372k & 220 & 333k \\
-		Denver 		  			 & 36 & 727k & 312 & 348k \\
-		Austin 		   			  & 31 & 964k & 315 & 377k \\
-		Frankfurt 			   & 40 & 701k & 242 & 505k \\
-		Toronto 				 & 49 & 3120k & 400 & 536k \\
-		Amsterdam 			& 38 & 854k & 314 & 573k \\
-		Montreal 				& 49 & 1704k & 429 & 606k \\
-		New York City 	   & 77 & 8522k & 500 & 739k \\
-		Turin 					    & 47 & 874k & 396 & 868k \\
-		Munich 					 & 61 & 1464k & 478 & 916k \\
-		Washington DC 	  & 64 & 705k & 563 & 919k \\
-		Stuttgart 				 & 59 & 632k & 486 & 1001k \\
-		Seattle 				   & 92 & 744k & 710 & 1134k \\
-		Calgary 				  & 47 & 1239k & 552 & 1176k \\
-		Rome 					  & 65 & 2837k & 582 & 1240k \\
-		Rheinland 			   & 82 & 1688k & 648 & 1421k \\
-		Vienna 					  & 72 & 1915k & 688 & 1702k \\
-		Madrid 					 & 42 & 3233k & 424 & 2092k \\
-		Milan 					   & 77 & 1396k & 776 & 2223k \\
-		Hamburg 			  & 82 & 1833k & 812 & 2561k \\
-		Vancouver 			 & 78 & 631k & 977 & 2701k \\
-		Berlin 					  & 125 & 3769k & 1009 & 3091k \\
+		Columbus			  & 583 & 892k & 187 & 186k \\
+		Florence 	  			& 102 & 372k & 220 & 333k \\
+		Denver 		  			 & 401 & 727k & 312 & 348k \\
+		Austin 		   			  & 704 & 964k & 315 & 377k \\
+		Frankfurt 			   & 248 & 701k & 242 & 505k \\
+		Toronto 				 & 630 & 3120k & 400 & 536k \\
+		Amsterdam 			& 219 & 854k & 314 & 573k \\
+		Montreal 				& 431 & 1704k & 429 & 606k \\
+		New York City(Manhattan) 	   & 59 & 1629 & 500 & 739k \\
+		Turin 					    & 130 & 874k & 396 & 868k \\
+		Munich 					 & 310 & 1464k & 478 & 916k \\
+		Washington DC 	  & 177 & 705k & 563 & 919k \\
+		Stuttgart 				 & 207 & 632k & 486 & 1001k \\
+		Seattle 				   & 217 & 744k & 710 & 1134k \\
+		Calgary 				  & 825 & 1239k & 552 & 1176k \\
+		Rome 					  & 1287 & 2837k & 582 & 1240k \\
+		Rheinland 			   &  - & 1688k & 648 & 1421k \\
+		Vienna 					  & 414 & 1915k & 688 & 1702k \\
+		Madrid 					 & 604 & 3233k & 424 & 2092k \\
+		Milan 					   & 181 & 1396k & 776 & 2223k \\
+		Hamburg 			  & 755 & 1833k & 812 & 2561k \\
+		Vancouver 			 & 115 & 631k & 977 & 2701k \\
+		Berlin 					  & 891 & 3769k & 1009 & 3091k \\
 		%\\ \hline
 		\hline
 		\label{tab:2_3_datasummary}
 	\end{tabular}
 \end{table}
-\footnotetext{\url{wikipedia.org}}
-I let \tool scrape car2go's data  \mc{prendere le date}. In total it is possible to count about 27 million bookings spread in 23 cities. The table \ref{tab:2_3_datasummary} reports a brief resume of all the bookings, parkings present in the data lake. 
 
-\mc{devo prendere le date anche di enjoy}
+\begin{table}
+	\setlength{\tabcolsep}{2.3pt}
+	\centering
+	\caption{Overview of Enjoy's data}
+	\begin{tabular}{lcccc}
+		\hline
+		City &  City Size [$km^2$]\footnotemark[\value{footnote}] & Population \footnotemark[\value{footnote}] &  Avg. Fleat & Bookings\\ 
+		\hline
+		\hline
+		Bologna			         &140    & 390k & 72 & 47k \\
+		Catania			          &182    & 311k & 78 & 205k \\	
+		Florence 	  			 & 102  & 372k & 82 & 279k \\
+		Turin 					   & 130   & 874k & 251 & 983k \\
+		Rome 					  & 1287 & 2837k & 601 & 2031k \\
+		Milan 					   & 181   & 1396k & 755 & 3107k \\
+
+
+
+		%\\ \hline
+		\hline
+		\label{tab:2_3_datasummary_enjoy}
+	\end{tabular}
+\end{table}
+
+
+\footnotetext{\url{wikipedia.org}\label{fn:wiki}}
+I let \tool scrape car2go's data from December 2016 to January 2018. In total it is possible to count about 27 million bookings spread in 23 cities. The same scraping procedure run for Enjoy as well, from May 2017 to June 2019.  The table \ref{tab:2_3_datasummary} reports a brief resume of all the car2g bookings, present in the data lake, while table \ref{tab:2_3_datasummary_enjoy} reports the same information for Enjoy.
+
 
 
 
 \section{Data Analysis}
+\label{sec:2_5_data_analysyes}
 The third and final stage is the data analysis phase in which analytics modules query the MongoDB and obtain statistics. I rely on the Python programming language with Pandas and the GeoPandas libraries to deal with the data, the city zone definitions, provided by transport engineers as a shapefile, a popular geospatial vector data format, and the Geographical Information Systems (GIS) for the spatial analyses. I choose Python as it offer a large number of  libraries that easily interact with the different technologies like GIS, maps and MongoDB. In particular the usage of GeoPandas allow me to easily perform geographic analysis and split the city in many areas (or zones) of any possible shapes. I present more detailed characterization in chapter \ref{chap:3_charact}.
 
 
 \section{Conclusions}
+\label{sec:2_6_conclusions}
 In this chapter I described the software pipeline, named \tool I used to harvest and store data from real FFCS providers. 
 
 The first stage explains the data structures and how I snapshots the system getting all the car ready for a ride. 

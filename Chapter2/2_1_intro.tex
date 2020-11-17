@@ -5,18 +5,17 @@ Mobility is one of the challenges to solve in our society and in cities, where e
 %
 To this extent, in this chapter I describe the possibility of harvesting data openly exposed on the Web to obtain information about mobility habits in cities, and make it available to the players by using a smart-platform. In particular on car sharing platforms and mapping and direction services.
 
-Car sharing refers to a model of car rental where customers rent a car for a short period of time, usually for a few hours or less. One of its most interesting systems is the so called \textit{Free-Floating Car Sharing (FFCS)} system. The peculiarity of this system is that customers can pick and drop the car wherever in a geo-fence area. The most famous company is car2go which is present in 25 cities and 8 different countries, both in Europe and North America. Moreover, other country-based providers exists like \textit{Enjoy} in Italy, operative in 6 cities.
+Car sharing refers to a model of car rental where customers rent a car for a short period of time, usually for a few hours or less. One of its most interesting systems is the so called \textit{Free-Floating Car Sharing (FFCS)} system. The peculiarity of this system is that customers can pick and drop the car wherever in a geo-fence area. The most famous company is car2go which is present in 23 cities and 8 different countries, both in Europe and North America. Moreover, other country-based providers exists like \textit{Enjoy} in Italy, operative in 6 cities.
 
 This chapter describes how \tool collects, processes, augments, and stores data in a data lake, make the data available for further analyses. In particular, I build two crawlers to collect data from the \textit{car2go} and \textit{Enjoy} platforms\footnote{\url{www.car2go.com}, \url{enjoy.eni.com}}. Every minute, the crawler checks which cars are currently available. Every time a given car ``disappears'', it records the booking start time. The same booking ends when the crawler sees the car available back on the system. Some booking are actual ``rental'' in case the car moved from the prior parking position to another. Ingenuity must be used, e.g., to filter GPS fix issues (which may erroneously let a car ``move''), or to handle possible data collection issues (e.g., the website going down, or some cars undergoing in maintenance), or platform design (e.g., synchronous or asynchronous updates).
 
 %In total, \tool collected data for \mc{365} days, from December 10th 2016 to January 31st 2017 We observed more than 104,000 \textit{bookings} and 86,000 \textit{rentals} for car2go, and 93,000 \textit{bookings} and 81,000 \textit{rentals} for Enjoy. 
 %\mc{rivedere dati su quanti bookings ci sono}
 
-In total, \tool collected about XXX of trips in X cities for car2go, working from 2017 to 2018. Instead, considering Enjoy, I get about YYYY rides from YY cities from 2017 to 2020
-\mc{rivedere dati su quanti bookings ci sono}. The source code of \tool for research purposes.\footnote{\url{github.com/MobilityPolito/}}
+In total, \tool collected about 27 million of trips in 23 cities for car2go, working from 2017 to 2018. Instead, considering Enjoy, I get about 6\,6 million rides from 6 cities from May 2017 to June 2019. The source code of \tool for research purposes.\footnote{\url{github.com/MobilityPolito/}}
 
 
-The reminder of this chapter is structured as follows: section~\ref{sec:2_3_data_acquisition} describes in details the raw data structure and the data flow from providers' API to the middle stage. Section~\ref{sec:2_4_data_normalization} describes how the software implements the data raw elaboration to trips records and their storage into data lake . \mc{continuare con altre sezione se ne aggiungo}
+The reminder of this chapter is structured as follows: section~\ref{sec:2_3_data_acquisition} describes in details the raw data structure and the data flow from providers' API to the middle stage. Section~\ref{sec:2_4_data_normalization} describes how the software implements the data raw elaboration to trips records and their storage into data lake. Section~\ref{sec:2_5_data_analysyes} introduces the final stage of data collection pipeline: a model able to perform several statistics on the collected data. Finally, section~\ref{sec:2_6_conclusions} concludes the chapter.
 
 
 

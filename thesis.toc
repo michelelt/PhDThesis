@@ -8,7 +8,7 @@
 \contentsline {section}{\numberline {2.1}Introduction}{2}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Data Acquisition}{3}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Data Normalization and Integration}{5}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Data Analysis}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.4}Data Analysis}{9}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Conclusions}{9}{section.2.5}%
 \contentsline {chapter}{\numberline {3}Dataset Characterization}{10}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Introduction}{10}{section.3.1}%
@@ -70,8 +70,8 @@
 \contentsline {section}{\numberline {7.5}Strategies for charging station placement}{76}{section.7.5}%
 \contentsline {subsection}{\numberline {7.5.1}Heuristic placements}{76}{subsection.7.5.1}%
 \contentsline {subsection}{\numberline {7.5.2}Simulation based advanced optimisation strategies}{77}{subsection.7.5.2}%
-\contentsline {subsubsection}{Hill-climbing local search}{77}{section*.49}%
-\contentsline {subsubsection}{Genetic optimiser}{78}{section*.50}%
+\contentsline {subsubsection}{Hill-climbing local search}{77}{section*.50}%
+\contentsline {subsubsection}{Genetic optimiser}{78}{section*.51}%
 \contentsline {section}{\numberline {7.6}Meta-heuristic optimisation of the charging station placement}{79}{section.7.6}%
 \contentsline {subsection}{\numberline {7.6.1}Charging station placement visualisation}{81}{subsection.7.6.1}%
 \contentsline {subsection}{\numberline {7.6.2}Validation of optimised configurations}{82}{subsection.7.6.2}%
