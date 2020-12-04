@@ -1,0 +1,28 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{italian}
+\selectlanguage *{italian}
+\selectlanguage *{english}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Overview of car2go's data\relax }}{11}{table.caption.5}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Overview of Enjoy's data\relax }}{11}{table.caption.6}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Summary of the Modo dataset.\relax }}{33}{table.caption.20}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Summary of the Evo data collection.\relax }}{34}{table.caption.21}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Summary of the Car2Go data collection.\relax }}{35}{table.caption.22}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Distributions parameters of the busy time fit curves. The $\mitbeta $ and $\mitdelta $ are key parameters to adjust the location and scale of the distributions.\relax }}{43}{table.caption.33}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Distributions parameters of the idle time fit curves. The $\mitbeta $ and $\mitdelta $ are keyword parameters to adjust the location and scale of the distributions.\relax }}{44}{table.caption.35}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Main characteristics of data.\relax }}{61}{table.caption.42}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {8.1}{\ignorespaces Long-term temporal prediction - Mean Absolute Percentage Error (MAPE), Standard Deviation of the Absolute Percentage Error (APE) and Root Mean Square Error (RMSE) for each prediction model in the validation set.\relax }}{104}{table.caption.66}%
+\contentsline {table}{\numberline {8.2}{\ignorespaces Short-term temporal prediction - Mean Absolute Percentage Error (MAPE), Absolute Percentage Error (APE), and Root Mean Squared Error (RMSE), for each prediction model in the validation set.\relax }}{105}{table.caption.68}%
+\contentsline {table}{\numberline {8.3}{\ignorespaces Spatial prediction - Most relevant features and their importance for the prediction using Random Forest Regression. The first 7 are the ones that for obtain the best overall model\relax }}{112}{table.caption.73}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {9.1}{\ignorespaces Main dataset characteristics, recorded in Turin from October to December 2017. Rental time and rental distance report both median (Med) and average (Avg) values.\relax }}{117}{table.caption.77}%
+\contentsline {table}{\numberline {9.2}{\ignorespaces Summary of parameters and economic cost assumed for Turin.\relax }}{121}{table.caption.79}%
+\addvspace {10\p@ }

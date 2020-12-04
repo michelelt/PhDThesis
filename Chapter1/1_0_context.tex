@@ -1,0 +1,64 @@
+%% Increasing of population in big cities and relative mobility demand
+Nowadays, the 55\% world population is strongly concentrated in urban centers and the authors of \cite{UNfuture} forecasted, in 2018, an increase until 68\% before 2050. In this scenario, one of the problem  afflicts big conurbations is mobility. In the past decades, the economic growth were sustain by the flourishing automotive industry. \cite{8_matas2008changes} demonstrated how the presence of private cars in an European Countries like Spain will follow the demographic and correlated mobility demand increase. 
+
+%% cost related to traffic congestion (emission related to TC  and pollutant mortality costs)
+The increase of private vehicles derived from the increased mobility demand leads to an higher probability of traffic congestion, especially in rush hours. A lot of past and recent studies demonstrated how traffic jams have a negative effect on the public health. Indeed  \cite{12_leiriao2020environmental} showed how the thin dust emission are strongly related with traffic, measuring air pollutant before and during a truck strike. Moreover,  \cite{13_levy2010evaluation} computed the monetized value of PM2.5-related emission attributable to congestion. The results are shocking: the public health may cost up to \$17 billion in 2030 in the United States. Another aspect that decreases the quality of life in congested city is the noise pollution. In particular, \cite{14_mehdi2011spatio} and \cite{15_jacyna2017noise} stated how the noise can reach very dangerous level and causes permanent damages to people living close to trafficked areas. Finally, the land use  related to cars presence is another critical point that policy maker must manage.
+
+In the past years, the several different regulatory boards addressed the congestion increasing and optimizing the road network. According to several works like \cite{10_sweet2011does, 16_hymel2010induced, 17_naess2012traffic} adding more resources, attracts more car, actually feeding the traffic congestion burden.
+
+%% shared economy and CS
+The raise of shared economies, made possible groundbreaking revolution in mobility too. In particular, this paradigm allows to customer to  access to  goods and services thorough a peer-to-peer instance.  It includes the shared creation, production, distribution, trade and consumption of goods and services by different people and organisations. 
+
+Thanks to this particular business model, the so called car sharing born. The very first implantation included shared car purchase among people who did not were able to buy the car. During the economic growth after the WWII, the shared cars increasingly appeal and several business started across all the Europe, like \cite{4_shaheen1999short} and \cite{5_shaheen1998carsharing} tells.
+
+With the Internet advent, car sharing still improved the service's users' experience. In particular the providers' infrastructure made possible reserve and release the car just using web-based application run on smartphones. 
+In contraposition with classical car rental model with per-day fares, the new technologies made possible bill the users' with new fares based mainly on the time spent driving. 
+
+Finally, it is possible provide a definition of \textbf{car sharing}: \textit{a car rental model, where the users pay only for the time spent driving, all the other costs, like petrol, insurance and maintenance are in charge to the provider. The reservation and return producers are possible without physical presence in provider front-end office}.
+
+During the year, several typologies of car sharing born. A definition of all car sharing typologies is needed in order to distinguish all the implementation. The initial concept to introduce is the operative area: the 
+
+\begin{itemize}
+	\item \textbf{Two-way car sharing}: The users can reserve a car in one of the several ad-hoc spot spread around the operative area, but they are forced to return it in the same spot. It allows the providers to limit the fleet operations to meet the demand but heavily limits the service flexibility reducing the freedom degree of the users.
+	
+	\item \textbf{One-way car sharing}: The user can reserve a car in one of the company-owned parking station, but contrary to the previous one, he/she returns the car in a different parking station. This approach increases the flexibility of the service but it requires more load balance by the provider.
+	
+	\item \textbf{Free floating  sharing (FFCS)}: The users can pick and release the car \textit{everywhere} within an operative area. It means that shared cars can be parked in common parking like private cars. In this case the provider does not build an infrastructure but has a more fleet management.
+\end{itemize}
+
+
+Since first implementation of firsts model of car sharing intended as business model, the debate on the environmental sustainability of this service was very spirited. In particular first studies at the beginning of the millennium, like \cite{1_fellows2000economic} conducted a business study of car sharing setup in UK. It pointed out how the environmental benefits due to the decrease of private cars circulation like $CO_2$ emission and land use were achieved, with a fraction of the cost needed for a new road scheme.
+
+Later, \cite{2_huwer2004public} addressed the doubt about the possible public transport abandon by customers due to the presence of this new alternative in urban mobility. Counter-intuitively the author proofed that the car sharing can fill the users' mobility demand between public transport and to drive a private car providing the benefits of driver a private car without all the fixed costs that characterize it. Thus, including car sharing in the ecosystem of urban mobility offers, the users will be more prone to avoid travel with their own car and finally incrementing the audience of public transport users.
+
+The groundbreaking event in shared motility was the launch of car2go, in 2008 in Germany. This was one of the the first completely automatized Free Floating Car Sharing providers. As previously mentioned Free Floating Car Sharing allows users' to pick and release the car with any kind of constraint. This flexibility attracted more customers: car2go, started in few cities in Germany, extended its services in 2017 in more than 26 cities in Europe and North America. Recent study, like \cite{9_jochem2020does}, still confirms that the presence of free floating car sharing with other free floating shared vehicle like bike or scooter leads to a decrease of car ownership and thus an increase of quality of life in urban centres.
+
+However, it is possible to think a step forward in environmental sustainability. Indeed, the majority of the cars belonging to car2go have a internal combustion engine. The electric revolution we are experimenting nowadays may lead several improvement to this service too. The benefits due to mobility electrification are well known. In particular, some works like \cite{3_oxley2012pollution} and \cite{4_mao2012achieving} confirms that electric vehicles can still reduce the concentration of pollutant in big cities.
+
+This consideration is at the basis of this work. Indeed, the main research question is:
+\begin{quote}
+	\centering
+	\textbf{It is possible to design an electric car sharing system keeping the free floating paradigm, namely without forcing the users to park the car at the end of each ride?}
+\end{quote}
+
+In shared mobility scenario, the the burden of the recharging operations play a fundamental role in terms of service attractiveness. For example, a Telsa Model S can require between 13 and 17 hours for a complete recharge if plugged to a domestic power supply. \footnote{\url{https://www.tesla.com/it_IT/support/home-charging-installation}}, which is an unacceptable time if compared to the few minutes that a petrol fill up requires. 
+
+It follows that, the amount and the electric charging station placement play a key role into this kind of system scenario. If the system is correctly sized, it will possible to have a more customer-centric service able to provide to the customers  a \textit{flexible} shared mobility experience.
+
+In order to tackle this problem, in this thesis I designed a methodology able replicate the shared mobility demand in an electrified scenario, defining the Key Performances Indicators (KPIs) able to state the sustainability of an electric Free Floating Car Sharing System. The complete pipeline will provide useful insight on the charging station placement, the perceived users discomfort related to the plugging operation and customers management policy and the whole system profitability.
+
+
+I structured my thesis as follow. In chapter \ref{chap:2_dataset} I described the software architecture allowed to collect about 35 million users' rides from two Free Floating Car Sharing Provider. Then, in chapter \ref{chap:3_charact} I characterized the two services and the users' habits using a Turin as case of study city. After that, in chapter \ref{chap:4_cs_comparison} I compared different implementation of car sharing, in order to provide different users' patterns. In chapter \ref{chap:5_simulator} I describe the core of the whole thesis. It is an ad-hoc trace-driven electric free floating simulator. It takes in input the lists of users' ride and replicate the same demand in a electrified scenario. Here I define as well all the KPIs that measures the system efficiency. Chapter \ref{chap:6_4cities} discusses the charging station placement algorithm driven by the collected data comparing the performances of those placements with the simulation outputs. Chapter \ref{chap:7_cs_optimization} compares different optimizations algorithms the charging station placement pointed out by the previous chapter. Then, chapter \ref{chap:8_prediction} starts to study the predicability of the demand, discussing which temporal and socio-economic features may influence the Free Floating Car Sharing Demand. Subsequent ally \ref{chap:10_scalability} compares the system performances tuning some key inputs like the demand intensity, the fleet size and the infrastructure projecting the results on the profit plan from a business point of view. Finally \ref{chap:11_conclusion} concludes the thesis.
+
+
+
+
+
+
+
+
+
+
+
+
+

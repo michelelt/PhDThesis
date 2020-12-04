@@ -1,0 +1,83 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{italian}
+\selectlanguage *{italian}
+\selectlanguage *{english}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \textit {UMAP}\xspace overview\relax }}{6}{figure.caption.3}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Pseudocode of the data acquisition algorithm\relax }}{9}{figure.caption.4}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Total number of bookings and of rentals per day for car2go and for Enjoy \relax }}{17}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Mean number of bookings in weekdays and weekends for car2go and Enjoy\relax }}{18}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces ECDF of the booking duration when the booking does not produce a rental. Weekdays and weekends \relax }}{19}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces ECDF of the rental duration. Weekdays and weekends\relax }}{20}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces ECDF of the rental driven distance. Weekdays and weekends\relax }}{21}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Heatmap of arrival - departure per area from 7~am to 12~am vs from 5~pm to 9~pm \relax }}{22}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Users' driving habits\relax }}{23}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces ECDF of the ratio between the Google Distance and the straight rental distance \relax }}{24}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Public transportation vs car sharing \relax }}{25}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Average Time per transport solution per hour \relax }}{26}{figure.caption.17}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Possible states of a vehicle in a car-sharing system.\relax }}{31}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Possible vehicle status during the Modo crawling. In (a) a normal booking and usage situation; (b) a cancellation situation; (c) a consecutive booking situation.\relax }}{33}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Modo Minute-by-minute mean value (plus/minus standard deviation) for the percentage of busy (blue curve) and reserved cars (red curve), for weekdays and weekends\relax }}{35}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Evo Minute-by-minute mean value (plus/minus standard deviation) for the percentage of busy (blue curve) and reserved cars (red curve), for weekdays and weekends\relax }}{36}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces car2go Minute-by-minute mean value (plus/minus standard deviation) for the percentage of busy (blue curve) and reserved cars (red curve), for weekdays and weekends\relax }}{36}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Cumulative distribution function of vehicle busy time during a weekday.\relax }}{37}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Spatial-temporal service demand for two-way service Modo.\relax }}{38}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Spatial-temporal service demand for one-way service Evo.\relax }}{38}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Spatial-temporal service demand for free-floating service Car2Go.\relax }}{39}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Origin-destination matrix for one-way service Evo (from 4~PM to 5~PM).\relax }}{40}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Origin-destination matrix for free-floating service Car2Go (from 4~PM to 5~PM).\relax }}{41}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Cumulative distribution function of vehicle busy time.\relax }}{43}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Cumulative distribution function of vehicle idle time\relax }}{44}{figure.caption.34}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Distribution of average parking time in Turin, Vancouver and Berlin\relax }}{49}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Distribution of number of parking in Turin, Vancouver and Berlin\relax }}{50}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Distribution of total parking time in Turin, Vancouver and Berlin\relax }}{50}{figure.caption.38}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Rental trends in different cities.\relax }}{58}{figure.caption.39}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Car Sharing usage habit characterization.\relax }}{59}{figure.caption.40}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Heat map of average parking time and total number of parking. The warmer the color, the higher the value.\relax }}{60}{figure.caption.41}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Percentage of unfeasible trips as function of charging station number, for different placement algorithms and city. Placing charging stations where cars are frequently parked is much better than where cars stay parked for long time.\relax }}{63}{figure.caption.43}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces CDF of the time spent by a car at a charging station (Z=40), for \textit {Num parking} and \textit {Avg time} placement algorithms in Turin. \relax }}{64}{figure.caption.44}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Infeasible trips when comparing the Free Floating vs Forced return policies. Forcing customer to charge when $c<\mitpi $ drastically improves performance.\relax }}{65}{figure.caption.45}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Impact of customer willingness to cooperate $w$. Albeit the small impact, the higher $w$ is, the better it is.\relax }}{65}{figure.caption.46}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Charge events percentage (left), re-route events percentage (middle) and walk distance averaged over re-routed trips (right), per city. Increasing $w$ benefits the customers' experience by reducing the re-routing events significantly, but increasing the charging events.\relax }}{67}{figure.caption.47}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Details of the average battery charge status and global average walk distance for Vancouver. Other cities have similar results.\relax }}{69}{figure.caption.48}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Impact of pole distribution among zones. Concentrating all poles in very few hubs performs poorly, as well as placing single pole charging stations.\relax }}{70}{figure.caption.49}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Characteristics of the trips in our data-set.\relax }}{77}{figure.caption.50}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Heatmaps showing (a) number of parkings per zone and (b) average parking time per zone. Warmer areas have larger values. \relax }}{77}{figure.caption.51}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Objective metrics to minimise - with \textit {Hybrid} return policy.\relax }}{83}{figure.caption.54}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces \textit {Genetic} and \textit {Local Search} optimisation results for metrics of interests (\textit {Hybrid} return policy adopted).\relax }}{84}{figure.caption.55}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Different placement of 18 zones (7\% of the total) for (a) Number of parkings per zone, (b) \textit {Local Search} and (c) \textit {Genetic} solution. Darker areas have larger values.\relax }}{85}{figure.caption.56}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Performance of the optimised configuration, tested on other 2 months long data-sets.\relax }}{85}{figure.caption.57}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Objective metrics to minimise in the optimisation - with \textit {Needed} return policy\relax }}{86}{figure.caption.58}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces \textit {Genetic} and \textit {local search} optimization results for metrics of interests (\textit {Needed} return policy adopted).\relax }}{87}{figure.caption.59}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Time series of starting rentals in September 2017 aggregated per hour. The difference in the total number of time bins and the actual number of hours in the month are due to missing data (crawler failures).\relax }}{95}{figure.caption.60}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Temporal characterization of number of rentals. Boxplots highlighting the variability over the day for the same time bin of the day (top plots), and over different days (bottom plots).\relax }}{96}{figure.caption.61}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Heatmap of net flow for each neighborhood in Vancouver. The more the area is red, the higher are the arrivals with respect to the departures. Neighborhood numbering is shown (from 0 to 21) \relax }}{98}{figure.caption.62}%
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Total net flow in September 2017 for Downtown (neighborhood 3) and Grandview-Woodland (neighborhood 21) over different hours of the day\relax }}{98}{figure.caption.63}%
+\contentsline {figure}{\numberline {8.5}{\ignorespaces Time series of weather conditions per hour during September 2017. Each point in the plot represents an occurred weather type.\relax }}{99}{figure.caption.64}%
+\contentsline {figure}{\numberline {8.6}{\ignorespaces Heatmap of a sample of demographic (top) and socio-demographic (bottom) data at our disposals. These two samples look quite correlated.\relax }}{100}{figure.caption.65}%
+\contentsline {figure}{\numberline {8.7}{\ignorespaces Long-term temporal prediction - Performance of the RFR model in one month of the validation set. The difference in the total number of time bins and the actual number of hours in the month are due to missing data (crawler failures).\relax }}{104}{figure.caption.67}%
+\contentsline {figure}{\numberline {8.8}{\ignorespaces Effect of the number of epochs on the performance (MAPE) of the Neural Networks model.\relax }}{106}{figure.caption.69}%
+\contentsline {figure}{\numberline {8.9}{\ignorespaces Short-term temporal prediction - Performance of the RFR model with expanding window in the validation set (24 days).\relax }}{106}{figure.caption.70}%
+\contentsline {figure}{\numberline {8.10}{\ignorespaces Spatial prediction - MAPE for Support Vector Regression models, using different kernels.\relax }}{109}{figure.caption.71}%
+\contentsline {figure}{\numberline {8.11}{\ignorespaces Spatial prediction - MAPE for Random Forests Regression models, using different number of trees.\relax }}{110}{figure.caption.72}%
+\contentsline {figure}{\numberline {8.12}{\ignorespaces Spatial prediction - MAPE in the different time bins by selecting the most relevant features in RFR\relax }}{113}{figure.caption.74}%
+\contentsline {figure}{\numberline {8.13}{\ignorespaces Spatial distribution - Heatmap of average MAPE per neighborhood. Rentals are shown on the map as green points\relax }}{113}{figure.caption.75}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Number of rentals per day in Turin, from June 2017 to January 2018. Some data is missing.\relax }}{118}{figure.caption.76}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Average number of rentals per hour during weekdays (WD) and weekends (WE). \relax }}{118}{figure.caption.78}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Unsatisfied demand with respect to different number of poles per vehicle. Curves show performance with different demand factor $\mitlambda $ and fleet size $|F|$, with $z_p$ = 0.05.\relax }}{123}{figure.caption.80}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Unsatisfied demand with respect to the fraction of zones with charging poles $z_p$. Curves show performance with different demand factor $\mitlambda $ and fleet size $|F|$, with $n_p/|F|$ = 0.06.\relax }}{123}{figure.caption.81}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Monthly charging handling time drivers have to spend to bring cars to charging poles. Curves show performance with different values of demand factor $\mitlambda $ and fleet size $|F|$, with $z_p=0.20$.\relax }}{125}{figure.caption.82}%
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Gain in terms of satisfied demand and charging handling time of a more spread infrastructure ($z_p = 0.20$) with respect to a more centralized infrastructure ($z_p = 0.05$). Gain is showed for increasing demand factor $\mitlambda $ and fleet size $|F|$. Here $n_p/|F|$ = 0.06.\relax }}{125}{figure.caption.83}%
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Unsatisfied demand for increasing values of $\mitlambda $ but same number of vehicles $|F|=400$, and large enough charging infrastructure ($n_p=120$).\relax }}{126}{figure.caption.84}%
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Unsatisfied demand varying number of poles $n_p$ and fleet size $|F|$ with $z_p=0.20$.\relax }}{127}{figure.caption.85}%
+\contentsline {figure}{\numberline {9.9}{\ignorespaces Monthly estimated profits varying number of poles $n_p$ and fleet size $|F|$ with $z_p=0.20$.\relax }}{127}{figure.caption.86}%
+\addvspace {10\p@ }
