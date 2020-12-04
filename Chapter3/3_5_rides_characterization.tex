@@ -121,18 +121,21 @@ Another aspect that Google Direction data can help to resolve is to estimate the
 \end{figure}
 
 
-Figure~\ref{fig:3_5_cdf_corrective_factors} reports the ECDF of the ratio between the Google Distance and the straight distance. The plot shows how, in the 95\% of rides, the Google distance is about twice time bigger than the straight distance. However, in average it is possible to observe a multiplicative factor of 1.5 for and enjoy. Anyway, in the following chapters and in particular in chapters \ref{chap:5_simulator}, \ref{chap:6_4cities} and \ref{chap:7_cs_optimization} I used the median value, of 1,4. Notice that the bigger values in car2go are due to a bigger operative area. The table \ref{tab:3_5_corrective_factor} resumes the main ECDF values.
+Figure~\ref{fig:3_5_cdf_corrective_factors} reports the ECDF of the ratio between the Google Distance and the straight distance. The plot shows how, in the 95\% of rides, the Google distance is about twice time bigger than the straight distance. However, in average it is possible to observe a multiplicative factor of 1.5 for and enjoy. Anyway, in the following chapters and in particular in chapters \ref{chap:5_simulator}, \ref{chap:6_4cities} and \ref{chap:7_cs_optimization} I used the median value, of 1,4. Notice that the bigger values in car2go are due to a bigger operative area. Table \ref{tab:3_5_corrective_factor} resumes the main ECDF values.
 
 \begin{table}[h!]
 	\centering
+	\caption{Statistics on corrective factor for car2go and Enjoy}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
 		
 		\hline
 		\textbf{Provider} & \textbf{Mean} & \textbf{Std} & \textbf{Min} & \textbf{25\%} & \textbf{50\%} & \textbf{75\%} & \textbf{90\%} & \textbf{95\%} & \textbf{99\%} \\ \hline
 		car2go            & 1.5           & 0.54         & 0.53         & 1.27          & 1.40          & 1.59          & 1.90          & 2.21          & 3.47          \\ \hline
-		enjoy             & 1.48          & 0.52         & 0.87         & 1.26          & 1.37          & 1.54          & 1.81          & 2.12          & 3.38          \\ \hline
+		Enjoy             & 1.48          & 0.52         & 0.87         & 1.26          & 1.37          & 1.54          & 1.81          & 2.12          & 3.38          \\ \hline
+%		\caption{Statistics about corrective factor for car2go and Enjoy}}		
+
 	\end{tabular}
-	\label{tab:3_5_corrective_factor}	
+	\label{tab:3_5_corrective_factor}
 \end{table}
 
 

@@ -35,9 +35,9 @@ In addition to these fields, the car sharing JSON description may provide other 
 
 \section{Data Normalization and Integration}
 \label{sec:2_4_data_normalization}
-In this second module I illustrates hoe \tool processes and consolidate each snapshot to obtain \emph{parking} and \emph{bookings} periods for each car. A \emph{parking} is time where the car is available for a user ride. On the other hand a \emph{bookings} is time elapsing two parking where the car is not tracked by the system. The intuition is to track the availability of each car on the car sharing platform, and rebuild the historic parking and booking periods over time: when a customer books a car, the latter ``disappears'' from the system. The framework records this event, with the initial time and position of a new booking. When the customer ends the booking, the car ``reappears'' in the system. The software records this event, with the final time and position of the booking. For the same car, a new parking period starts.
+In this second module I illustrates how \tool processes and consolidate each snapshot to obtain \emph{parking} and \emph{bookings} periods for each car. A \emph{parking} is time where the car is available for a user ride. On the other hand a \emph{bookings} is time between two parkings where the car is not tracked by the system. The intuition is to track the availability of each car on the car sharing platform, and rebuild the historic parking and booking periods over time: when a customer books a car, the latter ``disappears'' from the system. \tool records this event, with the initial time and position of a new booking. When the customer ends the booking, the car ``reappears'' in the system. \tool records this event, deriving the final time and position of the booking. For the same car, a new parking period starts.
 
-Harvested data is unstructured, and may grow large. Thus I leverage on \textit{MongoDB}, a NoSQL document-based database. A MongoDB database includes a set collections, i.e., groups of documents. Each document is a set of key-value pairs, organized in a JSON structure. The schema-less structure of MongoDB fits well in this work, because it can handle in the same collection documents defined with different key-value pairs. I decide to rely on such a system as I can easily manage the different field structures of providers, car2go and Enjoy in this use case. In addition, MongoDB offers a great integration with Python through the \textit{pymongo} module.
+Harvested data is unstructured, and may grow large. Thus I leverage \textit{MongoDB}, a NoSQL document-based database. A MongoDB database includes a set collections, i.e., groups of documents. Each document is a set of key-value pairs, organized in a JSON structure. The schema-less structure of MongoDB fits well in this work, because it can handle in the same collection documents defined with different key-value pairs. I decide to rely on such a system as I can easily manage the different field structures of providers, car2go and Enjoy in this use case. In addition, MongoDB offers a great integration with Python through the \textit{pymongo} module.
 
 Four different collections compose the MongoDB data lake:  \textit{ActiveBookings}, \textit{ActiveParkings}, \textit{PermanentBookings}, and \textit{PermanentParkings}. 
 \textit{ActiveBookings} and \textit{ActiveParkings} are collections used to store information about the current status of cars (currently booked or parked respectively). These are temporary structures that make it easier to query each car last observed status, and update it. These are also instrumentals for a real-time analysis of the system, e.g., to count how many cars are currently booked or available.
@@ -90,7 +90,7 @@ After having processed all cars in the current snapshot, I iterate over the rema
 \begin{table}
 	\setlength{\tabcolsep}{2.3pt}
 	\centering
-	\caption{Overview of car2go's data}
+	\caption{Overview of car2go's data sorted by number of bookings}
 	\begin{tabular}{lcccc}
 		\hline
 		City &  City Size [$km^2$]\footnote{} & Population \footnotemark[\value{footnote}] &  Avg. Fleat & Bookings\\ 
@@ -128,7 +128,7 @@ After having processed all cars in the current snapshot, I iterate over the rema
 \begin{table}
 	\setlength{\tabcolsep}{2.3pt}
 	\centering
-	\caption{Overview of Enjoy's data}
+	\caption{Overview of Enjoy's data sorted by number of bookings}
 	\begin{tabular}{lcccc}
 		\hline
 		City &  City Size [$km^2$]\footnotemark[\value{footnote}] & Population \footnotemark[\value{footnote}] &  Avg. Fleat & Bookings\\ 
@@ -165,7 +165,7 @@ The third and final stage is the data analysis phase in which analytics modules 
 \label{sec:2_6_conclusions}
 In this chapter I described the software pipeline, named \tool I used to harvest and store data from real FFCS providers. 
 
-The first stage explains the data structures and how I snapshots the system getting all the car ready for a ride. 
+The first stage explains the data structures and how I take snapshots the system getting all the car ready for a ride. 
 
 The seconds step illustrates the algorithm that compares consecutive snapshots detecting car status variation. Here I introduced the two fundamental car status I use to describe each car history: \textit{parkings} and \textit{bookings}. 
 

@@ -17,7 +17,7 @@ In addition to the above metrics, the simulator collects statistics about car ba
 
 \subsection{Simulation scenario}
 
-I used this simulator to study the impact on the number of zones that are equipped with charging stations $N$, and the number of poles $k$ of each charging station.
+I use this simulator to study the impact on the number of zones that are equipped with charging stations $N$, and the number of poles $k$ of each charging station.
 
 I consider in each city a fleet that has a number of cars equal to the one observed in the trace. Electric cars have the same nominal characteristics as the Smart ForTwo Electric Drive, i.e., $17.6\,kWh$ battery, for $135\,km$ of range, with a discharge curve $Energy()$ that is proportional to the travelled distance ($12.9\,kWh/100\,km$). \footnote{\url{https://www.smart.com/uk/en/index/smart-electric-drive.html}} 
 Charging stations have $k=4$ low power ($2\,kW$) poles each. These are cheap to install and a good compromise between costs, power requested, and occupied road section. We model a simple linear charge profile (complete charge in 8 hours and 50 minutes in our case). At last, the initial car position, only affecting the simulation transient, is chosen randomly.

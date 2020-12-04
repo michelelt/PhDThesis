@@ -5,9 +5,10 @@
 \selectlanguage *{english}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Overview of car2go's data\relax }}{11}{table.caption.5}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Overview of Enjoy's data\relax }}{11}{table.caption.6}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Overview of car2go's data sorted by number of bookings\relax }}{11}{table.caption.5}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Overview of Enjoy's data sorted by number of bookings\relax }}{11}{table.caption.6}%
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Statistics on corrective factor for car2go and Enjoy\relax }}{24}{table.caption.15}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Summary of the Modo dataset.\relax }}{33}{table.caption.20}%
 \contentsline {table}{\numberline {4.2}{\ignorespaces Summary of the Evo data collection.\relax }}{34}{table.caption.21}%
@@ -25,4 +26,5 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {9.1}{\ignorespaces Main dataset characteristics, recorded in Turin from October to December 2017. Rental time and rental distance report both median (Med) and average (Avg) values.\relax }}{117}{table.caption.77}%
 \contentsline {table}{\numberline {9.2}{\ignorespaces Summary of parameters and economic cost assumed for Turin.\relax }}{121}{table.caption.79}%
+\addvspace {10\p@ }
 \addvspace {10\p@ }

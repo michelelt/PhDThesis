@@ -3,8 +3,8 @@
 \selectlanguage *{italian}
 \selectlanguage *{italian}
 \selectlanguage *{english}
-\contentsline {chapter}{List of Tables}{ix}{section*.1}%
-\contentsline {chapter}{List of Figures}{x}{section*.2}%
+\contentsline {chapter}{List of Tables}{viii}{section*.1}%
+\contentsline {chapter}{List of Figures}{ix}{section*.2}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Data Acquisition Pipeline}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Introduction}{5}{section.2.1}%
@@ -114,4 +114,7 @@
 \contentsline {subsection}{\numberline {9.5.3}Impact of costs}{127}{subsection.9.5.3}%
 \contentsline {section}{\numberline {9.6}Conclusions}{128}{section.9.6}%
 \contentsline {chapter}{\numberline {10}Conclusions and Future Works}{130}{chapter.10}%
-\contentsline {chapter}{Bibliography}{132}{chapter.10}%
+\contentsline {chapter}{\numberline {A}List Of Publications}{132}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Journal Publications}{132}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Conference Publications}{132}{section.A.2}%
+\contentsline {chapter}{Bibliography}{134}{chapter.10}%
